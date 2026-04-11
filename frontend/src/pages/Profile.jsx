@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-// Dynamic Vercel backend URL fallback
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function Profile() {
-  // Input starts completely blank
   const [handle, setHandle] = useState(''); 
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -20,7 +18,6 @@ export default function Profile() {
     setProfileData(null);
 
     try {
-      // Hardcoded localhost removed
       const response = await axios.get(`${BACKEND_URL}/api/profile/${handle}`);
       setProfileData(response.data);
     } catch (err) {
