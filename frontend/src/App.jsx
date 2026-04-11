@@ -6,6 +6,7 @@ import Contests from './pages/Contests';
 import Practice from './pages/Practice';
 import Friends from './pages/Friends';
 import Duel from './pages/Duel';
+import AdBanner from './components/AdBanner';
 import './App.css';
 
 function Navigation() {
@@ -29,6 +30,10 @@ function App() {
     <Router>
       <div className="app-wrapper">
         <Navigation />
+        
+        {/* THIS SHOWS THE AD ON EVERY PAGE */}
+        <AdBanner /> 
+
         <Routes>
           <Route path="/" element={<Analytics />} />
           <Route path="/profile" element={<Profile />} />
