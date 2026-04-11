@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import '../App.css';
@@ -11,17 +12,19 @@ export default function Profile() {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  
+  const location = useLocation();
 
-  const fetchProfile = async (e) => {
-    e.preventDefault();
-    if (!handle) return;
+  // Reusable fetch function so it can be triggered by the button OR automatically
+  const performSearch = async (searchHandle) => {
+    if (!searchHandle) return;
     
     setLoading(true);
     setError('');
     setProfileData(null);
 
     try {
-      const response = await axios.get(`${BACKEND_URL}/api/profile/${handle}`);
+      const response = await axios.get(`${BACKEND_URL}/api/profile/${searchHandle}`);
       setProfileData(response.data);
     } catch (err) {
       setError('Failed to fetch profile. Please check the handle and try again.');
@@ -30,13 +33,27 @@ export default function Profile() {
     }
   };
 
+  // Trigger search when user clicks button
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    performSearch(handle);
+  };
+
+  // Automatically trigger search if arriving from Friends tab
+  useEffect(() => {
+    if (location.state && location.state.autoHandle) {
+      setHandle(location.state.autoHandle);
+      performSearch(location.state.autoHandle);
+    }
+  }, [location]);
+
   return (
     <div className="container">
       <header>
         <h1>Solo Profile</h1>
       </header>
 
-      <form onSubmit={fetchProfile} className="search-form">
+      <form onSubmit={handleSearchSubmit} className="search-form">
         <input 
           type="text" 
           placeholder="Enter Codeforces Handle" 
@@ -84,14 +101,16 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Charts Row 1: Ratings and Verdicts */}
+          {/* Charts Row */}
           <div className="cards-wrapper">
             <div className="card">
               <h2>Solved by Rating</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
                   <Pie data={profileData.ratingPie} dataKey="count" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                    {profileData.ratingPie?.map((entry, index) => <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />)}
+                    {profileData.ratingPie?.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                    ))}
                   </Pie>
                   <RechartsTooltip contentStyle={{ backgroundColor: '#1e1e1e', borderColor: '#333' }} />
                 </PieChart>
@@ -99,33 +118,19 @@ export default function Profile() {
             </div>
             
             <div className="card">
-              <h2>Submission Verdicts</h2>
+              <h2>Strongest Topics</h2>
               <ResponsiveContainer width="100%" height={250}>
-                <PieChart>
-                  <Pie data={profileData.verdictsPie} dataKey="count" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
-                    {profileData.verdictsPie?.map((entry, index) => <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />)}
-                  </Pie>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={profileData.tagsRadar}>
+                  <PolarGrid stroke="#333" />
+                  <PolarAngleAxis dataKey="subject" tick={{ fill: '#a0a0a0', fontSize: 10 }} />
+                  <Radar name={profileData.handle} dataKey="count" stroke="#bb86fc" fill="#bb86fc" fillOpacity={0.6} />
                   <RechartsTooltip contentStyle={{ backgroundColor: '#1e1e1e', borderColor: '#333' }} />
-                </PieChart>
+                </RadarChart>
               </ResponsiveContainer>
             </div>
           </div>
 
-          {/* Charts Row 2: Radar Topic Strength */}
-          <div className="card" style={{ width: '100%' }}>
-            <h2>Strongest Topics</h2>
-            <ResponsiveContainer width="100%" height={350}>
-              <RadarChart cx="50%" cy="50%" outerRadius="75%" data={profileData.tagsRadar}>
-                <PolarGrid stroke="#333" />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: '#a0a0a0', fontSize: 12 }} />
-                <PolarRadiusAxis angle={30} domain={[0, 'auto']} tick={false} axisLine={false} />
-                <Radar name={profileData.handle} dataKey="count" stroke="#bb86fc" fill="#bb86fc" fillOpacity={0.6} />
-                <RechartsTooltip contentStyle={{ backgroundColor: '#1e1e1e', borderColor: '#333' }} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Row 3: Feed and History */}
+          {/* Activity Feed and Contest History */}
           <div className="cards-wrapper" style={{ marginTop: '1rem' }}>
             <div className="card">
               <h2>Recent Activity</h2>
@@ -136,16 +141,13 @@ export default function Profile() {
                       <a href={`https://codeforces.com/contest/${sub.contestId}/problem/${sub.index}`} target="_blank" rel="noreferrer" className="feed-prob-name">
                         {sub.contestId}{sub.index} - {sub.name}
                       </a>
-                      <span className="feed-time">{sub.time} • {sub.language}</span>
+                      <span className="feed-time">{sub.time}</span>
                     </div>
                     <span className={`verdict-badge ${sub.verdict === 'OK' ? 'verdict-ok' : 'verdict-bad'}`}>
                       {sub.verdict === 'OK' ? 'Accepted' : sub.verdict.replace(/_/g, ' ')}
                     </span>
                   </div>
                 ))}
-                {(!profileData.recentSubs || profileData.recentSubs.length === 0) && (
-                  <p style={{ color: 'var(--text-muted)' }}>No recent activity found.</p>
-                )}
               </div>
             </div>
             
@@ -156,7 +158,7 @@ export default function Profile() {
                   <div key={c.id} className="contest-row">
                     <div className="contest-name-container">
                       <h3 className="contest-title">{c.name}</h3>
-                      <span className="contest-date" style={{ color: 'var(--text-muted)' }}>{c.date}</span>
+                      <span className="contest-date">{c.date}</span>
                     </div>
                     <div className="contest-metrics">
                       <div className="c-stat-small">
@@ -166,15 +168,12 @@ export default function Profile() {
                         </strong>
                       </div>
                       <div className="c-stat-small">
-                        <span>New Rating</span>
+                        <span>New</span>
                         <strong>{c.newRating}</strong>
                       </div>
                     </div>
                   </div>
                 ))}
-                {(!profileData.recentContests || profileData.recentContests.length === 0) && (
-                  <p style={{ color: 'var(--text-muted)' }}>No rated contest history found.</p>
-                )}
               </div>
             </div>
           </div>
