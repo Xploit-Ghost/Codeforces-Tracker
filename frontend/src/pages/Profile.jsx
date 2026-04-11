@@ -15,7 +15,6 @@ export default function Profile() {
   
   const location = useLocation();
 
-  // Reusable fetch function so it can be triggered by the button OR automatically
   const performSearch = async (searchHandle) => {
     if (!searchHandle) return;
     
@@ -33,13 +32,11 @@ export default function Profile() {
     }
   };
 
-  // Trigger search when user clicks button
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     performSearch(handle);
   };
 
-  // Automatically trigger search if arriving from Friends tab
   useEffect(() => {
     if (location.state && location.state.autoHandle) {
       setHandle(location.state.autoHandle);
