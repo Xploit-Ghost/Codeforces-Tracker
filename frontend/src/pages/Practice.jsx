@@ -5,104 +5,73 @@ import '../App.css';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function Practice() {
-  const [handle, setHandle] = useState('');
-  const [solvedProblems, setSolvedProblems] = useState(new Set());
-  const [cp31Problems, setCp31Problems] = useState([]);
-  const [activeRating, setActiveRating] = useState(800);
+  const [rating, setRating] = useState(800);
+  const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchSheet = async () => {
-      try {
-        const res = await axios.get(`${BACKEND_URL}/api/latest-problems`); 
-        setCp31Problems(res.data);
-      } catch (err) {
-        console.error("Failed to load problem sheet:", err);
-      }
-    };
-    fetchSheet();
+    const savedHistory = localStorage.getItem('practice_history');
+    if (savedHistory) setHistory(JSON.parse(savedHistory));
   }, []);
 
-  const checkProgress = async (e) => {
-    e.preventDefault();
-    if (!handle) return;
+  const getRandomProblem = async () => {
     setLoading(true);
-    setError('');
-
     try {
-      const res = await axios.get(`https://codeforces.com/api/user.status?handle=${handle}`);
-      const solved = new Set(
-        res.data.result
-          .filter(sub => sub.verdict === 'OK')
-          .map(sub => `${sub.problem.contestId}${sub.problem.index}`)
-      );
-      setSolvedProblems(solved);
+      const res = await axios.get(`${BACKEND_URL}/api/random-problem?rating=${rating}`);
+      const newProblem = {
+        ...res.data,
+        timestamp: new Date().toLocaleString()
+      };
+      
+      const updatedHistory = [newProblem, ...history];
+      setHistory(updatedHistory);
+      localStorage.setItem('practice_history', JSON.stringify(updatedHistory));
+      
+      window.open(`https://codeforces.com/problemset/problem/${res.data.contestId}/${res.data.index}`, '_blank');
     } catch (err) {
-      setError("Could not fetch user progress from Codeforces.");
+      alert("Error fetching problem. Make sure the backend is live.");
     } finally {
       setLoading(false);
     }
   };
 
-  const ratings = [800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900];
-  const filteredProblems = cp31Problems.filter(p => p.rating === activeRating);
+  const clearHistory = () => {
+    setHistory([]);
+    localStorage.removeItem('practice_history');
+  };
 
   return (
     <div className="container">
-      <header>
-        <h1>Practice Arena: CP31 Sheet</h1>
-      </header>
+      <header><h1>Practice Arena</h1></header>
 
-      <form onSubmit={checkProgress} className="search-form">
+      <div className="search-form">
         <input 
-          type="text" 
-          placeholder="Enter Handle to Track Progress" 
-          value={handle} 
-          onChange={(e) => setHandle(e.target.value)} 
+          type="number" 
+          step="100" min="800" max="3500"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
         />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Updating...' : 'Track Progress'}
+        <button onClick={getRandomProblem} disabled={loading}>
+          {loading ? 'Fetching...' : 'Get Random Problem'}
         </button>
-      </form>
+        <button onClick={clearHistory} style={{background: 'var(--error)'}}>Clear History</button>
+      </div>
 
-      {error && <p className="error">{error}</p>}
-
-      <div className="tracker-dashboard">
-        {/* Rating Selection Tabs */}
-        <div className="rating-tabs">
-          {ratings.map(r => (
-            <button 
-              key={r} 
-              className={`tab-btn ${activeRating === r ? 'active' : ''}`}
-              onClick={() => setActiveRating(r)}
-            >
-              {r}
-            </button>
-          ))}
-        </div>
-
-        {/* Problem Grid */}
-        <div className="problem-grid" style={{ marginTop: '2rem' }}>
-          {filteredProblems.map((prob, i) => {
-            const isSolved = solvedProblems.has(`${prob.contestId}${prob.index}`);
-            return (
-              <a 
-                key={i}
-                href={`https://codeforces.com/problemset/problem/${prob.contestId}/${prob.index}`}
-                target="_blank" 
-                rel="noreferrer"
-                className={`problem-card ${isSolved ? 'solved' : 'unsolved'}`}
-              >
-                <div className="prob-header">
-                  <span className="prob-id">{prob.contestId}{prob.index}</span>
-                  {isSolved && <span style={{ color: '#50fa7b', fontWeight: 'bold' }}>✔</span>}
+      <div className="dashboard">
+        <div className="card">
+          <h2>Session History</h2>
+          <div className="contest-list">
+            {history.map((p, i) => (
+              <div key={i} className="contest-row">
+                <div className="contest-name-container">
+                  <a href={`https://codeforces.com/problemset/problem/${p.contestId}/${p.index}`} target="_blank" rel="noreferrer" className="contest-title">
+                    {p.name} ({p.rating})
+                  </a>
+                  <span className="contest-date">{p.timestamp}</span>
                 </div>
-                <h3 className="prob-name">{prob.name}</h3>
-                <span className="prob-topic">{prob.topic}</span>
-              </a>
-            );
-          })}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
