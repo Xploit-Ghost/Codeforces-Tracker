@@ -1,0 +1,2606 @@
+[
+  {
+    "rating": 800,
+    "contestId": 1903,
+    "index": "A",
+    "name": "Halloumi Boxes",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1901,
+    "index": "A",
+    "name": "Line Trip",
+    "topic": "greedy"
+  },
+  {
+    "rating": 800,
+    "contestId": 1900,
+    "index": "A",
+    "name": "Cover in Water",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1899,
+    "index": "A",
+    "name": "Game with Integers",
+    "topic": "games"
+  },
+  {
+    "rating": 800,
+    "contestId": 1896,
+    "index": "A",
+    "name": "Jagged Swaps",
+    "topic": "sortings"
+  },
+  {
+    "rating": 800,
+    "contestId": 1890,
+    "index": "A",
+    "name": "Doremy's Paint 3",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1881,
+    "index": "A",
+    "name": "Don't Try to Count",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1878,
+    "index": "A",
+    "name": "How Much Does Daytona Cost?",
+    "topic": "greedy"
+  },
+  {
+    "rating": 800,
+    "contestId": 1877,
+    "index": "A",
+    "name": "Goals of Victory",
+    "topic": "math"
+  },
+  {
+    "rating": 800,
+    "contestId": 1873,
+    "index": "C",
+    "name": "Target Practice",
+    "topic": "implementation"
+  },
+  {
+    "rating": 800,
+    "contestId": 1866,
+    "index": "A",
+    "name": "Ambitious Kid",
+    "topic": "math"
+  },
+  {
+    "rating": 800,
+    "contestId": 1862,
+    "index": "B",
+    "name": "Sequence Game",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1859,
+    "index": "A",
+    "name": "United We Stand",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1858,
+    "index": "A",
+    "name": "Buttons",
+    "topic": "games"
+  },
+  {
+    "rating": 800,
+    "contestId": 1857,
+    "index": "A",
+    "name": "Array Coloring",
+    "topic": "greedy"
+  },
+  {
+    "rating": 800,
+    "contestId": 1853,
+    "index": "A",
+    "name": "Desorting",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1845,
+    "index": "A",
+    "name": "Forbidden Integer",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1837,
+    "index": "A",
+    "name": "Grasshopper on a Line",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1834,
+    "index": "A",
+    "name": "Unit Array",
+    "topic": "greedy"
+  },
+  {
+    "rating": 800,
+    "contestId": 1831,
+    "index": "A",
+    "name": "Twin Permutations",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1829,
+    "index": "B",
+    "name": "Blank Space",
+    "topic": "implementation"
+  },
+  {
+    "rating": 800,
+    "contestId": 1814,
+    "index": "A",
+    "name": "Coins",
+    "topic": "implementation"
+  },
+  {
+    "rating": 800,
+    "contestId": 1806,
+    "index": "A",
+    "name": "Walking Master",
+    "topic": "geometry"
+  },
+  {
+    "rating": 800,
+    "contestId": 1805,
+    "index": "A",
+    "name": "We Need the Zero",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 800,
+    "contestId": 1791,
+    "index": "C",
+    "name": "Prepend and Append",
+    "topic": "implementation"
+  },
+  {
+    "rating": 800,
+    "contestId": 1789,
+    "index": "A",
+    "name": "Serval and Mocha's Array",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1788,
+    "index": "A",
+    "name": "One and Two",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1783,
+    "index": "A",
+    "name": "Make it Beautiful",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 800,
+    "contestId": 1777,
+    "index": "A",
+    "name": "Everybody Likes Good Arrays!",
+    "topic": "greedy"
+  },
+  {
+    "rating": 800,
+    "contestId": 1766,
+    "index": "A",
+    "name": "Extremely Round",
+    "topic": "brute force"
+  },
+  {
+    "rating": 800,
+    "contestId": 1761,
+    "index": "A",
+    "name": "Two Permutations",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1904,
+    "index": "A",
+    "name": "Forked!",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1883,
+    "index": "B",
+    "name": "Chemistry",
+    "topic": "strings"
+  },
+  {
+    "rating": 900,
+    "contestId": 1878,
+    "index": "C",
+    "name": "Vasilije in Cacak",
+    "topic": "math"
+  },
+  {
+    "rating": 900,
+    "contestId": 1875,
+    "index": "A",
+    "name": "Jellyfish and Undertale",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1869,
+    "index": "A",
+    "name": "Make It Zero",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 900,
+    "contestId": 1855,
+    "index": "B",
+    "name": "Longest Divisors Interval",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1850,
+    "index": "D",
+    "name": "Balanced Round",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1837,
+    "index": "B",
+    "name": "Comparison String",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1828,
+    "index": "B",
+    "name": "Permutation Swap",
+    "topic": "math"
+  },
+  {
+    "rating": 900,
+    "contestId": 1726,
+    "index": "A",
+    "name": "Mainak and Array",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1739,
+    "index": "B",
+    "name": "Array Recovery",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 900,
+    "contestId": 1696,
+    "index": "B",
+    "name": "NIT Destroys the Universe",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1679,
+    "index": "A",
+    "name": "AvtoBus",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1607,
+    "index": "B",
+    "name": "Odd Grasshopper",
+    "topic": "math"
+  },
+  {
+    "rating": 900,
+    "contestId": 1675,
+    "index": "B",
+    "name": "Make It Increasing",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1666,
+    "index": "D",
+    "name": "Deletive Editing",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1668,
+    "index": "B",
+    "name": "Array Cloning Technique",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1624,
+    "index": "B",
+    "name": "Make AP",
+    "topic": "implementation"
+  },
+  {
+    "rating": 900,
+    "contestId": 1475,
+    "index": "A",
+    "name": "Odd Divisor",
+    "topic": "math"
+  },
+  {
+    "rating": 900,
+    "contestId": 1598,
+    "index": "A",
+    "name": "AB Balance",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1593,
+    "index": "B",
+    "name": "Make it Divisible by 25",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 900,
+    "contestId": 1582,
+    "index": "A",
+    "name": "Luntik and Concerts",
+    "topic": "math"
+  },
+  {
+    "rating": 900,
+    "contestId": 1559,
+    "index": "A",
+    "name": "Mocha and Math",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 900,
+    "contestId": 1543,
+    "index": "A",
+    "name": "Exciting Bets",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1537,
+    "index": "B",
+    "name": "Bad Boy",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 900,
+    "contestId": 1543,
+    "index": "B",
+    "name": "Customising the Track",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 900,
+    "contestId": 1471,
+    "index": "A",
+    "name": "Strange Partition",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1440,
+    "index": "B",
+    "name": "Sum of Medians",
+    "topic": "greedy"
+  },
+  {
+    "rating": 900,
+    "contestId": 1380,
+    "index": "A",
+    "name": "Three Indices",
+    "topic": "brute force"
+  },
+  {
+    "rating": 900,
+    "contestId": 1373,
+    "index": "B",
+    "name": "01 Game",
+    "topic": "games"
+  },
+  {
+    "rating": 900,
+    "contestId": 1374,
+    "index": "B",
+    "name": "Multiply by 2, divide by 6",
+    "topic": "math"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1,
+    "index": "A",
+    "name": "Theatre Square",
+    "topic": "math"
+  },
+  {
+    "rating": 1000,
+    "contestId": 118,
+    "index": "A",
+    "name": "String Task",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 69,
+    "index": "A",
+    "name": "Young Physicist",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 58,
+    "index": "A",
+    "name": "Chat room",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1000,
+    "contestId": 122,
+    "index": "A",
+    "name": "Lucky Division",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1000,
+    "contestId": 479,
+    "index": "A",
+    "name": "Expression",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1000,
+    "contestId": 131,
+    "index": "A",
+    "name": "cAPS lOCK",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 230,
+    "index": "A",
+    "name": "Dragons",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1000,
+    "contestId": 339,
+    "index": "B",
+    "name": "Xenia and Ringroad",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 579,
+    "index": "A",
+    "name": "Raising Bacteria",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1000,
+    "contestId": 43,
+    "index": "A",
+    "name": "Football",
+    "topic": "strings"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1374,
+    "index": "C",
+    "name": "Move Brackets",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1000,
+    "contestId": 500,
+    "index": "A",
+    "name": "New Year Transportation",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1000,
+    "contestId": 379,
+    "index": "A",
+    "name": "New Year Candles",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 584,
+    "index": "A",
+    "name": "Olesya and Rodion",
+    "topic": "math"
+  },
+  {
+    "rating": 1000,
+    "contestId": 742,
+    "index": "A",
+    "name": "Arpa’s hard exam and Mehrdad’s naive cheat",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 476,
+    "index": "A",
+    "name": "Dreamoon and Stairs",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1913,
+    "index": "B",
+    "name": "Swap and Delete",
+    "topic": "strings"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1883,
+    "index": "C",
+    "name": "Raspberries",
+    "topic": "dp"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1791,
+    "index": "D",
+    "name": "Distinct Split",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1342,
+    "index": "A",
+    "name": "Road To Zero",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1840,
+    "index": "C",
+    "name": "Ski Resort",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1690,
+    "index": "D",
+    "name": "Black and White Stripe",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 577,
+    "index": "A",
+    "name": "Multiplication Table",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 499,
+    "index": "B",
+    "name": "Lecture",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1476,
+    "index": "A",
+    "name": "K-divisible Sum",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1000,
+    "contestId": 124,
+    "index": "A",
+    "name": "The number of positions",
+    "topic": "math"
+  },
+  {
+    "rating": 1000,
+    "contestId": 450,
+    "index": "A",
+    "name": "Jzzhu and Children",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1849,
+    "index": "B",
+    "name": "Monsters",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1744,
+    "index": "C",
+    "name": "Traffic Light",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1000,
+    "contestId": 1859,
+    "index": "B",
+    "name": "Olya and Game with Arrays",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1100,
+    "contestId": 158,
+    "index": "B",
+    "name": "Taxi",
+    "topic": "*special"
+  },
+  {
+    "rating": 1100,
+    "contestId": 706,
+    "index": "B",
+    "name": "Interesting drink",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 363,
+    "index": "B",
+    "name": "Fence",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1100,
+    "contestId": 456,
+    "index": "A",
+    "name": "Laptops",
+    "topic": "sortings"
+  },
+  {
+    "rating": 1100,
+    "contestId": 313,
+    "index": "B",
+    "name": "Ilya and Queries",
+    "topic": "dp"
+  },
+  {
+    "rating": 1100,
+    "contestId": 270,
+    "index": "A",
+    "name": "Fancy Fence",
+    "topic": "geometry"
+  },
+  {
+    "rating": 1100,
+    "contestId": 368,
+    "index": "B",
+    "name": "Sereja and Suffixes",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1327,
+    "index": "A",
+    "name": "Sum of Odd Integers",
+    "topic": "math"
+  },
+  {
+    "rating": 1100,
+    "contestId": 519,
+    "index": "B",
+    "name": "A and B and Compilation Errors",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1100,
+    "contestId": 467,
+    "index": "B",
+    "name": "Fedor and New Game",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1873,
+    "index": "E",
+    "name": "Building an Aquarium",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1791,
+    "index": "E",
+    "name": "Negatives and Positives",
+    "topic": "dp"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1335,
+    "index": "C",
+    "name": "Two Teams Composing",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1490,
+    "index": "C",
+    "name": "Sum of Cubes",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1669,
+    "index": "F",
+    "name": "Eating Candies",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1914,
+    "index": "C",
+    "name": "Quests",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1360,
+    "index": "C",
+    "name": "Similar Pairs",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1472,
+    "index": "C",
+    "name": "Long Jumps",
+    "topic": "dp"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1917,
+    "index": "B",
+    "name": "Erase First or Second Letter",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1832,
+    "index": "B",
+    "name": "Maximum Sum",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1850,
+    "index": "E",
+    "name": "Cardboard for Pictures",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 349,
+    "index": "A",
+    "name": "Cinema Line",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1899,
+    "index": "C",
+    "name": "Yarik and Array",
+    "topic": "dp"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1742,
+    "index": "D",
+    "name": "Coprime",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1366,
+    "index": "A",
+    "name": "Shovels and Swords",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1791,
+    "index": "G1",
+    "name": "Teleporters (Easy Version)",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1100,
+    "contestId": 2009,
+    "index": "C",
+    "name": "The Legend of Freya the Frog",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1676,
+    "index": "E",
+    "name": "Eating Queries",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1100,
+    "contestId": 1999,
+    "index": "D",
+    "name": "Slavic's Exam",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1100,
+    "contestId": 227,
+    "index": "B",
+    "name": "Effective Approach",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1100,
+    "contestId": 82,
+    "index": "A",
+    "name": "Double Cola",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1200,
+    "contestId": 492,
+    "index": "B",
+    "name": "Vanya and Lanterns",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 466,
+    "index": "A",
+    "name": "Cheap Travel",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1200,
+    "contestId": 514,
+    "index": "A",
+    "name": "Chewbaсca and Number",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1352,
+    "index": "C",
+    "name": "K-th Not Divisible by n",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1520,
+    "index": "D",
+    "name": "Same Differences",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1200,
+    "contestId": 474,
+    "index": "B",
+    "name": "Worms",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 489,
+    "index": "B",
+    "name": "BerSU Ball",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1200,
+    "contestId": 433,
+    "index": "B",
+    "name": "Kuriyama Mirai's Stones",
+    "topic": "dp"
+  },
+  {
+    "rating": 1200,
+    "contestId": 327,
+    "index": "A",
+    "name": "Flipping Game",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1352,
+    "index": "B",
+    "name": "Same Parity Summands",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1343,
+    "index": "C",
+    "name": "Alternating Subsequence",
+    "topic": "dp"
+  },
+  {
+    "rating": 1200,
+    "contestId": 977,
+    "index": "C",
+    "name": "Less or Equal",
+    "topic": "sortings"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1857,
+    "index": "C",
+    "name": "Assembly via Minimums",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1363,
+    "index": "A",
+    "name": "Odd Selection",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1541,
+    "index": "B",
+    "name": "Pleasant Pairs",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1872,
+    "index": "D",
+    "name": "Plus Minus Permutation",
+    "topic": "math"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1742,
+    "index": "E",
+    "name": "Scuza",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1914,
+    "index": "D",
+    "name": "Three Activities",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1200,
+    "contestId": 459,
+    "index": "A",
+    "name": "Pashmak and Garden",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1097,
+    "index": "B",
+    "name": "Petr and a Combination Lock",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1354,
+    "index": "B",
+    "name": "Ternary String",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1420,
+    "index": "B",
+    "name": "Rock and Lever",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1514,
+    "index": "B",
+    "name": "AND 0, Sum Big",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1527,
+    "index": "B1",
+    "name": "Palindrome Game (easy version)",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1200,
+    "contestId": 445,
+    "index": "A",
+    "name": "DZY Loves Chessboard",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1328,
+    "index": "C",
+    "name": "Ternary XOR",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1832,
+    "index": "C",
+    "name": "Contrast Value",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1399,
+    "index": "C",
+    "name": "Boats Competition",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1926,
+    "index": "C",
+    "name": "Vlad and a Sum of Sum of Digits",
+    "topic": "dp"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1692,
+    "index": "E",
+    "name": "Binary Deque",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1200,
+    "contestId": 1793,
+    "index": "C",
+    "name": "Dora and Search",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1300,
+    "contestId": 4,
+    "index": "C",
+    "name": "Registration System",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1300,
+    "contestId": 25,
+    "index": "A",
+    "name": "IQ test",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1300,
+    "contestId": 230,
+    "index": "B",
+    "name": "T-primes",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 189,
+    "index": "A",
+    "name": "Cut Ribbon",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1300,
+    "contestId": 451,
+    "index": "B",
+    "name": "Sort the Array",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1300,
+    "contestId": 459,
+    "index": "B",
+    "name": "Pashmak and Flowers",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1294,
+    "index": "C",
+    "name": "Product of Three Numbers",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1360,
+    "index": "D",
+    "name": "Buying Shovels",
+    "topic": "math"
+  },
+  {
+    "rating": 1300,
+    "contestId": 478,
+    "index": "B",
+    "name": "Random Teams",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1300,
+    "contestId": 600,
+    "index": "B",
+    "name": "Queries about less or equal elements",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 476,
+    "index": "B",
+    "name": "Dreamoon and WiFi",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1372,
+    "index": "B",
+    "name": "Omkar and Last Class of Math",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1538,
+    "index": "C",
+    "name": "Number of Pairs",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1915,
+    "index": "E",
+    "name": "Romantic Glasses",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1927,
+    "index": "D",
+    "name": "Find the Different Ones!",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1328,
+    "index": "B",
+    "name": "K-th Beautiful String",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 276,
+    "index": "B",
+    "name": "Little Girl and Game",
+    "topic": "games"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1285,
+    "index": "B",
+    "name": "Just Eat It!",
+    "topic": "dp"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1931,
+    "index": "D",
+    "name": "Divisible Pairs",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1352,
+    "index": "D",
+    "name": "Alice, Bob and Candies",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1335,
+    "index": "D",
+    "name": "Anti-Sudoku",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1703,
+    "index": "F",
+    "name": "Yet Another Problem About Pairs Satisfying an Inequality",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1365,
+    "index": "B",
+    "name": "Trouble Sort",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1470,
+    "index": "A",
+    "name": "Strange Birthday Party",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1300,
+    "contestId": 545,
+    "index": "D",
+    "name": "Queue",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1300,
+    "contestId": 450,
+    "index": "B",
+    "name": "Jzzhu and Sequences",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1857,
+    "index": "D",
+    "name": "Strong Vertices",
+    "topic": "math"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1669,
+    "index": "H",
+    "name": "Maximal AND",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1360,
+    "index": "E",
+    "name": "Polygon",
+    "topic": "dp"
+  },
+  {
+    "rating": 1300,
+    "contestId": 893,
+    "index": "C",
+    "name": "Rumor",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1300,
+    "contestId": 1881,
+    "index": "D",
+    "name": "Divide and Equalize",
+    "topic": "math"
+  },
+  {
+    "rating": 1400,
+    "contestId": 279,
+    "index": "B",
+    "name": "Books",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1400,
+    "contestId": 520,
+    "index": "B",
+    "name": "Two Buttons",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1400,
+    "contestId": 489,
+    "index": "C",
+    "name": "Given Length and Sum of Digits...",
+    "topic": "dp"
+  },
+  {
+    "rating": 1400,
+    "contestId": 698,
+    "index": "A",
+    "name": "Vacations",
+    "topic": "dp"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1526,
+    "index": "B",
+    "name": "I Hate 1111",
+    "topic": "dp"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1195,
+    "index": "C",
+    "name": "Basketball Exercise",
+    "topic": "dp"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1324,
+    "index": "D",
+    "name": "Pair of Topics",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1400,
+    "contestId": 479,
+    "index": "C",
+    "name": "Exams",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1201,
+    "index": "C",
+    "name": "Maximum Median",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1374,
+    "index": "D",
+    "name": "Zero Remainder Array",
+    "topic": "math"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1350,
+    "index": "B",
+    "name": "Orac and Models",
+    "topic": "dp"
+  },
+  {
+    "rating": 1400,
+    "contestId": 414,
+    "index": "B",
+    "name": "Mashmokh and ACM",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1400,
+    "contestId": 515,
+    "index": "C",
+    "name": "Drazil and Factorial",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1520,
+    "index": "E",
+    "name": "Arranging The Sheep",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1285,
+    "index": "C",
+    "name": "Fadi and LCM",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1919,
+    "index": "C",
+    "name": "Grouping Increases",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1348,
+    "index": "B",
+    "name": "Phoenix and Beauty",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1370,
+    "index": "C",
+    "name": "Number Game",
+    "topic": "games"
+  },
+  {
+    "rating": 1400,
+    "contestId": 550,
+    "index": "B",
+    "name": "Preparing Olympiad",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1475,
+    "index": "C",
+    "name": "Ball in Berland",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1400,
+    "contestId": 507,
+    "index": "B",
+    "name": "Amr and Pins",
+    "topic": "geometry"
+  },
+  {
+    "rating": 1400,
+    "contestId": 816,
+    "index": "B",
+    "name": "Karen and Coffee",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1363,
+    "index": "B",
+    "name": "Subsequence Hate",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1692,
+    "index": "G",
+    "name": "2^Sort",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1400,
+    "contestId": 762,
+    "index": "A",
+    "name": "k-th divisor",
+    "topic": "math"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1506,
+    "index": "D",
+    "name": "Epic Transformation",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1167,
+    "index": "C",
+    "name": "News Distribution",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1400,
+    "contestId": 295,
+    "index": "A",
+    "name": "Greg and Array",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1400,
+    "contestId": 26,
+    "index": "B",
+    "name": "Regular Bracket Sequence",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1365,
+    "index": "C",
+    "name": "Rotation Matching",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1400,
+    "contestId": 1931,
+    "index": "E",
+    "name": "Anna and the Valentine's Day Gift",
+    "topic": "games"
+  },
+  {
+    "rating": 1500,
+    "contestId": 455,
+    "index": "A",
+    "name": "Boredom",
+    "topic": "dp"
+  },
+  {
+    "rating": 1500,
+    "contestId": 580,
+    "index": "C",
+    "name": "Kefa and Park",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1500,
+    "contestId": 550,
+    "index": "A",
+    "name": "Two Substrings",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 276,
+    "index": "C",
+    "name": "Little Girl and Maximum Sum",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1500,
+    "contestId": 545,
+    "index": "C",
+    "name": "Woodcutters",
+    "topic": "dp"
+  },
+  {
+    "rating": 1500,
+    "contestId": 550,
+    "index": "C",
+    "name": "Divisibility by Eight",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 580,
+    "index": "B",
+    "name": "Kefa and Company",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 2,
+    "index": "A",
+    "name": "Winner",
+    "topic": "hashing"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1338,
+    "index": "A",
+    "name": "Powered Addition",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1418,
+    "index": "C",
+    "name": "Mortal Kombat Tower",
+    "topic": "dp"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1526,
+    "index": "C1",
+    "name": "Potions (Easy Version)",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1542,
+    "index": "B",
+    "name": "Plus and Multiply",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1500,
+    "contestId": 977,
+    "index": "E",
+    "name": "Cyclic Components",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1500,
+    "contestId": 166,
+    "index": "E",
+    "name": "Tetrahedron",
+    "topic": "dp"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1516,
+    "index": "B",
+    "name": "AGAGA XOOORRR",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1201,
+    "index": "B",
+    "name": "Zero Array",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1352,
+    "index": "E",
+    "name": "Special Elements",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1881,
+    "index": "E",
+    "name": "Block Sequence",
+    "topic": "dp"
+  },
+  {
+    "rating": 1500,
+    "contestId": 165,
+    "index": "B",
+    "name": "Burning Midnight Oil",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 702,
+    "index": "C",
+    "name": "Cellular Network",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 676,
+    "index": "C",
+    "name": "Vasya and String",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1538,
+    "index": "F",
+    "name": "Interesting Function",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1385,
+    "index": "D",
+    "name": "a-Good String",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1915,
+    "index": "F",
+    "name": "Greetings",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1368,
+    "index": "B",
+    "name": "Codeforces Subsequences",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1409,
+    "index": "D",
+    "name": "Decrease the Sum of Digits",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1389,
+    "index": "C",
+    "name": "Good String",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1332,
+    "index": "C",
+    "name": "K-Complete Word",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1872,
+    "index": "E",
+    "name": "Data Structures Fan",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1487,
+    "index": "D",
+    "name": "Pythagorean Triples",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1500,
+    "contestId": 1486,
+    "index": "B",
+    "name": "Eastern Exhibition",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1398,
+    "index": "C",
+    "name": "Good Subarrays",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1600,
+    "contestId": 371,
+    "index": "C",
+    "name": "Hamburgers",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1600,
+    "contestId": 431,
+    "index": "C",
+    "name": "k-Tree",
+    "topic": "dp"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1526,
+    "index": "C2",
+    "name": "Potions (Hard Version)",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1600,
+    "contestId": 377,
+    "index": "A",
+    "name": "Maze",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1,
+    "index": "B",
+    "name": "Spreadsheet",
+    "topic": "implementation"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1458,
+    "index": "A",
+    "name": "Row GCD",
+    "topic": "math"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1352,
+    "index": "G",
+    "name": "Special Permutation",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1336,
+    "index": "A",
+    "name": "Linova and Kingdom",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 510,
+    "index": "C",
+    "name": "Fox And Names",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1349,
+    "index": "A",
+    "name": "Orac and LCM",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1363,
+    "index": "C",
+    "name": "Game On Leaves",
+    "topic": "games"
+  },
+  {
+    "rating": 1600,
+    "contestId": 235,
+    "index": "A",
+    "name": "LCM Challenge",
+    "topic": "number theory"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1353,
+    "index": "D",
+    "name": "Constructing the Array",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1389,
+    "index": "B",
+    "name": "Array Walk",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1165,
+    "index": "D",
+    "name": "Almost All Divisors",
+    "topic": "math"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1497,
+    "index": "C2",
+    "name": "k-LCM (hard version)",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1920,
+    "index": "C",
+    "name": "Partitioning the Array",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1600,
+    "contestId": 706,
+    "index": "C",
+    "name": "Hard problem",
+    "topic": "dp"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1528,
+    "index": "A",
+    "name": "Parsa's Humongous Tree",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1305,
+    "index": "C",
+    "name": "Kuroni and Impossible Calculation",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1358,
+    "index": "C",
+    "name": "Celex Update",
+    "topic": "math"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1633,
+    "index": "D",
+    "name": "Make Them Equal",
+    "topic": "dp"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1234,
+    "index": "D",
+    "name": "Distinct Characters Queries",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1514,
+    "index": "C",
+    "name": "Product 1 Modulo N",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1334,
+    "index": "C",
+    "name": "Circle of Monsters",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1833,
+    "index": "E",
+    "name": "Round Dance",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1856,
+    "index": "C",
+    "name": "To Become Max",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1373,
+    "index": "D",
+    "name": "Maximum Sum on Even Positions",
+    "topic": "divide and conquer"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1702,
+    "index": "E",
+    "name": "Split Into Two Sets",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1600,
+    "contestId": 1475,
+    "index": "E",
+    "name": "Advertising Agency",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1700,
+    "contestId": 466,
+    "index": "C",
+    "name": "Number of Ways",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1700,
+    "contestId": 339,
+    "index": "D",
+    "name": "Xenia and Bit Operations",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1700,
+    "contestId": 474,
+    "index": "D",
+    "name": "Flowers",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 977,
+    "index": "F",
+    "name": "Consecutive Subsequence",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 126,
+    "index": "B",
+    "name": "Password",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1365,
+    "index": "D",
+    "name": "Solve The Maze",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1700,
+    "contestId": 118,
+    "index": "D",
+    "name": "Caesar's Legions",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1037,
+    "index": "D",
+    "name": "Valid BFS?",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1700,
+    "contestId": 295,
+    "index": "B",
+    "name": "Greg and Graph",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1324,
+    "index": "E",
+    "name": "Sleeping Schedule",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 427,
+    "index": "C",
+    "name": "Checkposts",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1700,
+    "contestId": 467,
+    "index": "C",
+    "name": "George and Job",
+    "topic": "dp"
+  },
+  {
+    "rating": 1700,
+    "contestId": 276,
+    "index": "D",
+    "name": "Little Girl and Maximum XOR",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1359,
+    "index": "C",
+    "name": "Mixing Water",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1700,
+    "contestId": 349,
+    "index": "B",
+    "name": "Color the Fence",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1538,
+    "index": "D",
+    "name": "Another Problem About Dividing Numbers",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1826,
+    "index": "D",
+    "name": "Running Miles",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1381,
+    "index": "A2",
+    "name": "Prefix Flip (Hard Version)",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1474,
+    "index": "C",
+    "name": "Array Destruction",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1516,
+    "index": "C",
+    "name": "Baby Ehab Partitions Again",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1144,
+    "index": "F",
+    "name": "Graph Without Long Directed Paths",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1695,
+    "index": "C",
+    "name": "Zero Path",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1554,
+    "index": "B",
+    "name": "Cobb",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 546,
+    "index": "D",
+    "name": "Soldier and Number Game",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1537,
+    "index": "D",
+    "name": "Deleting Divisors",
+    "topic": "games"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1343,
+    "index": "D",
+    "name": "Constant Palindrome Sum",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1325,
+    "index": "D",
+    "name": "Ehab the Xorcist",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1360,
+    "index": "F",
+    "name": "Spy-string",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1368,
+    "index": "D",
+    "name": "AND, OR and square sum",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1176,
+    "index": "E",
+    "name": "Cover it!",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1700,
+    "contestId": 1333,
+    "index": "C",
+    "name": "Eugene and an array",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 478,
+    "index": "C",
+    "name": "Table Decorations",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1800,
+    "contestId": 161,
+    "index": "D",
+    "name": "Distance in Tree",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1800,
+    "contestId": 448,
+    "index": "D",
+    "name": "Multiplication Table",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1509,
+    "index": "C",
+    "name": "The Sports Festival",
+    "topic": "dp"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1328,
+    "index": "D",
+    "name": "Carousel",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1800,
+    "contestId": 271,
+    "index": "D",
+    "name": "Good Substrings",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1396,
+    "index": "B",
+    "name": "Stoned Game",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1324,
+    "index": "F",
+    "name": "Maximum White Subtree",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1800,
+    "contestId": 220,
+    "index": "B",
+    "name": "Little Elephant and Array",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1398,
+    "index": "D",
+    "name": "Colored Rectangles",
+    "topic": "dp"
+  },
+  {
+    "rating": 1800,
+    "contestId": 459,
+    "index": "D",
+    "name": "Pashmak and Parmida's problem",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1800,
+    "contestId": 706,
+    "index": "D",
+    "name": "Vasiliy's Multiset",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1437,
+    "index": "C",
+    "name": "Chef Monocarp",
+    "topic": "dp"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1355,
+    "index": "C",
+    "name": "Count Triangles",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 580,
+    "index": "D",
+    "name": "Kefa and Dishes",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1326,
+    "index": "D2",
+    "name": "Prefix-Suffix Palindrome (Hard version)",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 300,
+    "index": "C",
+    "name": "Beautiful Numbers",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1548,
+    "index": "B",
+    "name": "Integers Have Friends",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1475,
+    "index": "D",
+    "name": "Cleaning the Phone",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1974,
+    "index": "E",
+    "name": "Money Buys Happiness",
+    "topic": "dp"
+  },
+  {
+    "rating": 1800,
+    "contestId": 584,
+    "index": "D",
+    "name": "Dima and Lisa",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1525,
+    "index": "D",
+    "name": "Armchairs",
+    "topic": "dp"
+  },
+  {
+    "rating": 1800,
+    "contestId": 242,
+    "index": "C",
+    "name": "King's Path",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1935,
+    "index": "D",
+    "name": "Exam in MAC",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1401,
+    "index": "D",
+    "name": "Maximum Distributed Tree",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1554,
+    "index": "D",
+    "name": "Diane",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1388,
+    "index": "C",
+    "name": "Uncle Bogdan and Country Happiness",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1572,
+    "index": "A",
+    "name": "Book",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1995,
+    "index": "C",
+    "name": "Squaring",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1709,
+    "index": "C",
+    "name": "Recover an RBS",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1800,
+    "contestId": 1221,
+    "index": "D",
+    "name": "Make The Fence Great Again",
+    "topic": "dp"
+  },
+  {
+    "rating": 1900,
+    "contestId": 20,
+    "index": "C",
+    "name": "Dijkstra?",
+    "topic": "graphs"
+  },
+  {
+    "rating": 1900,
+    "contestId": 5,
+    "index": "C",
+    "name": "Longest Regular Bracket Sequence",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1900,
+    "contestId": 607,
+    "index": "B",
+    "name": "Zuma",
+    "topic": "dp"
+  },
+  {
+    "rating": 1900,
+    "contestId": 25,
+    "index": "D",
+    "name": "Roads not only in Berland",
+    "topic": "dsu"
+  },
+  {
+    "rating": 1900,
+    "contestId": 577,
+    "index": "B",
+    "name": "Modulo Sum",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1900,
+    "contestId": 61,
+    "index": "E",
+    "name": "Enemy is weak",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1036,
+    "index": "C",
+    "name": "Classy Numbers",
+    "topic": "combinatorics"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1328,
+    "index": "E",
+    "name": "Tree Queries",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1400,
+    "index": "D",
+    "name": "Zigzags",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1900,
+    "contestId": 547,
+    "index": "B",
+    "name": "Mike and Feet",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 448,
+    "index": "C",
+    "name": "Painting Fence",
+    "topic": "divide and conquer"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1092,
+    "index": "F",
+    "name": "Tree with Maximum Cost",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1375,
+    "index": "D",
+    "name": "Replace by MEX",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1354,
+    "index": "D",
+    "name": "Multiset",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1486,
+    "index": "C2",
+    "name": "Guessing the Greatest (hard version)",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1620,
+    "index": "E",
+    "name": "Replace the Numbers",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1245,
+    "index": "D",
+    "name": "Shichikuji and Power Grid",
+    "topic": "dsu"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1348,
+    "index": "D",
+    "name": "Phoenix and Science",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1627,
+    "index": "D",
+    "name": "Not Adding",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1369,
+    "index": "D",
+    "name": "TediousLee",
+    "topic": "dp"
+  },
+  {
+    "rating": 1900,
+    "contestId": 463,
+    "index": "C",
+    "name": "Gargari and Bishops",
+    "topic": "greedy"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1242,
+    "index": "B",
+    "name": "0-1 MST",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1900,
+    "contestId": 191,
+    "index": "C",
+    "name": "Fools and Roads",
+    "topic": "data structures"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1117,
+    "index": "C",
+    "name": "Magic Ship",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1358,
+    "index": "D",
+    "name": "The Best Vacation",
+    "topic": "binary search"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1527,
+    "index": "B2",
+    "name": "Palindrome Game (hard version)",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1285,
+    "index": "D",
+    "name": "Dr. Evil Underscores",
+    "topic": "bitmasks"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1365,
+    "index": "E",
+    "name": "Maximum Subsequence Value",
+    "topic": "brute force"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1360,
+    "index": "G",
+    "name": "A/B Matrix",
+    "topic": "constructive algorithms"
+  },
+  {
+    "rating": 1900,
+    "contestId": 1404,
+    "index": "B",
+    "name": "Tree Tag",
+    "topic": "dfs and similar"
+  },
+  {
+    "rating": 1900,
+    "contestId": 808,
+    "index": "D",
+    "name": "Array Division",
+    "topic": "binary search"
+  }
+]
