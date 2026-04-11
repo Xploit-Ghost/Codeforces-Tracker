@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
 
@@ -8,24 +9,25 @@ export default function Friends() {
   const [handleInput, setHandleInput] = useState('');
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
+  // Load handles from LocalStorage immediately on mount
   useEffect(() => {
-    const savedFriends = localStorage.getItem('cf_friends');
-    if (savedFriends) fetchFriendsData(JSON.parse(savedFriends));
+    const savedHandles = JSON.parse(localStorage.getItem('cf_friends') || '[]');
+    if (savedHandles.length > 0) {
+      fetchFriendsData(savedHandles);
+    }
   }, []);
 
   const fetchFriendsData = async (handles) => {
-    if (handles.length === 0) {
-      setFriends([]);
-      return;
-    }
     setLoading(true);
     try {
       const res = await axios.get(`${BACKEND_URL}/api/leaderboard?handles=${handles.join(';')}`);
       setFriends(res.data);
+      // Save the raw handles to local storage so they persist after refresh
       localStorage.setItem('cf_friends', JSON.stringify(handles));
     } catch (err) {
-      console.error("Leaderboard error");
+      console.error("Failed to fetch friends data from backend.");
     } finally {
       setLoading(false);
     }
@@ -34,6 +36,7 @@ export default function Friends() {
   const addFriend = (e) => {
     e.preventDefault();
     if (!handleInput) return;
+
     const currentHandles = JSON.parse(localStorage.getItem('cf_friends') || '[]');
     if (!currentHandles.includes(handleInput)) {
       const newHandles = [...currentHandles, handleInput];
@@ -43,8 +46,16 @@ export default function Friends() {
   };
 
   const clearAllFriends = () => {
-    setFriends([]);
-    localStorage.removeItem('cf_friends');
+    if (window.confirm("Are you sure you want to clear your entire friends list?")) {
+      setFriends([]);
+      localStorage.removeItem('cf_friends');
+    }
+  };
+
+  // Function to jump to Solo Profile with this handle
+  const openInSoloProfile = (handle) => {
+    // We navigate to /profile. To make it auto-load, you can pass state
+    navigate('/profile', { state: { autoHandle: handle } });
   };
 
   return (
@@ -58,9 +69,15 @@ export default function Friends() {
           value={handleInput} 
           onChange={(e) => setHandleInput(e.target.value)} 
         />
-        <button type="submit">Add Friend</button>
-        <button type="button" onClick={clearAllFriends} style={{background: 'var(--error)'}}>Clear All</button>
+        <button type="submit" disabled={loading}>Add Friend</button>
+        {friends.length > 0 && (
+          <button type="button" onClick={clearAllFriends} style={{background: 'var(--error)', color: 'white'}}>
+            Clear All
+          </button>
+        )}
       </form>
+
+      {loading && <p style={{textAlign: 'center'}}>Updating leaderboard...</p>}
 
       <div className="card">
         <div className="contest-list">
@@ -70,14 +87,21 @@ export default function Friends() {
                 <h3 className="contest-title">{f.handle}</h3>
                 <span className="contest-date">{f.rank}</span>
               </div>
-              <div className="contest-metrics">
+              <div className="contest-metrics" style={{ flex: 1 }}>
                 <div className="c-stat-small">
                   <span>Rating</span>
                   <strong style={{color: 'var(--accent)'}}>{f.rating}</strong>
                 </div>
               </div>
+              <button 
+                onClick={() => openInSoloProfile(f.handle)}
+                style={{ marginLeft: '1rem', padding: '0.5rem', fontSize: '0.8rem', background: 'transparent', border: '1px solid var(--accent)', color: 'var(--accent)' }}
+              >
+                View Profile
+              </button>
             </div>
           ))}
+          {friends.length === 0 && !loading && <p style={{textAlign: 'center', color: 'var(--text-muted)'}}>No friends added yet.</p>}
         </div>
       </div>
     </div>
