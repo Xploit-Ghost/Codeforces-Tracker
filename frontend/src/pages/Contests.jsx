@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+
 function Contests() {
   const [contests, setContests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [timezone, setTimezone] = useState('Asia/Kolkata');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/contests')
+    axios.get(`${BACKEND_URL}/api/contests`)
       .then(res => {
         setContests(res.data);
         setLoading(false);
