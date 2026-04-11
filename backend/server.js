@@ -80,14 +80,16 @@ app.get('/api/latest-problems', async (req, res) => {
 app.get('/api/profile/:handle', async (req, res) => {
     try {
         const { handle } = req.params;
-        const [statusRes, ratingRes] = await Promise.all([
+        
+        const [statusRes, ratingRes, infoRes] = await Promise.all([
             axios.get(`https://codeforces.com/api/user.status?handle=${handle}`),
-            axios.get(`https://codeforces.com/api/user.rating?handle=${handle}`)
+            axios.get(`https://codeforces.com/api/user.rating?handle=${handle}`),
+            axios.get(`https://codeforces.com/api/user.info?handles=${handle}`)
         ]);
 
         const subs = statusRes.data.result;
         const ratings = ratingRes.data.result;
-
+        const userInfo = infoRes.data.result[0];
         const verdictsCount = {};
         subs.forEach(sub => {
             const v = sub.verdict === 'OK' ? 'Accepted' : sub.verdict.replace(/_/g, ' ');
@@ -123,12 +125,20 @@ app.get('/api/profile/:handle', async (req, res) => {
         const tagsRadar = getTagDistribution(statusRes.data);
         const recentSubs = getRecentSubmissions(statusRes.data);
 
-        res.json({ handle, verdictsPie, unsolvedCount, recentContests, heatmapData, ratingPie, tagsRadar, totalSolved, recentSubs });
+        // ADDED: Injected the userInfo stats into the final JSON response
+        res.json({ 
+            handle, 
+            rating: userInfo.rating || 0,
+            maxRating: userInfo.maxRating || 0,
+            rank: userInfo.rank || 'Unrated',
+            maxRank: userInfo.maxRank || 'Unrated',
+            contribution: userInfo.contribution || 0,
+            verdictsPie, unsolvedCount, recentContests, heatmapData, ratingPie, tagsRadar, totalSolved, recentSubs 
+        });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch profile data' });
     }
 });
-
 app.get('/api/compare/:handle1/:handle2', async (req, res) => {
     try {
         const { handle1, handle2 } = req.params;
