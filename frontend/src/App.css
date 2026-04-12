@@ -152,7 +152,6 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 }
-/* CP31 Tracker Styles */
 .tracker-dashboard {
   width: 100%;
   display: flex;
@@ -363,7 +362,6 @@ button:disabled {
   color: var(--text-main);
 }
 
-/* Recent Contests List Styles */
 .contest-list {
   display: flex;
   flex-direction: column;
@@ -489,4 +487,30 @@ button:disabled {
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+.feed-container, .contest-list {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.feed-container::-webkit-scrollbar,
+.contest-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feed-container::-webkit-scrollbar-track,
+.contest-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.feed-container::-webkit-scrollbar-thumb,
+.contest-list::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.feed-container::-webkit-scrollbar-thumb:hover,
+.contest-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
 }
