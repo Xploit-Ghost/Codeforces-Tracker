@@ -30,7 +30,6 @@ export default function Analytics() {
   };
 
   return (
-    return (
     <div className="container">
       <header><h1>CP Tracker: Analytics</h1></header>
       <form onSubmit={handleCompare} className="search-form">
@@ -42,7 +41,6 @@ export default function Analytics() {
 
       {errorMsg && <p className="error">{errorMsg}</p>}
 
-      {/* NEW: THIS IS THE TEXT THE ADSENSE BOT WILL READ ON THE HOMEPAGE */}
       {!data && !loading && (
         <div className="card welcome-content">
           <h2>Master Your Competitive Programming Journey</h2>
@@ -60,9 +58,6 @@ export default function Analytics() {
         </div>
       )}
 
-      {data && (
-        <div className="dashboard">
-          {/* ... ALL YOUR EXISTING DASHBOARD CHARTS STAY EXACTLY THE SAME HERE ... */}
       {data && (
         <div className="dashboard">
           
