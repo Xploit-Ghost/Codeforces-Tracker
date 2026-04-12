@@ -30,6 +30,7 @@ export default function Analytics() {
   };
 
   return (
+    return (
     <div className="container">
       <header><h1>CP Tracker: Analytics</h1></header>
       <form onSubmit={handleCompare} className="search-form">
@@ -41,6 +42,27 @@ export default function Analytics() {
 
       {errorMsg && <p className="error">{errorMsg}</p>}
 
+      {/* NEW: THIS IS THE TEXT THE ADSENSE BOT WILL READ ON THE HOMEPAGE */}
+      {!data && !loading && (
+        <div className="card welcome-content">
+          <h2>Master Your Competitive Programming Journey</h2>
+          <p>Welcome to the most comprehensive Codeforces analytics dashboard. To begin, enter two valid Codeforces handles above to generate a deep-dive comparison of rating timelines, topic mastery, and submission accuracies.</p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1.5rem', textAlign: 'left' }}>
+            <div>
+              <h3 style={{ color: 'var(--accent)' }}>📊 Deep Analytics</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Visualize your progress with radar charts highlighting your strongest algorithmic topics and pie charts breaking down your historical submission verdicts.</p>
+            </div>
+            <div>
+              <h3 style={{ color: 'var(--accent)' }}>⚔️ Head-to-Head</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Benchmark your Total Solved count and Rating Growth against your friends to identify areas where you can improve and out-compete them.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {data && (
+        <div className="dashboard">
+          {/* ... ALL YOUR EXISTING DASHBOARD CHARTS STAY EXACTLY THE SAME HERE ... */}
       {data && (
         <div className="dashboard">
           
