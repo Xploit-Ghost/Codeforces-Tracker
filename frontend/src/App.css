@@ -436,3 +436,57 @@ button:disabled {
     justify-content: space-between;
   }
 }
+.text-page {
+  text-align: left;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-page h1 {
+  color: var(--accent);
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.text-page h2 {
+  color: #fff;
+  margin-top: 1.5rem;
+}
+
+.welcome-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.6;
+}
+
+.welcome-content h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
