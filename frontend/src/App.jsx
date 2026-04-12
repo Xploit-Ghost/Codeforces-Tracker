@@ -25,7 +25,6 @@ function Navigation() {
   );
 }
 
-// NEW FOOTER REQUIRED BY ADSENSE
 function Footer() {
   return (
     <footer className="footer">
