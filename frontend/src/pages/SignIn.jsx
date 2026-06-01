@@ -19,14 +19,6 @@ export default function SignIn() {
     });
   }, []);
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await loginWithGoogle();
-    } catch (err) {
-      setError(`Failed to sign in: ${err.message}`);
-      console.error(err);
-    }
-  };
 
   const handleSaveCF = async () => {
     if (!handleInput.trim()) return;
@@ -52,7 +44,13 @@ export default function SignIn() {
 
         {!currentUser ? (
           <button 
-            onClick={handleGoogleSignIn}
+            onClick={() => {
+              setError('');
+              loginWithGoogle().catch(err => {
+                setError(`Failed to sign in: ${err.message}`);
+                console.error(err);
+              });
+            }}
             style={{ 
               width: '100%', 
               padding: '1rem', 
