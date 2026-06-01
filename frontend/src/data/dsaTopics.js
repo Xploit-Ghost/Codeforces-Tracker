@@ -122,7 +122,7 @@ allTopics.forEach(topic => {
   if (!dsaTopics[topic]) {
     dsaTopics[topic] = {
       title: topic.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-      introduction: \`This is a comprehensive guide for \${topic}. Understanding this topic is critical for mastering advanced algorithmic problem solving and acing technical interviews.\`,
+      introduction: `This is a comprehensive guide for ${topic}. Understanding this topic is critical for mastering advanced algorithmic problem solving and acing technical interviews.`,
       useCases: [
         { text: 'Standard algorithmic application of this pattern.', keyword: 'standard' },
         { text: 'Optimizing naive brute force loops.', keyword: 'optimization' }
@@ -132,12 +132,12 @@ allTopics.forEach(topic => {
         optimal: { time: 'O(N) or O(N log N)', desc: 'Applying this specific algorithmic pattern reduces redundant work, yielding optimal runtime bounds.' }
       },
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Merge_sort_algorithm_diagram.svg/300px-Merge_sort_algorithm_diagram.svg.png',
-      codeSnippet: \`// Standard boilerplate template for \${topic}
+      codeSnippet: `// Standard boilerplate template for ${topic}
 void solve() {
     // Implement core logic here
     // Pay attention to edge cases and base conditions
-}\`,
-      variations: \`Questions in \${topic} generally fall into a few core patterns. Recognize the state transitions and base cases. Always dry-run your logic on the smallest possible inputs before writing full implementations.\`,
+}`,
+      variations: `Questions in ${topic} generally fall into a few core patterns. Recognize the state transitions and base cases. Always dry-run your logic on the smallest possible inputs before writing full implementations.`,
       problems: {
         basic: [
           { name: 'Basic Implementations (LeetCode/GFG)', link: '#' },
