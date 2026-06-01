@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import '../App.css';
 
@@ -8,6 +9,7 @@ const PIE_COLORS = ['#bb86fc', '#03dac6', '#cf6679', '#ffb86c', '#8be9fd', '#ff7
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function Profile() {
+  const { cfHandle } = useAuth();
   const [handle, setHandle] = useState(''); 
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -41,8 +43,12 @@ export default function Profile() {
     if (location.state && location.state.autoHandle) {
       setHandle(location.state.autoHandle);
       performSearch(location.state.autoHandle);
+    } else if (cfHandle && !profileData && !loading && !error) {
+      // Auto-fill from context if no other handle was passed via routing
+      setHandle(cfHandle);
+      performSearch(cfHandle);
     }
-  }, [location]);
+  }, [location, cfHandle]);
 
   return (
     <div className="container">

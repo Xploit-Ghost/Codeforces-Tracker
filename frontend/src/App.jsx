@@ -14,8 +14,10 @@ import CodeforcesTopics from './pages/CodeforcesTopics';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
 import NotFound from './pages/NotFound';
+import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
 import RenderLoader from './components/RenderLoader';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
 import TopWelcome from './pages/TopWelcome';
@@ -99,6 +101,10 @@ function MainLayout() {
       {isCompare && <CompareNavigation />}
       <AdBanner /> 
       
+      <div style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'flex-end', borderBottom: '1px solid #222' }}>
+        <UserProfileBadge />
+      </div>
+
       <div style={{ minHeight: '80vh' }}>
         <Routes>
           <Route path="/" element={<TopWelcome />} />
@@ -151,6 +157,40 @@ function Footer() {
 import axios from 'axios';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
+function UserProfileBadge() {
+  const { currentUser, cfHandle, logout } = useAuth();
+  
+  if (!currentUser) return null;
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', backgroundColor: '#111', padding: '0.5rem 1rem', borderRadius: '30px', border: '1px solid #333' }}>
+      <img src={currentUser.photoURL} alt="User" style={{ width: '30px', height: '30px', borderRadius: '50%' }} />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#fff' }}>{currentUser.displayName}</span>
+        <span style={{ fontSize: '0.75rem', color: 'var(--accent)' }}>{cfHandle ? `@${cfHandle}` : 'No CF Linked'}</span>
+      </div>
+      <button onClick={logout} style={{ marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
+        Sign out
+      </button>
+    </div>
+  );
+}
+
+function AppContent() {
+  const { currentUser, cfHandle } = useAuth();
+
+  if (!currentUser || !cfHandle) {
+    return <SignIn />;
+  }
+
+  return (
+    <div className="app-wrapper">
+      <MainLayout />
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   const [appState, setAppState] = useState('checking'); // 'checking', 'loading', 'ready'
 
@@ -172,7 +212,7 @@ function App() {
   }, []);
 
   if (appState === 'checking') {
-    return <div style={{ height: '100vh', width: '100vw', backgroundColor: '#060b0e' }}></div>; // Blank screen briefly
+    return <div style={{ height: '100vh', width: '100vw', backgroundColor: '#060b0e' }}></div>;
   }
 
   if (appState === 'loading') {
@@ -180,12 +220,11 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="app-wrapper">
-        <MainLayout />
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 

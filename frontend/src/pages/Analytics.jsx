@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip, LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, BarChart, Bar, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 import '../App.css';
 
@@ -7,11 +8,18 @@ const PIE_COLORS = ['#bb86fc', '#03dac6', '#cf6679', '#ffb86c', '#8be9fd', '#ff7
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function Analytics() {
+  const { cfHandle } = useAuth();
   const [handle1, setHandle1] = useState('');
   const [handle2, setHandle2] = useState('');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+
+  useEffect(() => {
+    if (cfHandle && !handle1) {
+      setHandle1(cfHandle);
+    }
+  }, [cfHandle]);
 
   const handleCompare = async (e) => {
     e.preventDefault();

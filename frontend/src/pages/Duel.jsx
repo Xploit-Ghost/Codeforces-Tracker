@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import '../App.css';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 export default function Duel() {
+  const { cfHandle } = useAuth();
   const [handleA, setHandleA] = useState('');
   const [handleB, setHandleB] = useState('');
   const [rating, setRating] = useState(1400);
@@ -12,6 +14,12 @@ export default function Duel() {
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (cfHandle && !handleA) {
+      setHandleA(cfHandle);
+    }
+  }, [cfHandle]);
   
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [isActive, setIsActive] = useState(false);
