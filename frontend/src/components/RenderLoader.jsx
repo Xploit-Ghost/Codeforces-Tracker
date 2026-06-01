@@ -73,15 +73,11 @@ export default function RenderLoader({ onReady }) {
               <span className="log-time">{log.time}</span> {log.text}
             </div>
             
-            {/* Show ASCII art after the second log */}
+            {/* Show 3D text banner after the second log */}
             {index === 1 && (
-              <div className="ascii-art">
-                <pre>{`
-  _   _   ___   _      ____  ___  __  __  ___    _____  ___   ____  ___  _  _  ____  ___  ____  
- ( )_( ) (  _) ( )    (  _ \(  ,)(  \/  )(  _)  (_   _)(  _) (  _ \(  ,)( \/ )(  _ \(  ,)(  _ \ 
-  \ _ /   ) _)  )(__   )   / )  \ )    (  ) _)    | |   ) _)  )   / )  \ \  /  ) _ ( )  \ )   / 
-   (_)   (___) (____) (_)\_)(_)\_)(_/\/\_)(___)   (_)  (___) (_)\_)(_)\_)(__) (____/(_)\_)(_)\_) 
-                `}</pre>
+              <div className="welcome-banner">
+                <div className="title-3d">Welcome to CP-Tracker</div>
+                <div className="author-text">Made by ANVESH ANAND POL</div>
               </div>
             )}
           </React.Fragment>
