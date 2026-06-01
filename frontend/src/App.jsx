@@ -35,7 +35,7 @@ function TopNavigation() {
           Codeforces
         </Link>
         <Link 
-          to="/welcome" 
+          to="/" 
           className={isWelcome ? 'nav-link active' : 'nav-link'}
           style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
         >
@@ -93,10 +93,8 @@ function MainLayout() {
       
       <div style={{ minHeight: '80vh' }}>
         <Routes>
-          <Route path="/" element={<Navigate to="/welcome" replace />} />
+          <Route path="/" element={<TopWelcome />} />
           
-          <Route path="/welcome" element={<TopWelcome />} />
-
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
           <Route path="/codeforces/topics" element={<CodeforcesTopics />} />

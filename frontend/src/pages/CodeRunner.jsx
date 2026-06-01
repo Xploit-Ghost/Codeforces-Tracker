@@ -1,6 +1,75 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
+const boilerplates = {
+  cpp: `#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    // Write your logic here
+    
+    return 0;
+}`,
+  python: `import sys
+
+def solve():
+    input = sys.stdin.read
+    data = input().split()
+    # Write your logic here
+
+if __name__ == '__main__':
+    solve()`,
+  java: `import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() { return Integer.parseInt(next()); }
+        long nextLong() { return Long.parseLong(next()); }
+        double nextDouble() { return Double.parseDouble(next()); }
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    public static void main(String[] args) {
+        FastReader in = new FastReader();
+        // Write your logic here
+        
+    }
+}`
+};
+
 export default function CodeRunner() {
   const [leftWidth, setLeftWidth] = useState(30);
   const [isDragging, setIsDragging] = useState(false);
@@ -10,11 +79,19 @@ export default function CodeRunner() {
   const [isFound, setIsFound] = useState(false);
   const [questionName, setQuestionName] = useState('');
   
-  const [showPopup, setShowPopup] = useState(false);
-  const [replaceTestCases, setReplaceTestCases] = useState(false);
+  const [showTags, setShowTags] = useState(false);
   
   const [language, setLanguage] = useState('cpp');
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(boilerplates.cpp);
+
+  // Automatically update boilerplate when language changes, 
+  // only if code is empty or matches an existing boilerplate (so we don't erase user code)
+  useEffect(() => {
+    const isCodeUnchanged = code === '' || Object.values(boilerplates).includes(code);
+    if (isCodeUnchanged) {
+      setCode(boilerplates[language]);
+    }
+  }, [language]);
 
   const startDragging = (e) => {
     setIsDragging(true);
@@ -49,9 +126,7 @@ export default function CodeRunner() {
       window.alert("Please enter both a contest number and problem letter.");
       return;
     }
-    
-    // Simulate finding the problem
-    setQuestionName(`Problem ${probNumber}${probLetter.toUpperCase()}`);
+    setQuestionName(`Problem ${probNumber} ${probLetter.toUpperCase()}`);
     setIsFound(true);
   };
 
@@ -59,7 +134,7 @@ export default function CodeRunner() {
     setIsFound(false);
     setProbNumber('');
     setProbLetter('');
-    setReplaceTestCases(false);
+    setShowTags(false);
   };
 
   const handleSubmit = () => {
@@ -74,7 +149,7 @@ export default function CodeRunner() {
     <div style={{ display: 'flex', height: '80vh', width: '100%', overflow: 'hidden', position: 'relative' }}>
       
       {/* LEFT PANE */}
-      <div style={{ width: `${leftWidth}%`, backgroundColor: 'rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+      <div style={{ width: \`\${leftWidth}%\`, backgroundColor: 'rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
         
         <div style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
           {!isFound ? (
@@ -100,41 +175,56 @@ export default function CodeRunner() {
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(43, 179, 167, 0.1)', padding: '0.8rem', borderRadius: '4px', border: '1px solid rgba(43, 179, 167, 0.3)' }}>
-                <h3 style={{ margin: 0, color: '#fff' }}>{questionName}</h3>
-                <button onClick={handleRemove} style={{ padding: '0.3rem 0.6rem', fontSize: '0.8rem', backgroundColor: 'transparent', borderColor: 'rgba(255,255,255,0.2)' }}>Remove</button>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center' }}>
+                <a 
+                  href={\`https://codeforces.com/contest/\${probNumber}/problem/\${probLetter}\`}
+                  target="_blank" 
+                  rel="noreferrer"
+                  style={{ 
+                    flex: 1, 
+                    textAlign: 'center', 
+                    padding: '0.8rem', 
+                    backgroundColor: 'rgba(43, 179, 167, 0.1)', 
+                    color: 'var(--accent)', 
+                    border: '1px solid rgba(43, 179, 167, 0.5)', 
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    fontFamily: 'Space Grotesk'
+                  }}
+                >
+                  View Problem Statement on Codeforces
+                </a>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <button onClick={() => setShowPopup(true)} style={{ fontSize: '0.8rem', padding: '0.5rem' }}>Show Problem Statement (Popup)</button>
-                <button onClick={() => setReplaceTestCases(!replaceTestCases)} style={{ fontSize: '0.8rem', padding: '0.5rem', backgroundColor: replaceTestCases ? 'var(--accent)' : 'rgba(43, 179, 167, 0.1)', color: replaceTestCases ? '#000' : 'var(--accent)' }}>
-                  {replaceTestCases ? 'Show Test Cases' : 'Replace Test Cases with Problem Statement'}
-                </button>
-              </div>
+              <button onClick={() => setShowTags(!showTags)} style={{ fontSize: '0.9rem', padding: '0.5rem' }}>
+                {showTags ? 'Hide Tags' : 'Show Tags'}
+              </button>
+              {showTags && (
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center', padding: '0.5rem' }}>
+                  <span className="prob-topic">greedy</span>
+                  <span className="prob-topic">math</span>
+                  <span className="prob-topic">implementation</span>
+                </div>
+              )}
             </div>
           )}
         </div>
 
-        <div style={{ flex: 1, overflowY: 'auto', padding: '1rem' }}>
-          {isFound && (
-            replaceTestCases ? (
-              <div style={{ color: 'var(--text-main)', lineHeight: '1.6' }}>
-                <h4>Problem Statement</h4>
-                <p>Because Codeforces restricts direct embedding (X-Frame-Options), you can view the full problem by clicking the link below, or read the copied statement if our web scraper fetches it.</p>
-                <a href={`https://codeforces.com/contest/${probNumber}/problem/${probLetter}`} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>View on Codeforces</a>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          {isFound ? (
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '400px' }}>
+              <h4 style={{ textAlign: 'center', margin: 0, color: 'var(--text-main)', letterSpacing: '2px' }}>TEST CASES</h4>
+              <div style={{ backgroundColor: '#000', padding: '1rem', borderRadius: '4px', border: '1px solid #333', width: '100%' }}>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Input</div>
+                <pre style={{ margin: 0, color: '#fff', fontFamily: 'JetBrains Mono' }}>4{'\n'}1 2 3 4</pre>
               </div>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <h4>Test Cases</h4>
-                <div style={{ backgroundColor: '#000', padding: '1rem', borderRadius: '4px', border: '1px solid #333' }}>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Input</div>
-                  <pre style={{ margin: 0, color: '#fff', fontFamily: 'JetBrains Mono' }}>4{'\n'}1 2 3 4</pre>
-                </div>
-                <div style={{ backgroundColor: '#000', padding: '1rem', borderRadius: '4px', border: '1px solid #333' }}>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Output</div>
-                  <pre style={{ margin: 0, color: '#fff', fontFamily: 'JetBrains Mono' }}>YES</pre>
-                </div>
+              <div style={{ backgroundColor: '#000', padding: '1rem', borderRadius: '4px', border: '1px solid #333', width: '100%' }}>
+                <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Output</div>
+                <pre style={{ margin: 0, color: '#fff', fontFamily: 'JetBrains Mono' }}>YES</pre>
               </div>
-            )
+            </div>
+          ) : (
+             <div style={{ color: 'var(--text-muted)', textAlign: 'center' }}>Test cases will appear here once a problem is found.</div>
           )}
         </div>
       </div>
@@ -146,18 +236,46 @@ export default function CodeRunner() {
       />
 
       {/* RIGHT PANE */}
-      <div style={{ width: `calc(${100 - leftWidth}% - 5px)`, display: 'flex', flexDirection: 'column', backgroundColor: '#0a0a0a' }}>
-        <div style={{ padding: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#111', borderBottom: '1px solid #222' }}>
-          <select 
-            value={language} 
-            onChange={(e) => setLanguage(e.target.value)}
-            style={{ padding: '0.5rem', backgroundColor: '#222', color: '#fff', border: '1px solid #444', borderRadius: '4px', fontFamily: 'Space Grotesk' }}
-          >
-            <option value="cpp">C++ (GCC)</option>
-            <option value="java">Java</option>
-            <option value="python">Python 3</option>
-          </select>
-          <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>Auto-Save Enabled</span>
+      <div style={{ width: \`calc(\${100 - leftWidth}% - 5px)\`, display: 'flex', flexDirection: 'column', backgroundColor: '#0a0a0a' }}>
+        <div style={{ padding: '0.8rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#111', borderBottom: '1px solid #222' }}>
+          
+          <div style={{ width: '200px' }}>
+            <select 
+              value={language} 
+              onChange={(e) => setLanguage(e.target.value)}
+              style={{ padding: '0.5rem', backgroundColor: '#222', color: '#fff', border: '1px solid #444', borderRadius: '4px', fontFamily: 'Space Grotesk', width: '100%' }}
+            >
+              <option value="cpp">C++ (GCC)</option>
+              <option value="java">Java</option>
+              <option value="python">Python 3</option>
+            </select>
+          </div>
+
+          <div style={{ flex: 1, textAlign: 'center', fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent)', textShadow: '0 0 10px rgba(43,179,167,0.3)', fontFamily: 'Space Grotesk' }}>
+            {isFound ? questionName : ''}
+          </div>
+
+          <div style={{ width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+            {isFound && (
+              <button 
+                onClick={handleRemove} 
+                style={{ 
+                  padding: '0.3rem 0.8rem', 
+                  fontSize: '0.8rem', 
+                  backgroundColor: 'rgba(239, 68, 68, 0.1)', 
+                  color: '#ef4444', 
+                  border: '1px solid #ef4444',
+                  boxShadow: 'none'
+                }}
+                onMouseEnter={(e) => { e.target.style.backgroundColor = '#ef4444'; e.target.style.color = '#fff'; }}
+                onMouseLeave={(e) => { e.target.style.backgroundColor = 'rgba(239, 68, 68, 0.1)'; e.target.style.color = '#ef4444'; }}
+              >
+                REMOVE
+              </button>
+            )}
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', letterSpacing: '1px' }}>AUTO-SAVE ENABLED</span>
+          </div>
+
         </div>
         
         <textarea 
@@ -169,29 +287,14 @@ export default function CodeRunner() {
         />
         
         <div style={{ padding: '1rem', display: 'flex', justifyContent: 'flex-end', backgroundColor: '#111', borderTop: '1px solid #222' }}>
-          <button onClick={handleSubmit} style={{ backgroundColor: 'var(--success)', color: '#fff', borderColor: 'var(--success)' }}>
+          <button onClick={handleSubmit} style={{ backgroundColor: 'var(--success)', color: '#fff', borderColor: 'var(--success)' }}
+            onMouseEnter={(e) => { e.target.style.backgroundColor = '#0d9468'; }}
+            onMouseLeave={(e) => { e.target.style.backgroundColor = 'var(--success)'; }}
+          >
             Submit to Codeforces
           </button>
         </div>
       </div>
-
-      {/* POPUP FOR PROBLEM STATEMENT */}
-      {showPopup && (
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 100, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div className="card text-page" style={{ width: '80%', height: '80%', display: 'flex', flexDirection: 'column', padding: '2rem' }}>
-            <h2 style={{ color: 'var(--accent)', marginTop: 0 }}>{questionName}</h2>
-            <div style={{ flex: 1, overflowY: 'auto', marginBottom: '1rem', lineHeight: '1.8' }}>
-              <p>Problem statement content goes here.</p>
-              <p>Since Codeforces does not provide a raw text problem statement API, you would normally see the parsed HTML of the problem statement here.</p>
-              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-              <p>(Scrollable area test)</p>
-            </div>
-            <div style={{ textAlign: 'right' }}>
-              <button onClick={() => setShowPopup(false)}>Close Popup</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -68,6 +68,49 @@ export default function TopWelcome() {
           </ul>
         </section>
 
+        <section style={{ marginBottom: '3rem' }}>
+          <h2>Understanding Algorithmic Paradigms</h2>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            As you begin solving problems, you will encounter various algorithmic paradigms. These are general approaches or strategies for designing algorithms. Understanding these is crucial for identifying the correct solution path during a contest.
+          </p>
+          <ul style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            <li><strong>Greedy Algorithms:</strong> A paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. It's often used for optimization problems.</li>
+            <li><strong>Dynamic Programming (DP):</strong> A method for solving complex problems by breaking them down into simpler subproblems. It is applicable when the subproblems overlap, allowing you to store and reuse their solutions (memoization or tabulation).</li>
+            <li><strong>Divide and Conquer:</strong> This technique involves dividing a problem into smaller, non-overlapping subproblems, solving them recursively, and then combining their solutions to solve the original problem. Merge Sort and Quick Sort are classic examples.</li>
+            <li><strong>Backtracking:</strong> An algorithmic-technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem.</li>
+          </ul>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            Mastering these paradigms requires practice. Don't just memorize implementations; focus on understanding *why* a particular paradigm works for a specific problem.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '3rem' }}>
+          <h2>The Importance of Time and Space Complexity</h2>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            In competitive programming, getting the right answer isn't enough; you must get it within the allotted time (usually 1-2 seconds) and memory limits (usually 256MB). This introduces the concept of Big O notation.
+          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            Big O notation mathematically describes the complexity of your algorithm. For example, an `O(N^2)` algorithm will easily run within 1 second for `N = 1000`, but will yield a Time Limit Exceeded (TLE) verdict for `N = 10^5`.
+          </p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            A general rule of thumb in modern competitive programming is that a standard server can perform roughly `10^8` operations per second. Therefore, if your constraints specify `N = 10^5`, an `O(N)` or `O(N log N)` solution is expected. Always analyze your algorithm's worst-case time complexity before writing the first line of code.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '3rem' }}>
+          <h2>Debugging and Upsolving</h2>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            You will face Wrong Answer (WA), Time Limit Exceeded (TLE), and Runtime Error (RTE) verdicts frequently. How you handle them defines your growth rate.
+          </p>
+          <ul style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            <li><strong>Debugging:</strong> Avoid relying solely on IDE debuggers. Learn to trace your code mentally or use strategic print statements. Write edge cases on paper. What happens if `N=1`? What if all elements are negative? What if the graph is a star graph or a straight line?</li>
+            <li><strong>Upsolving:</strong> Upsolving is the practice of solving problems *after* a contest ends, specifically the ones you couldn't solve during the live round. This is the absolute fastest way to increase your rating. If you can solve 2 problems in a contest, you must strive to upsolve the 3rd problem afterwards.</li>
+          </ul>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+            Remember, competitive programming is a marathon, not a sprint. The learning curve is steep initially, but consistency will yield incredible results.
+          </p>
+        </section>
+
       </div>
     </div>
   );
