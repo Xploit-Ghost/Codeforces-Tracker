@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../App.css';
 
@@ -6,6 +6,18 @@ export default function SignIn() {
   const { loginWithGoogle, currentUser, updateHandle, logout } = useAuth();
   const [handleInput, setHandleInput] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Check if we just came back from a failed redirect
+    import('../firebase').then(({ auth }) => {
+      import('firebase/auth').then(({ getRedirectResult }) => {
+        getRedirectResult(auth).catch((err) => {
+          setError(`Google Sign-In Error: ${err.message}`);
+          console.error(err);
+        });
+      });
+    });
+  }, []);
 
   const handleGoogleSignIn = async () => {
     try {
