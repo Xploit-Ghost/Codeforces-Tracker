@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, db, googleProvider } from '../firebase';
-import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const AuthContext = createContext();
@@ -41,7 +41,8 @@ export function AuthProvider({ children }) {
   };
 
   const loginWithGoogle = async () => {
-    return signInWithPopup(auth, googleProvider);
+    // Using redirect instead of popup to bypass strict browser popup blockers
+    return signInWithRedirect(auth, googleProvider);
   };
 
   const logout = () => {
