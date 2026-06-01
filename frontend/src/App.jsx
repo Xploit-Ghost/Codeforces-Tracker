@@ -12,6 +12,7 @@ import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
 import CodeRunner from './pages/CodeRunner';
+import NotFound from './pages/NotFound';
 import AdBanner from './components/AdBanner'; 
 import RenderLoader from './components/RenderLoader';
 import './App.css';
@@ -114,6 +115,9 @@ function MainLayout() {
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          
+          {/* Catch-all 404 Route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>

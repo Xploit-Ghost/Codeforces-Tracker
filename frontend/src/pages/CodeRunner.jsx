@@ -149,7 +149,7 @@ export default function CodeRunner() {
     <div style={{ display: 'flex', height: '80vh', width: '100%', overflow: 'hidden', position: 'relative' }}>
       
       {/* LEFT PANE */}
-      <div style={{ width: \`\${leftWidth}%\`, backgroundColor: 'rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
+      <div style={{ width: `${leftWidth}%`, backgroundColor: 'rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(255,255,255,0.1)' }}>
         
         <div style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
           {!isFound ? (
@@ -236,7 +236,7 @@ export default function CodeRunner() {
       />
 
       {/* RIGHT PANE */}
-      <div style={{ width: \`calc(\${100 - leftWidth}% - 5px)\`, display: 'flex', flexDirection: 'column', backgroundColor: '#0a0a0a' }}>
+      <div style={{ width: `calc(${100 - leftWidth}% - 5px)`, display: 'flex', flexDirection: 'column', backgroundColor: '#0a0a0a' }}>
         <div style={{ padding: '0.8rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#111', borderBottom: '1px solid #222' }}>
           
           <div style={{ width: '200px' }}>
