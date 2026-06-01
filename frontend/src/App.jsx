@@ -11,14 +11,18 @@ import { About, Privacy, Terms } from './pages/Legal';
 import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
+import CodeRunner from './pages/CodeRunner';
 import AdBanner from './components/AdBanner'; 
 import RenderLoader from './components/RenderLoader';
 import './App.css';
+
+import TopWelcome from './pages/TopWelcome';
 
 function TopNavigation() {
   const location = useLocation();
   const isCodeforces = location.pathname.startsWith('/codeforces');
   const isCompare = location.pathname.startsWith('/compare');
+  const isWelcome = location.pathname === '/welcome';
 
   return (
     <div style={{ width: '100%', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', marginBottom: '1rem' }}>
@@ -29,6 +33,13 @@ function TopNavigation() {
           style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
         >
           Codeforces
+        </Link>
+        <Link 
+          to="/welcome" 
+          className={isWelcome ? 'nav-link active' : 'nav-link'}
+          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
+        >
+          Welcome
         </Link>
         <Link 
           to="/compare/analytics" 
@@ -48,6 +59,7 @@ function CodeforcesNavigation() {
     <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
+      <Link to="/codeforces/runner" className={location.pathname === '/codeforces/runner' ? 'nav-link active' : 'nav-link'}>Code Runner</Link>
     </nav>
   );
 }
@@ -81,11 +93,14 @@ function MainLayout() {
       
       <div style={{ minHeight: '80vh' }}>
         <Routes>
-          <Route path="/" element={<Navigate to="/codeforces/welcome" replace />} />
+          <Route path="/" element={<Navigate to="/welcome" replace />} />
           
+          <Route path="/welcome" element={<TopWelcome />} />
+
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
           <Route path="/codeforces/topics" element={<CodeforcesTopics />} />
+          <Route path="/codeforces/runner" element={<CodeRunner />} />
           
           {/* Compare and Analyse Hierarchy */}
           <Route path="/compare/analytics" element={<Analytics />} />
@@ -121,11 +136,35 @@ function Footer() {
   );
 }
 
-function App() {
-  const [isReady, setIsReady] = useState(false);
+import axios from 'axios';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
-  if (!isReady) {
-    return <RenderLoader onReady={() => setIsReady(true)} />;
+function App() {
+  const [appState, setAppState] = useState('checking'); // 'checking', 'loading', 'ready'
+
+  useEffect(() => {
+    let isMounted = true;
+    const checkFast = async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 800); // 800ms limit
+        await axios.get(`${BACKEND_URL}/api/health`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (isMounted) setAppState('ready');
+      } catch (err) {
+        if (isMounted) setAppState('loading');
+      }
+    };
+    checkFast();
+    return () => { isMounted = false; };
+  }, []);
+
+  if (appState === 'checking') {
+    return <div style={{ height: '100vh', width: '100vw', backgroundColor: '#060b0e' }}></div>; // Blank screen briefly
+  }
+
+  if (appState === 'loading') {
+    return <RenderLoader onReady={() => setAppState('ready')} />;
   }
 
   return (

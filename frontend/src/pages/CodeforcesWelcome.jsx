@@ -4,14 +4,14 @@ import '../App.css';
 export default function CodeforcesWelcome() {
   return (
     <div className="container">
-      <div className="card text-page" style={{ maxWidth: '900px', width: '100%' }}>
-        <h1 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem', textShadow: '0 0 20px rgba(43, 179, 167, 0.4)' }}>
+      <div className="card text-page" style={{ maxWidth: '1200px', width: '100%', padding: '3rem' }}>
+        <h1 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '2.5rem', textShadow: '0 0 20px rgba(43, 179, 167, 0.4)' }}>
           WELCOME TO CP-Tracker Codeforces Section !
         </h1>
 
         <section style={{ marginBottom: '3rem' }}>
           <h2>Introduction to the Codeforces Section</h2>
-          <p>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
             Welcome to the beating heart of CP-Tracker! The Codeforces Section is a meticulously crafted suite of tools 
             designed specifically to elevate your competitive programming journey. Whether you are a complete beginner aiming 
             to solve your first Div 3 A problem, or a seasoned Candidate Master pushing for Grandmaster, this section will 

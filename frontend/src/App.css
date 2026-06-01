@@ -507,9 +507,10 @@ button:disabled {
 }
 .text-page {
   text-align: left;
-  line-height: 1.6;
-  max-width: 800px;
+  line-height: 1.8;
+  max-width: 1200px;
   margin: 0 auto;
+  font-size: 1.15rem;
 }
 
 .text-page h1 {

@@ -12,7 +12,7 @@ const CF_TOPICS = [
   "dsu", "shortest paths", "trees", "probabilities"
 ];
 
-const RATINGS = [800, 900, 1000, 1100, 1200, 1300];
+const RATINGS = Array.from({ length: 28 }, (_, i) => 800 + i * 100);
 
 export default function CodeforcesTopics() {
   const [selectedRating, setSelectedRating] = useState(800);
