@@ -11,7 +11,8 @@ import { About, Privacy, Terms } from './pages/Legal';
 import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
-import CodeRunner from './pages/CodeRunner';
+import DsaGraph from './pages/DsaGraph';
+import DsaTopic from './pages/DsaTopic';
 import NotFound from './pages/NotFound';
 import AdBanner from './components/AdBanner'; 
 import RenderLoader from './components/RenderLoader';
@@ -49,6 +50,13 @@ function TopNavigation() {
         >
           Compare and Analyse
         </Link>
+        <Link 
+          to="/dsa" 
+          className={location.pathname.startsWith('/dsa') ? 'nav-link active' : 'nav-link'}
+          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
+        >
+          DSA
+        </Link>
       </nav>
     </div>
   );
@@ -60,7 +68,6 @@ function CodeforcesNavigation() {
     <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
-      <Link to="/codeforces/runner" className={location.pathname === '/codeforces/runner' ? 'nav-link active' : 'nav-link'}>Code Runner</Link>
     </nav>
   );
 }
@@ -99,7 +106,10 @@ function MainLayout() {
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
           <Route path="/codeforces/topics" element={<CodeforcesTopics />} />
-          <Route path="/codeforces/runner" element={<CodeRunner />} />
+          
+          {/* DSA Hierarchy */}
+          <Route path="/dsa" element={<DsaGraph />} />
+          <Route path="/dsa/topic/:topicId" element={<DsaTopic />} />
           
           {/* Compare and Analyse Hierarchy */}
           <Route path="/compare/analytics" element={<Analytics />} />
