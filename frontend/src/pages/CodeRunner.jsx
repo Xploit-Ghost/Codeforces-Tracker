@@ -177,7 +177,7 @@ export default function CodeRunner() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'center' }}>
                 <a 
-                  href={\`https://codeforces.com/contest/\${probNumber}/problem/\${probLetter}\`}
+                  href={`https://codeforces.com/contest/${probNumber}/problem/${probLetter}`}
                   target="_blank" 
                   rel="noreferrer"
                   style={{ 
