@@ -25,7 +25,7 @@ export default function SignIn() {
     try {
       await updateHandle(handleInput.trim());
     } catch (err) {
-      setError('Failed to save Codeforces handle');
+      setError(`Failed to save Codeforces handle: ${err.message}`);
     }
   };
 
