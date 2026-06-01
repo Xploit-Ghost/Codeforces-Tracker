@@ -32,7 +32,13 @@ export function AuthProvider({ children }) {
   const updateHandle = async (handle) => {
     if (!currentUser) return;
     try {
-      await setDoc(doc(db, 'users', currentUser.uid), { cfHandle: handle }, { merge: true });
+      await setDoc(doc(db, 'users', currentUser.uid), { 
+        cfHandle: handle,
+        email: currentUser.email,
+        name: currentUser.displayName,
+        photoUrl: currentUser.photoURL,
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
       setCfHandle(handle);
     } catch (error) {
       console.error("Error saving handle:", error);
