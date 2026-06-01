@@ -202,6 +202,40 @@ app.get('/api/contests', async (req, res) => {
     }
 });
 
+app.get('/api/problems-filtered', async (req, res) => {
+    try {
+        const rating = parseInt(req.query.rating);
+        const tagsParam = req.query.tags; // comma separated
+        
+        if (!rating) return res.status(400).json({ error: 'Rating is required' });
+
+        const now = Date.now();
+        if (cachedProblems.length === 0 || now - lastProblemsFetch > 3600000) {
+            const response = await axios.get('https://codeforces.com/api/problemset.problems');
+            if (response.data && response.data.result && response.data.result.problems) {
+                cachedProblems = response.data.result.problems;
+                lastProblemsFetch = now;
+            }
+        }
+
+        let validProblems = cachedProblems.filter(p => p.rating === rating);
+        
+        if (tagsParam) {
+            const selectedTags = tagsParam.split(',').map(t => t.trim().toLowerCase());
+            if (selectedTags.length > 0) {
+                validProblems = validProblems.filter(p => 
+                    p.tags && selectedTags.some(selectedTag => p.tags.includes(selectedTag))
+                );
+            }
+        }
+
+        // Return up to 100 problems to give enough options, user wants 15 min
+        res.json(validProblems.slice(0, 100));
+    } catch (error) { 
+        res.status(500).json({ error: 'Failed to fetch filtered problems' }); 
+    }
+});
+
 app.get('/api/random-problem', async (req, res) => {
     try {
         const rating = parseInt(req.query.rating);
