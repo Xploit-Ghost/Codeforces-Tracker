@@ -1,51 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../App.css';
-
-const topicData = {
-  'dynamic-programming': {
-    title: 'Dynamic Programming',
-    introduction: 'Dynamic Programming (DP) is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable when the subproblems overlap—meaning the same subproblems are solved multiple times. By storing the results of these subproblems (memoization) or building up solutions from smaller ones (tabulation), DP drastically reduces the computational time from exponential to polynomial.',
-    useCases: [
-      { text: 'Finding the maximum or minimum (e.g., shortest path, minimum coins).', keyword: 'max/min' },
-      { text: 'Counting the number of ways to do something (e.g., number of paths).', keyword: 'number of ways' },
-      { text: 'Problems involving "choose or not choose" (e.g., Knapsack).', keyword: 'choose/not choose' }
-    ],
-    complexity: {
-      bruteForce: {
-        time: 'O(2^N) or O(N!)',
-        desc: 'Without DP, overlapping subproblems are re-evaluated repeatedly. This leads to an exponential explosion of function calls. If N > 20, a brute force approach will almost certainly yield a Time Limit Exceeded (TLE).'
-      },
-      optimal: {
-        time: 'O(N) or O(N^2)',
-        desc: 'DP caches the result of each subproblem. Thus, each subproblem is evaluated exactly once. The time complexity becomes roughly the Number of States × Transition Time. This allows solving for N = 10^5 in under 1 second.'
-      }
-    },
-    image: '/dp_visual.png',
-    problems: {
-      basic: [
-        { name: 'Fibonacci Number (LeetCode 509)', link: 'https://leetcode.com/problems/fibonacci-number/' },
-        { name: 'Climbing Stairs (LeetCode 70)', link: 'https://leetcode.com/problems/climbing-stairs/' },
-        { name: 'Min Cost Climbing Stairs (LeetCode 746)', link: 'https://leetcode.com/problems/min-cost-climbing-stairs/' },
-        { name: 'Hit the Lottery (Codeforces 996A)', link: 'https://codeforces.com/problemset/problem/996/A' },
-        { name: 'Nth Catalan Number (GFG)', link: 'https://practice.geeksforgeeks.org/problems/nth-catalan-number/0' }
-      ],
-      medium: [
-        { name: 'Coin Change (LeetCode 322)', link: 'https://leetcode.com/problems/coin-change/' },
-        { name: 'Longest Increasing Subsequence (LeetCode 300)', link: 'https://leetcode.com/problems/longest-increasing-subsequence/' },
-        { name: 'Cut Ribbon (Codeforces 189A)', link: 'https://codeforces.com/problemset/problem/189/A' }
-      ],
-      hard: [
-        { name: 'Regular Expression Matching (LeetCode 10)', link: 'https://leetcode.com/problems/regular-expression-matching/' },
-        { name: 'Flowers (Codeforces 474D)', link: 'https://codeforces.com/problemset/problem/474/D' }
-      ]
-    }
-  }
-};
+import { dsaTopics as topicData } from '../data/dsaTopics';
 
 export default function DsaTopic() {
   const { topicId } = useParams();
   const data = topicData[topicId];
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(data.codeSnippet);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   if (!data) {
     return (
@@ -120,7 +87,44 @@ export default function DsaTopic() {
       </section>
 
       <section style={{ marginBottom: '4rem' }}>
-        <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>5. Practice Problems</h2>
+        <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>5. Core Logic & Code Snippet</h2>
+        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1rem' }}>
+          Understanding the core structural implementation is vital. Below is a standard, highly-commented boilerplate for this approach.
+        </p>
+        <div style={{ position: 'relative', backgroundColor: '#0a0a0a', borderRadius: '8px', border: '1px solid #333', overflow: 'hidden' }}>
+          <button 
+            onClick={handleCopy}
+            style={{ 
+              position: 'absolute', 
+              top: '10px', 
+              right: '10px', 
+              padding: '0.4rem 0.8rem', 
+              backgroundColor: copied ? 'var(--success)' : '#222', 
+              color: '#fff', 
+              border: 'none', 
+              borderRadius: '4px', 
+              cursor: 'pointer',
+              fontFamily: 'Space Grotesk',
+              transition: 'background-color 0.3s'
+            }}
+          >
+            {copied ? 'Copied!' : 'Copy Code'}
+          </button>
+          <pre style={{ margin: 0, padding: '1.5rem', color: '#e2e8f0', fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', overflowX: 'auto' }}>
+            <code>{data.codeSnippet}</code>
+          </pre>
+        </div>
+      </section>
+
+      <section style={{ marginBottom: '4rem' }}>
+        <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>6. Variations & Strategy</h2>
+        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-main)', backgroundColor: 'rgba(43, 179, 167, 0.05)', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid var(--accent)' }}>
+          {data.variations}
+        </p>
+      </section>
+
+      <section style={{ marginBottom: '4rem' }}>
+        <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>7. Practice Problems</h2>
         <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '2rem' }}>
           Start from the basic direct implementations and work your way up. We have curated 10 essential questions for this topic.
         </p>

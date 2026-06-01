@@ -62,87 +62,70 @@ export default function DsaGraph() {
 
   return (
     <div className="container" style={{ minHeight: '80vh', padding: '2rem 0' }}>
-      <h1 style={{ textAlign: 'center', color: 'var(--accent)', marginBottom: '3rem', fontSize: '2.5rem', textShadow: '0 0 20px rgba(43, 179, 167, 0.4)' }}>
-        DSA Learning Path Interactive Graph
+      <h1 style={{ textAlign: 'center', color: 'var(--accent)', marginBottom: '1rem', fontSize: '2.5rem', textShadow: '0 0 20px rgba(43, 179, 167, 0.4)' }}>
+        DSA Learning Path
       </h1>
-      <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '4rem', fontSize: '1.2rem' }}>
-        Click on the highlighted leaf nodes at the bottom to explore topics in depth.
+      <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '3rem', fontSize: '1.2rem' }}>
+        Based on the standard NeetCode Roadmap. Click any node to explore the topic.
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', overflowX: 'auto', paddingBottom: '2rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', overflowX: 'auto', paddingBottom: '4rem', gap: '2rem' }}>
         
-        {/* Level 1: Root */}
-        <InternalNode title="Data Structures & Algorithms" />
-        <Connector vertical height="40px" />
-        
-        {/* Branch 1 */}
-        <div style={{ width: '80%', height: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-        
-        {/* Level 2: DS and Algo */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', position: 'relative' }}>
-          
-          <div style={{ width: '2px', height: '40px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-          <div style={{ width: '2px', height: '40px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-          
+        {/* Level 1 */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LeafNode title="Arrays & Hashing" topicId="arrays-and-hashing" />
         </div>
-        
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '84%' }}>
-          {/* DS Branch */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
-            <InternalNode title="Data Structures" />
-            <Connector vertical height="40px" />
-            
-            <div style={{ width: '80%', height: '2px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-            
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%' }}>
-              <div style={{ width: '2px', height: '40px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-              <div style={{ width: '2px', height: '40px', backgroundColor: 'rgba(255,255,255,0.2)' }} />
-            </div>
+        <Connector vertical height="30px" />
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '95%' }}>
-              
-              {/* Linear */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <InternalNode title="Linear" />
-                <Connector vertical height="30px" />
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '300px' }}>
-                  <LeafNode title="Arrays" topicId="arrays" />
-                  <LeafNode title="Linked Lists" topicId="linked-lists" />
-                  <LeafNode title="Stacks" topicId="stacks" />
-                  <LeafNode title="Queues" topicId="queues" />
-                </div>
-              </div>
+        {/* Level 2 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem' }}>
+          <LeafNode title="Two Pointers" topicId="two-pointers" />
+          <LeafNode title="Stack" topicId="stack" />
+        </div>
+        <Connector vertical height="30px" />
 
-              {/* Non-Linear */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <InternalNode title="Non-Linear" />
-                <Connector vertical height="30px" />
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '250px' }}>
-                  <LeafNode title="Trees" topicId="trees" />
-                  <LeafNode title="Graphs" topicId="graphs" />
-                  <LeafNode title="Hashing" topicId="hashing" />
-                </div>
-              </div>
+        {/* Level 3 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+          <LeafNode title="Binary Search" topicId="binary-search" />
+          <LeafNode title="Sliding Window" topicId="sliding-window" />
+          <LeafNode title="Linked List" topicId="linked-list" />
+        </div>
+        <Connector vertical height="30px" />
 
-            </div>
+        {/* Level 4 */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LeafNode title="Trees" topicId="trees" />
+        </div>
+        <Connector vertical height="30px" />
 
-          </div>
+        {/* Level 5 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+          <LeafNode title="Tries" topicId="tries" />
+          <LeafNode title="Heap / Priority Queue" topicId="heap" />
+          <LeafNode title="Backtracking" topicId="backtracking" />
+        </div>
+        <Connector vertical height="30px" />
 
-          {/* Algorithms Branch */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
-            <InternalNode title="Algorithms" />
-            <Connector vertical height="40px" />
-            
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '400px', marginTop: '20px' }}>
-              <LeafNode title="Sorting" topicId="sorting" />
-              <LeafNode title="Searching" topicId="searching" />
-              <LeafNode title="Dynamic Programming" topicId="dynamic-programming" />
-              <LeafNode title="Greedy" topicId="greedy" />
-              <LeafNode title="Backtracking" topicId="backtracking" />
-              <LeafNode title="Two Pointers" topicId="two-pointers" />
-            </div>
+        {/* Level 6 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <LeafNode title="Intervals" topicId="intervals" />
+          <LeafNode title="Greedy" topicId="greedy" />
+          <LeafNode title="Advanced Graphs" topicId="advanced-graphs" />
+          <LeafNode title="Graphs" topicId="graphs" />
+          <LeafNode title="1-D DP" topicId="1d-dp" />
+        </div>
+        <Connector vertical height="30px" />
 
-          </div>
+        {/* Level 7 */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+          <LeafNode title="2-D DP" topicId="2d-dp" />
+          <LeafNode title="Bit Manipulation" topicId="bit-manipulation" />
+        </div>
+        <Connector vertical height="30px" />
+
+        {/* Level 8 */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <LeafNode title="Math & Geometry" topicId="math-and-geometry" />
         </div>
 
       </div>
