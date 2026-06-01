@@ -41,8 +41,7 @@ export function AuthProvider({ children }) {
   };
 
   const loginWithGoogle = async () => {
-    // Using redirect instead of popup to bypass strict browser popup blockers
-    return signInWithRedirect(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const logout = () => {
