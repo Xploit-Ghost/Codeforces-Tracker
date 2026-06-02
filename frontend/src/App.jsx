@@ -64,32 +64,6 @@ function TopNavigation() {
           DSA
         </Link>
         
-        <a 
-          href="https://ko-fi.com/xploitghost" 
-          target="_blank" 
-          rel="noreferrer"
-          style={{ 
-            fontSize: '1rem', 
-            padding: '0.6rem 1.2rem', 
-            marginLeft: 'auto',
-            marginRight: '1rem',
-            backgroundColor: '#29abe0', 
-            color: '#ffffff', 
-            fontWeight: 'bold', 
-            borderRadius: '8px', 
-            textDecoration: 'none',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            boxShadow: '0 4px 14px rgba(41, 171, 224, 0.3)',
-            transition: 'transform 0.2s ease'
-          }}
-          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-        >
-          <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" style={{ width: '22px' }} />
-          Support Project
-        </a>
       </nav>
     </div>
   );
