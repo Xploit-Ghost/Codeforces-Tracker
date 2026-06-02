@@ -4,6 +4,7 @@ import '../App.css';
 export default function CodeforcesLeaderboard() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -13,9 +14,12 @@ export default function CodeforcesLeaderboard() {
         if (data.status === 'OK') {
           // Top 100 users
           setUsers(data.result.slice(0, 100));
+        } else {
+          setError("Codeforces returned an error: " + data.comment);
         }
       } catch (err) {
         console.error("Failed to fetch leaderboard", err);
+        setError("Failed to download the 13MB leaderboard data. Your connection might have timed out.");
       }
       setLoading(false);
     };
@@ -30,7 +34,15 @@ export default function CodeforcesLeaderboard() {
         <p className="subtitle" style={{ marginBottom: '2rem' }}>The top 100 highest rated active competitive programmers in the world.</p>
         
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '2rem' }}>Loading global ranks...</div>
+          <div style={{ textAlign: 'center', padding: '2rem' }}>Downloading 13MB Global Ranks Database...</div>
+        ) : error ? (
+          <div className="error-message" style={{ textAlign: 'center' }}>
+            <p>{error}</p>
+            <p style={{ fontSize: '0.9rem', color: '#aaa', marginTop: '1rem' }}>
+              Note: The Codeforces API sends the entire world's active users in a single massive file. 
+              On slow connections, the browser often cancels the request.
+            </p>
+          </div>
         ) : (
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
