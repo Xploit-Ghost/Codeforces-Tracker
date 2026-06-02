@@ -12,8 +12,10 @@ import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
 import CodeforcesUserLookup from './pages/CodeforcesUserLookup';
-import CodeforcesLeaderboard from './pages/CodeforcesLeaderboard';
 import CodeforcesRandom from './pages/CodeforcesRandom';
+import CodeforcesGlobalStatus from './pages/CodeforcesGlobalStatus';
+import CodeforcesBlogs from './pages/CodeforcesBlogs';
+import CodeforcesGym from './pages/CodeforcesGym';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
 import DailyChallenge from './pages/DailyChallenge';
@@ -79,8 +81,10 @@ function CodeforcesNavigation() {
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
       <Link to="/codeforces/lookup" className={location.pathname === '/codeforces/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
-      <Link to="/codeforces/leaderboard" className={location.pathname === '/codeforces/leaderboard' ? 'nav-link active' : 'nav-link'}>Leaderboard</Link>
       <Link to="/codeforces/random" className={location.pathname === '/codeforces/random' ? 'nav-link active' : 'nav-link'}>Random Problem 🎲</Link>
+      <Link to="/codeforces/status" className={location.pathname === '/codeforces/status' ? 'nav-link active' : 'nav-link'}>Live Status</Link>
+      <Link to="/codeforces/blogs" className={location.pathname === '/codeforces/blogs' ? 'nav-link active' : 'nav-link'}>Community Blogs</Link>
+      <Link to="/codeforces/gym" className={location.pathname === '/codeforces/gym' ? 'nav-link active' : 'nav-link'}>Gym Contests</Link>
     </nav>
   );
 }
@@ -130,8 +134,10 @@ function MainLayout() {
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
           <Route path="/codeforces/topics" element={<GuestLock><CodeforcesTopics /></GuestLock>} />
           <Route path="/codeforces/lookup" element={<CodeforcesUserLookup />} />
-          <Route path="/codeforces/leaderboard" element={<CodeforcesLeaderboard />} />
           <Route path="/codeforces/random" element={<CodeforcesRandom />} />
+          <Route path="/codeforces/status" element={<CodeforcesGlobalStatus />} />
+          <Route path="/codeforces/blogs" element={<CodeforcesBlogs />} />
+          <Route path="/codeforces/gym" element={<CodeforcesGym />} />
           
           {/* DSA Hierarchy */}
           <Route path="/dsa" element={<GuestLock><DsaGraph /></GuestLock>} />
