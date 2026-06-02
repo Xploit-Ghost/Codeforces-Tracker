@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
+import { db } from '../firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import '../App.css';
 
 export default function SignIn() {
   const { loginWithGoogle, currentUser, updateHandle, logout } = useAuth();
   const [handleInput, setHandleInput] = useState('');
   const [error, setError] = useState('');
+  
+  // Verification states
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationToken, setVerificationToken] = useState('');
+  const [isChecking, setIsChecking] = useState(false);
 
   useEffect(() => {
-    // Check if we just came back from a failed redirect
     import('../firebase').then(({ auth }) => {
       import('firebase/auth').then(({ getRedirectResult }) => {
         getRedirectResult(auth).catch((err) => {
@@ -19,13 +26,69 @@ export default function SignIn() {
     });
   }, []);
 
+  const initiateVerification = async () => {
+    const handle = handleInput.trim();
+    if (!handle) return;
+    setError('');
+    setIsChecking(true);
 
-  const handleSaveCF = async () => {
-    if (!handleInput.trim()) return;
     try {
-      await updateHandle(handleInput.trim());
+      // 1. Check if handle exists on CF
+      const res = await axios.get(`https://codeforces.com/api/user.info?handles=${handle}`);
+      if (res.data.status !== 'OK') throw new Error("Handle not found on Codeforces");
+      
+      const realHandle = res.data.result[0].handle;
+
+      // 2. Check if handle is already linked by ANOTHER user
+      const usersRef = collection(db, 'users');
+      const q = query(usersRef, where('cfHandle', '==', realHandle));
+      const snap = await getDocs(q);
+      
+      let alreadyClaimed = false;
+      snap.forEach(doc => {
+        if (doc.id !== currentUser.uid) alreadyClaimed = true;
+      });
+
+      if (alreadyClaimed) {
+        throw new Error(`The handle '${realHandle}' is already linked to another Google account.`);
+      }
+
+      // 3. Generate token and move to verification step
+      const token = `cptrack-${currentUser.uid.substring(0, 6)}`;
+      setVerificationToken(token);
+      setIsVerifying(true);
+      setHandleInput(realHandle);
+      
     } catch (err) {
-      setError(`Failed to save Codeforces handle: ${err.message}`);
+      setError(err.response?.data?.comment || err.message);
+    } finally {
+      setIsChecking(false);
+    }
+  };
+
+  const confirmVerification = async () => {
+    setError('');
+    setIsChecking(true);
+    try {
+      // Fetch latest profile info
+      const res = await axios.get(`https://codeforces.com/api/user.info?handles=${handleInput}`);
+      if (res.data.status !== 'OK') throw new Error("Could not fetch Codeforces profile");
+      
+      const userProfile = res.data.result[0];
+      
+      if (userProfile.firstName === verificationToken) {
+        // Success! Link handle
+        await updateHandle(handleInput);
+        setIsVerifying(false);
+        setVerificationToken('');
+        alert("Success! Your handle has been linked.");
+      } else {
+        throw new Error(`Verification failed. Your current First Name on Codeforces is '${userProfile.firstName || ""}'. Please set it exactly to '${verificationToken}'. (Note: CF API might take up to 30 seconds to reflect changes)`);
+      }
+    } catch (err) {
+      setError(err.response?.data?.comment || err.message);
+    } finally {
+      setIsChecking(false);
     }
   };
 
@@ -40,7 +103,7 @@ export default function SignIn() {
           Please sign in to access your dashboard, save your Codeforces handle, and sync your data.
         </p>
 
-        {error && <div style={{ color: '#ef4444', marginBottom: '1rem' }}>{error}</div>}
+        {error && <div style={{ color: '#ef4444', marginBottom: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', padding: '1rem', borderRadius: '4px', border: '1px solid #ef4444' }}>{error}</div>}
 
         {!currentUser ? (
           <button 
@@ -83,23 +146,49 @@ export default function SignIn() {
             <h2 style={{ margin: 0, color: 'var(--text-main)' }}>Hi, {currentUser.displayName}!</h2>
             
             <div style={{ width: '100%', marginTop: '1rem', backgroundColor: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333' }}>
-              <h3 style={{ marginTop: 0, color: 'var(--accent)' }}>Link Codeforces Handle</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                Enter your Codeforces handle. This will be automatically filled everywhere across the platform.
-              </p>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <input 
-                  type="text" 
-                  placeholder="Codeforces Handle" 
-                  value={handleInput} 
-                  onChange={(e) => setHandleInput(e.target.value)}
-                  style={{ flex: 1 }}
-                />
-                <button onClick={handleSaveCF} style={{ whiteSpace: 'nowrap' }}>Save Handle</button>
-              </div>
+              {!isVerifying ? (
+                <>
+                  <h3 style={{ marginTop: 0, color: 'var(--accent)' }}>Link Codeforces Handle</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                    Enter your Codeforces handle to sync your stats.
+                  </p>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <input 
+                      type="text" 
+                      placeholder="Codeforces Handle" 
+                      value={handleInput} 
+                      onChange={(e) => setHandleInput(e.target.value)}
+                      style={{ flex: 1, width: '100%', boxSizing: 'border-box' }}
+                      disabled={isChecking}
+                    />
+                    <button onClick={initiateVerification} disabled={isChecking} style={{ whiteSpace: 'nowrap' }}>
+                      {isChecking ? 'Checking...' : 'Link Handle'}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h3 style={{ marginTop: 0, color: '#ffb86c' }}>Verification Required</h3>
+                  <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1rem', textAlign: 'left', lineHeight: '1.5' }}>
+                    To prove you own <strong>{handleInput}</strong>, please go to your Codeforces profile settings and temporarily change your <strong>First Name</strong> to exactly:
+                  </p>
+                  <div style={{ background: '#222', padding: '1rem', borderRadius: '4px', border: '1px solid #555', marginBottom: '1rem', fontFamily: 'monospace', fontSize: '1.2rem', color: '#50fa7b', letterSpacing: '2px' }}>
+                    {verificationToken}
+                  </div>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem', textAlign: 'left' }}>
+                    You can change it back immediately after verification. (Codeforces API may take 10-20 seconds to update).
+                  </p>
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <button onClick={() => setIsVerifying(false)} style={{ flex: 1, background: 'transparent', color: 'var(--text-muted)', border: '1px solid #555' }}>Cancel</button>
+                    <button onClick={confirmVerification} disabled={isChecking} style={{ flex: 2, background: '#50fa7b', color: '#000' }}>
+                      {isChecking ? 'Verifying...' : 'Verify Now'}
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
             
-            <button onClick={logout} style={{ marginTop: '1rem', backgroundColor: 'transparent', color: '#ef4444', border: 'none', textDecoration: 'underline' }}>
+            <button onClick={logout} style={{ marginTop: '1rem', backgroundColor: 'transparent', color: '#ef4444', border: 'none', textDecoration: 'underline', cursor: 'pointer' }}>
               Sign out
             </button>
           </div>
