@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 import Contests from './pages/Contests';
 import Practice from './pages/Practice';
 import Friends from './pages/Friends';
-import Duel from './pages/Duel';
+import Rivalry from './pages/Rivalry';
 import { About, Privacy, Terms } from './pages/Legal';
 import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
@@ -14,6 +14,7 @@ import CodeforcesTopics from './pages/CodeforcesTopics';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
 import DailyChallenge from './pages/DailyChallenge';
+import Upsolve from './pages/Upsolve';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
@@ -81,9 +82,10 @@ function CompareNavigation() {
     <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
       <Link to="/compare/practice" className={location.pathname === '/compare/practice' ? 'nav-link active' : 'nav-link'}>Practice Mode</Link>
       <Link to="/compare/daily" className={location.pathname === '/compare/daily' ? 'nav-link active' : 'nav-link'}>Daily Challenge</Link>
+      <Link to="/compare/upsolve" className={location.pathname === '/compare/upsolve' ? 'nav-link active' : 'nav-link'}>Upsolve</Link>
       <Link to="/compare/contests" className={location.pathname === '/compare/contests' ? 'nav-link active' : 'nav-link'}>Upcoming Contests</Link>
       <Link to="/compare/profile" className={location.pathname === '/compare/profile' ? 'nav-link active' : 'nav-link'}>Solo Profile</Link>
-      <Link to="/compare/duel" className={location.pathname === '/compare/duel' ? 'nav-link active' : 'nav-link'}>Speed Duel</Link>
+      <Link to="/compare/rivalry" className={location.pathname === '/compare/rivalry' ? 'nav-link active' : 'nav-link'}>Rivalry Mode</Link>
       <Link to="/compare/latest" className={location.pathname === '/compare/latest' ? 'nav-link active' : 'nav-link'}>Latest Problems</Link>
       <Link to="/compare/friends" className={location.pathname === '/compare/friends' ? 'nav-link active' : 'nav-link'}>Friends</Link>
       <Link to="/compare/analytics" className={location.pathname === '/compare/analytics' ? 'nav-link active' : 'nav-link'}>Versus Analytics</Link>
@@ -123,11 +125,12 @@ function MainLayout() {
           <Route path="/compare/analytics" element={<Analytics />} />
           <Route path="/compare/profile" element={<Profile />} />
           <Route path="/compare/friends" element={<Friends />} />
-          <Route path="/compare/duel" element={<Duel />} />
+          <Route path="/compare/rivalry" element={<Rivalry />} />
           <Route path="/compare/latest" element={<LatestProblems />} />
           <Route path="/compare/contests" element={<Contests />} />
           <Route path="/compare/practice" element={<Practice />} />
           <Route path="/compare/daily" element={<DailyChallenge />} />
+          <Route path="/compare/upsolve" element={<Upsolve />} />
           
           {/* Shared Routes */}
           <Route path="/guides" element={<Guides />} />

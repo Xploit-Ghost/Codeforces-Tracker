@@ -26,6 +26,14 @@ function Contests() {
     });
   };
 
+  const getGCalLink = (name, startTime, duration) => {
+    const dStart = new Date(startTime * 1000);
+    const dEnd = new Date((startTime + duration) * 1000);
+    const format = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, "");
+    const dates = `${format(dStart)}/${format(dEnd)}`;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(name)}&dates=${dates}&details=Codeforces+Contest`;
+  };
+
   return (
     <div className="container">
       <header>
@@ -56,11 +64,19 @@ function Contests() {
                   {formatTime(c.startTimeSeconds)}
                 </span>
               </div>
-              <div className="contest-metrics">
+              <div className="contest-metrics" style={{ alignItems: 'center' }}>
                 <div className="c-stat-small">
                   <span>Duration</span>
                   <strong>{c.durationSeconds / 3600} hrs</strong>
                 </div>
+                <a 
+                  href={getGCalLink(c.name, c.startTimeSeconds, c.durationSeconds)} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  style={{ marginLeft: '1rem', padding: '0.5rem 1rem', background: 'var(--accent)', color: '#000', borderRadius: '4px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 'bold' }}
+                >
+                  Add to GCal
+                </a>
               </div>
             </div>
           ))}
