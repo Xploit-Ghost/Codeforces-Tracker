@@ -24,8 +24,14 @@
 
 ## ✨ Features
 
-🔥 **Rivalry Mode (Versus Analytics)**
+🔥 **Rivalry Mode**
 > Challenge your friends to a time-boxed rivalry! Set a deadline, and let the proprietary scoring algorithm calculate the winner based on total solves, monthly consistency, and rating growth. 
+
+📊 **Versus Analytics**
+> Compare any two Codeforces handles head-to-head. Dive deep into direct comparisons of rating histories, max streaks, and submission accuracy.
+
+👤 **Solo Profile & Pie Charts**
+> An advanced personal dashboard that visualizes your entire Codeforces journey. See your submission verdicts, language preferences, and rating distribution through beautiful, interactive pie charts and graphs.
 
 📅 **Daily Challenges & Streaks**
 > Consistency is key to becoming a Grandmaster. Get a curated daily challenge based on your current rating level. Solve it to maintain your streak.
@@ -33,11 +39,17 @@
 📈 **The Upsolve Tracker**
 > "Attempted but unsolved" is a CPer's worst enemy. The Upsolve Tracker automatically cross-references your entire submission history to surface problems you gave up on during contests.
 
-🔒 **Native Codeforces Verification**
-> Secure your handle. To link a Codeforces account, users must prove ownership by submitting an intentional `COMPILATION_ERROR` to problem *1A (Theatre Square)* within a 3-minute window. No fake accounts.
+🧩 **Practice by Topic & DSA Learning Path**
+> Master specific algorithms! Browse and filter Codeforces problems sorted by exact tags (DP, Graphs, Math, Greedy) or follow the structured Data Structures & Algorithms learning graph.
 
-📆 **Google Calendar Integration**
-> One-click "Add to GCal" buttons for all upcoming Codeforces contests so you never miss a registration window again.
+⚡ **Latest Problems Feed**
+> Stay up to date with a real-time feed of the most recently published problems on Codeforces, complete with difficulty ratings and tags.
+
+📆 **Upcoming Contests & Google Calendar**
+> Never miss a registration window again. View all upcoming Codeforces contests and click the native "Add to GCal" button to sync it directly to your personal schedule.
+
+🔒 **Secure Handle Verification**
+> To link a Codeforces account, users must prove ownership by submitting an intentional `COMPILATION_ERROR` to problem *1A (Theatre Square)* within a 3-minute window. No fake accounts.
 
 ---
 
