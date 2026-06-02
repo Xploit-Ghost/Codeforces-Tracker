@@ -80,13 +80,35 @@ graph TD
     C --> D[Submit 1A Compile Error]
     D -->|Verified| E[Main Dashboard]
     B -->|Yes| E
+    A -->|Skip Sign-In| E
     
-    E --> F[Rivalry Mode]
-    E --> G[Upsolve Tracker]
-    E --> H[Daily Challenge]
+    E --> F[Compare & Analytics]
+    E --> G[Codeforces Hub]
+    E --> H[DSA Learning Path]
     
-    F --> I[Set Deadline & Rival]
-    I --> J[Live Score Tracking]
+    %% Compare & Analytics Branch
+    F --> F1[Rivalry Mode]
+    F1 -.->|Set Deadline| F1a[Track Live Score vs Friends]
+    
+    F --> F2[Versus Analytics]
+    F2 -.-> F2a[Head-to-Head Rating & Streaks]
+    
+    F --> F3[Solo Profile]
+    F3 -.-> F3a[Verdict & Language Pie Charts]
+    
+    F --> F4[Daily Challenge & Upsolve]
+    F4 -.-> F4a[Build Streaks & Clear Unsolved]
+    
+    %% Codeforces Hub
+    G --> G1[Latest Problems]
+    G --> G2[Upcoming Contests]
+    G2 -.-> G2a[Sync to Google Calendar]
+    
+    %% DSA Learning Path Branch
+    H --> H1[Interactive DSA Graph]
+    H1 --> H2[Select Topic]
+    H2 -.->|e.g., Graphs, DP| H3[View Theory & Notes]
+    H3 --> H4[Solve Curated Problem Set]
 ```
 
 ---
