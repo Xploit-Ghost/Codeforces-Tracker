@@ -75,40 +75,37 @@
 
 ```mermaid
 graph TD
-    A[Landing Page] -->|Google Sign-In| B{Has CF Handle?}
+    A[Welcome / Landing Page] -->|Google Sign-In| B{Has CF Handle?}
     B -->|No| C[Handle Linker]
     C --> D[Submit 1A Compile Error]
-    D -->|Verified| E[Main Dashboard]
+    D -->|Verified| E[Main Application]
     B -->|Yes| E
     A -->|Skip Sign-In| E
     
-    E --> F[Compare & Analytics]
-    E --> G[Codeforces Hub]
-    E --> H[DSA Learning Path]
+    %% Top Navigation
+    E --> F[Compare and Analyse]
+    E --> G[Codeforces]
+    E --> H[DSA]
     
-    %% Compare & Analytics Branch
-    F --> F1[Rivalry Mode]
-    F1 -.->|Set Deadline| F1a[Track Live Score vs Friends]
-    
+    %% Compare and Analyse Branch
+    F --> F1[Solo Profile]
     F --> F2[Versus Analytics]
-    F2 -.-> F2a[Head-to-Head Rating & Streaks]
+    F --> F3[Rivalry Mode]
+    F --> F4[Friends]
+    F --> F5[Practice Mode]
+    F --> F6[Daily Challenge]
+    F --> F7[Upsolve Tracker]
+    F --> F8[Latest Problems]
+    F --> F9[Upcoming Contests]
     
-    F --> F3[Solo Profile]
-    F3 -.-> F3a[Verdict & Language Pie Charts]
+    %% Codeforces Branch
+    G --> G1[Codeforces Welcome]
+    G --> G2[Problems Sorted by Topics]
     
-    F --> F4[Daily Challenge & Upsolve]
-    F4 -.-> F4a[Build Streaks & Clear Unsolved]
-    
-    %% Codeforces Hub
-    G --> G1[Latest Problems]
-    G --> G2[Upcoming Contests]
-    G2 -.-> G2a[Sync to Google Calendar]
-    
-    %% DSA Learning Path Branch
-    H --> H1[Interactive DSA Graph]
-    H1 --> H2[Select Topic]
-    H2 -.->|e.g., Graphs, DP| H3[View Theory & Notes]
-    H3 --> H4[Solve Curated Problem Set]
+    %% DSA Branch
+    H --> H1[DSA Graph]
+    H1 --> H2[Specific Topic]
+    H2 --> H3[Theory & Curated Problems]
 ```
 
 ---
