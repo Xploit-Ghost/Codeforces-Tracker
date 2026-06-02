@@ -610,3 +610,28 @@ button:disabled {
   margin-bottom: 0.5rem;
 }
 
+/* Vertical Side Ads Styling */
+.vertical-ad-container {
+  position: fixed;
+  top: 150px;
+  width: 160px;
+  height: 600px;
+  z-index: 10;
+  display: none; /* Hidden by default to prevent overlap on smaller screens */
+}
+
+/* Only show ads when the screen is wide enough to fit: 1200px (content) + 320px (2 ads) + 100px margins = ~1620px */
+@media (min-width: 1650px) {
+  .vertical-ad-container {
+    display: block;
+  }
+}
+
+.vertical-ad-container.left {
+  left: 20px;
+}
+
+.vertical-ad-container.right {
+  right: 20px;
+}
+

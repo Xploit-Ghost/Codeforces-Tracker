@@ -18,6 +18,7 @@ import Upsolve from './pages/Upsolve';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
+import VerticalAd from './components/VerticalAd';
 import RenderLoader from './components/RenderLoader';
 import GuestLock from './components/GuestLock';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -105,6 +106,10 @@ function MainLayout() {
       {isCodeforces && <CodeforcesNavigation />}
       {isCompare && <CompareNavigation />}
       <AdBanner /> 
+      
+      {/* Side Ads */}
+      <VerticalAd side="left" />
+      <VerticalAd side="right" />
       
       <div style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'flex-end', borderBottom: '1px solid #222' }}>
         <UserProfileBadge />
