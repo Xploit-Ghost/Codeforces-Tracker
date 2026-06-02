@@ -110,7 +110,28 @@ graph TD
 
 ---
 
-## 🚀 Installation & Local Setup
+## 🏛️ Platform Modules
+
+### 1. Compare & Analyse
+This is the core personalized hub of the platform. It heavily relies on the Codeforces API to cross-reference submissions and generate insights.
+* **Solo Profile:** Fetches your `user.status` and `user.rating` to build dynamic Recharts pie charts and line graphs, giving a bird's-eye view of your CP career.
+* **Versus Analytics:** Takes two handles and compares their maximum streaks, total solves, and head-to-head performance.
+* **Rivalry Mode:** A fully integrated gamification engine. Users send "Rivalry Requests" stored in Firebase. Upon acceptance, a deadline is set, and a proprietary algorithm scores users based on Monthly Solves (weighted 50x), Total Solves, and Rating.
+* **Daily Challenge & Upsolve Tracker:** The Daily Challenge algorithm picks a problem roughly `+100` to `+200` above your current rating to ensure optimal growth. The Upsolve tracker finds all problems where your only verdicts were `WA`, `TLE`, etc., and sorts them by recency.
+
+### 2. The Codeforces Hub
+A direct connection to the Codeforces problemset.
+* **Latest Problems:** A real-time feed fetching the most recent problems added to the Codeforces archive.
+* **Practice by Topic:** A highly requested feature allowing users to filter the massive Codeforces problemset by exact tags (e.g., `dp`, `greedy`, `math`, `two pointers`) and rating ranges.
+
+### 3. DSA Learning Path
+A structured roadmap for beginners transitioning into competitive programming.
+* **Interactive Graph:** Built using modern UI components, this maps out the prerequisite structure of Data Structures and Algorithms.
+* **Curated Content:** Each node (e.g., "Dynamic Programming") opens a dedicated page with embedded theory, video resources, and a hand-picked list of Codeforces problems to master that specific algorithm.
+
+---
+
+## 🚀 Wanting to Contribute ? Set up locally.
 
 Want to run CP Tracker locally or contribute? Follow these steps:
 
