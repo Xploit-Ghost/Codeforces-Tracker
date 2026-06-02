@@ -54,8 +54,8 @@ export default function Friends() {
 
   // Function to jump to Solo Profile with this handle
   const openInSoloProfile = (handle) => {
-    // We navigate to /profile. To make it auto-load, you can pass state
-    navigate('/profile', { state: { autoHandle: handle } });
+    // We navigate to /compare/profile. To make it auto-load, you can pass state
+    navigate('/compare/profile', { state: { autoHandle: handle } });
   };
 
   return (

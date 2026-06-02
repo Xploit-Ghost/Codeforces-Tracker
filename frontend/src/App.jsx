@@ -13,6 +13,7 @@ import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
+import DailyChallenge from './pages/DailyChallenge';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
@@ -79,6 +80,7 @@ function CompareNavigation() {
   return (
     <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
       <Link to="/compare/practice" className={location.pathname === '/compare/practice' ? 'nav-link active' : 'nav-link'}>Practice Mode</Link>
+      <Link to="/compare/daily" className={location.pathname === '/compare/daily' ? 'nav-link active' : 'nav-link'}>Daily Challenge</Link>
       <Link to="/compare/contests" className={location.pathname === '/compare/contests' ? 'nav-link active' : 'nav-link'}>Upcoming Contests</Link>
       <Link to="/compare/profile" className={location.pathname === '/compare/profile' ? 'nav-link active' : 'nav-link'}>Solo Profile</Link>
       <Link to="/compare/duel" className={location.pathname === '/compare/duel' ? 'nav-link active' : 'nav-link'}>Speed Duel</Link>
@@ -125,6 +127,7 @@ function MainLayout() {
           <Route path="/compare/latest" element={<LatestProblems />} />
           <Route path="/compare/contests" element={<Contests />} />
           <Route path="/compare/practice" element={<Practice />} />
+          <Route path="/compare/daily" element={<DailyChallenge />} />
           
           {/* Shared Routes */}
           <Route path="/guides" element={<Guides />} />
