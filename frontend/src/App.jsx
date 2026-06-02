@@ -17,6 +17,8 @@ import DailyChallenge from './pages/DailyChallenge';
 import Upsolve from './pages/Upsolve';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
+import CodeforcesUserLookup from './pages/CodeforcesUserLookup';
+import CodeforcesLeaderboard from './pages/CodeforcesLeaderboard';
 import AdBanner from './components/AdBanner'; 
 import VerticalAd from './components/VerticalAd';
 import RenderLoader from './components/RenderLoader';
@@ -75,6 +77,9 @@ function CodeforcesNavigation() {
     <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
+      <Link to="/codeforces/lookup" className={location.pathname === '/codeforces/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
+      <Link to="/codeforces/leaderboard" className={location.pathname === '/codeforces/leaderboard' ? 'nav-link active' : 'nav-link'}>Leaderboard</Link>
+      <a href="https://codeforces.com/problemset/problem/random" target="_blank" rel="noreferrer" className="nav-link">Random Problem 🎲</a>
     </nav>
   );
 }
@@ -123,6 +128,8 @@ function MainLayout() {
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
           <Route path="/codeforces/topics" element={<GuestLock><CodeforcesTopics /></GuestLock>} />
+          <Route path="/codeforces/lookup" element={<CodeforcesUserLookup />} />
+          <Route path="/codeforces/leaderboard" element={<CodeforcesLeaderboard />} />
           
           {/* DSA Hierarchy */}
           <Route path="/dsa" element={<GuestLock><DsaGraph /></GuestLock>} />
