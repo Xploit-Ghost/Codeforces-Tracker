@@ -13,6 +13,12 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [cfHandle, setCfHandle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isGuest, setIsGuest] = useState(() => localStorage.getItem('guestMode') === 'true');
+
+  const continueAsGuest = () => {
+    setIsGuest(true);
+    localStorage.setItem('guestMode', 'true');
+  };
 
   // Fetch or update user's CF handle from Firestore
   const loadUserHandle = async (uid) => {
@@ -59,6 +65,8 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
+    setIsGuest(false);
+    localStorage.removeItem('guestMode');
     return signOut(auth);
   };
 
@@ -66,6 +74,8 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
       if (user) {
+        setIsGuest(false);
+        localStorage.removeItem('guestMode');
         await loadUserHandle(user.uid);
       } else {
         setCfHandle(null);
@@ -78,9 +88,11 @@ export function AuthProvider({ children }) {
   const value = {
     currentUser,
     cfHandle,
+    isGuest,
     loginWithGoogle,
     logout,
-    updateHandle
+    updateHandle,
+    continueAsGuest
   };
 
   return (

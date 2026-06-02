@@ -19,6 +19,7 @@ import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
 import RenderLoader from './components/RenderLoader';
+import GuestLock from './components/GuestLock';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
@@ -115,22 +116,22 @@ function MainLayout() {
           
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
-          <Route path="/codeforces/topics" element={<CodeforcesTopics />} />
+          <Route path="/codeforces/topics" element={<GuestLock><CodeforcesTopics /></GuestLock>} />
           
           {/* DSA Hierarchy */}
-          <Route path="/dsa" element={<DsaGraph />} />
-          <Route path="/dsa/topic/:topicId" element={<DsaTopic />} />
+          <Route path="/dsa" element={<GuestLock><DsaGraph /></GuestLock>} />
+          <Route path="/dsa/topic/:topicId" element={<GuestLock><DsaTopic /></GuestLock>} />
           
           {/* Compare and Analyse Hierarchy */}
           <Route path="/compare/analytics" element={<Analytics />} />
-          <Route path="/compare/profile" element={<Profile />} />
-          <Route path="/compare/friends" element={<Friends />} />
-          <Route path="/compare/rivalry" element={<Rivalry />} />
+          <Route path="/compare/profile" element={<GuestLock><Profile /></GuestLock>} />
+          <Route path="/compare/friends" element={<GuestLock><Friends /></GuestLock>} />
+          <Route path="/compare/rivalry" element={<GuestLock><Rivalry /></GuestLock>} />
           <Route path="/compare/latest" element={<LatestProblems />} />
           <Route path="/compare/contests" element={<Contests />} />
           <Route path="/compare/practice" element={<Practice />} />
-          <Route path="/compare/daily" element={<DailyChallenge />} />
-          <Route path="/compare/upsolve" element={<Upsolve />} />
+          <Route path="/compare/daily" element={<GuestLock><DailyChallenge /></GuestLock>} />
+          <Route path="/compare/upsolve" element={<GuestLock><Upsolve /></GuestLock>} />
           
           {/* Shared Routes */}
           <Route path="/guides" element={<Guides />} />
@@ -183,9 +184,9 @@ function UserProfileBadge() {
 }
 
 function AppContent() {
-  const { currentUser, cfHandle } = useAuth();
+  const { currentUser, cfHandle, isGuest } = useAuth();
 
-  if (!currentUser || !cfHandle) {
+  if (!isGuest && (!currentUser || !cfHandle)) {
     return <SignIn />;
   }
 
