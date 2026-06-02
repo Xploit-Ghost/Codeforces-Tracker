@@ -170,28 +170,28 @@ export default function Rivalry() {
           Challenge your friends! Compare stats, calculate a final score, and see who wins before the deadline!
         </p>
 
-        <form onSubmit={sendRequest} className="search-form" style={{ marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', background: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333' }}>
-          <div style={{ flex: 1, minWidth: '200px' }}>
+        <form onSubmit={sendRequest} style={{ marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '1.5rem', background: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333', alignItems: 'flex-end' }}>
+          <div style={{ flex: '1 1 250px' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Rival's CF Handle</label>
             <input 
               type="text" 
               placeholder="e.g., tourist" 
               value={newRivalHandle} 
               onChange={(e) => setNewRivalHandle(e.target.value)} 
-              style={{ width: '100%' }}
+              style={{ width: '100%', boxSizing: 'border-box', borderRadius: '4px' }}
             />
           </div>
-          <div style={{ flex: 1, minWidth: '200px' }}>
+          <div style={{ flex: '1 1 250px' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Rivalry End Date & Time</label>
             <input 
               type="datetime-local" 
               value={endDate} 
               onChange={(e) => setEndDate(e.target.value)} 
-              style={{ width: '100%', padding: '0.8rem', borderRadius: '30px', border: '1px solid #333', background: '#222', color: '#fff' }}
+              style={{ width: '100%', boxSizing: 'border-box', padding: '0.8rem', borderRadius: '4px', border: '1px solid #333', background: '#222', color: '#fff' }}
             />
           </div>
-          <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-            <button type="submit" style={{ height: '45px' }}>Send Request</button>
+          <div style={{ flex: '0 0 auto' }}>
+            <button type="submit" style={{ height: '45px', padding: '0 2rem' }}>Send Request</button>
           </div>
         </form>
 
