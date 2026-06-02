@@ -11,14 +11,15 @@ import { About, Privacy, Terms } from './pages/Legal';
 import Guides from './pages/Guides';
 import CodeforcesWelcome from './pages/CodeforcesWelcome';
 import CodeforcesTopics from './pages/CodeforcesTopics';
+import CodeforcesUserLookup from './pages/CodeforcesUserLookup';
+import CodeforcesLeaderboard from './pages/CodeforcesLeaderboard';
+import CodeforcesRandom from './pages/CodeforcesRandom';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
 import DailyChallenge from './pages/DailyChallenge';
 import Upsolve from './pages/Upsolve';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
-import CodeforcesUserLookup from './pages/CodeforcesUserLookup';
-import CodeforcesLeaderboard from './pages/CodeforcesLeaderboard';
 import AdBanner from './components/AdBanner'; 
 import VerticalAd from './components/VerticalAd';
 import RenderLoader from './components/RenderLoader';
@@ -79,7 +80,7 @@ function CodeforcesNavigation() {
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
       <Link to="/codeforces/lookup" className={location.pathname === '/codeforces/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
       <Link to="/codeforces/leaderboard" className={location.pathname === '/codeforces/leaderboard' ? 'nav-link active' : 'nav-link'}>Leaderboard</Link>
-      <a href="https://codeforces.com/problemset/problem/random" target="_blank" rel="noreferrer" className="nav-link">Random Problem 🎲</a>
+      <Link to="/codeforces/random" className={location.pathname === '/codeforces/random' ? 'nav-link active' : 'nav-link'}>Random Problem 🎲</Link>
     </nav>
   );
 }
@@ -130,6 +131,7 @@ function MainLayout() {
           <Route path="/codeforces/topics" element={<GuestLock><CodeforcesTopics /></GuestLock>} />
           <Route path="/codeforces/lookup" element={<CodeforcesUserLookup />} />
           <Route path="/codeforces/leaderboard" element={<CodeforcesLeaderboard />} />
+          <Route path="/codeforces/random" element={<CodeforcesRandom />} />
           
           {/* DSA Hierarchy */}
           <Route path="/dsa" element={<GuestLock><DsaGraph /></GuestLock>} />
