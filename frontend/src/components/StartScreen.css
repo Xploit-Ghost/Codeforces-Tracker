@@ -340,3 +340,33 @@ section.landing-hero {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+/* Cube Loader Animation */
+.cube-loader {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 2s infinite linear;
+  margin: 0 auto;
+}
+
+.cube-loader div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(3, 218, 198, 0.2);
+  border: 2px solid var(--accent);
+}
+
+.cube-front  { transform: translateZ(30px); }
+.cube-back   { transform: rotateY(180deg) translateZ(30px); }
+.cube-right  { transform: rotateY(90deg) translateZ(30px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(30px); }
+.cube-top    { transform: rotateX(90deg) translateZ(30px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+@keyframes rotateCube {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
