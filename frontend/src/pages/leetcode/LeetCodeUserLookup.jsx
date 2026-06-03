@@ -10,10 +10,26 @@ export default function LeetCodeUserLookup() {
     e.preventDefault();
     setLoading(true); setError(null);
     try {
-      const res = await fetch(`https://alfa-leetcode-api.onrender.com/${handle}`);
-      const data = await res.json();
-      if (data.errors) setError("User not found");
-      else setUser(data);
+      // Fetch user profile and solved counts simultaneously
+      const [profileRes, solvedRes] = await Promise.all([
+        fetch(`https://alfa-leetcode-api.onrender.com/${handle}`),
+        fetch(`https://alfa-leetcode-api.onrender.com/${handle}/solved`)
+      ]);
+      
+      const profileData = await profileRes.json();
+      const solvedData = await solvedRes.json();
+
+      if (profileData.errors || profileData.error) {
+        setError("User not found");
+      } else {
+        // Merge the two datasets
+        setUser({
+          ...profileData,
+          easySolved: solvedData.easySolved || 0,
+          mediumSolved: solvedData.mediumSolved || 0,
+          hardSolved: solvedData.hardSolved || 0,
+        });
+      }
     } catch (err) {
       setError("Failed to fetch from ALFA API");
     }
@@ -25,8 +41,8 @@ export default function LeetCodeUserLookup() {
       <div className="content-card" style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
         <h2 style={{ color: '#FFA116' }}>🔍 Find LeetCoder</h2>
         <form onSubmit={searchUser} style={{ display: 'flex', gap: '10px', margin: '2rem 0' }}>
-          <input type="text" className="search-input" placeholder="Enter LeetCode username..." value={handle} onChange={(e) => setHandle(e.target.value)} style={{ flex: 1 }} />
-          <button type="submit" className="primary-button" style={{ backgroundColor: '#FFA116' }} disabled={loading}>{loading ? 'Searching...' : 'Search'}</button>
+          <input type="text" className="search-input" placeholder="Enter Leetcode ID..." value={handle} onChange={(e) => setHandle(e.target.value)} style={{ flex: 1 }} />
+          <button type="submit" disabled={loading}>{loading ? 'Searching...' : 'Search'}</button>
         </form>
         {error && <div className="error-message">{error}</div>}
         {user && (

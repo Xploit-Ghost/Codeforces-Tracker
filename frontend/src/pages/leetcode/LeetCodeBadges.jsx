@@ -21,10 +21,11 @@ export default function LeetCodeBadges() {
       <div className="content-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
         <h2 style={{ color: '#FFA116' }}>🏅 User Badges</h2>
         <form onSubmit={search} style={{ display: 'flex', gap: '10px', margin: '2rem 0' }}>
-          <input type="text" className="search-input" placeholder="Username..." value={handle} onChange={e => setHandle(e.target.value)} style={{ flex: 1 }} />
-          <button type="submit" className="primary-button" style={{ backgroundColor: '#FFA116' }}>{loading ? '...' : 'Search'}</button>
+          <input type="text" className="search-input" placeholder="Enter Leetcode ID..." value={handle} onChange={e => setHandle(e.target.value)} style={{ flex: 1 }} />
+          <button type="submit">{loading ? '...' : 'Search'}</button>
         </form>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
+          {badges.length === 0 && !loading && handle && <p style={{ color: '#aaa' }}>No badges found or search not initiated.</p>}
           {badges.map(b => (
             <div key={b.name} style={{ backgroundColor: '#1a1a1a', padding: '1rem', borderRadius: '8px', width: '120px' }}>
               <img src={b.icon.startsWith('http') ? b.icon : 'https://leetcode.com' + b.icon} alt={b.name} style={{ width: '60px' }} />

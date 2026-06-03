@@ -20,8 +20,8 @@ export default function LeetCodeContest() {
       <div className="content-card" style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
         <h2 style={{ color: '#FFA116' }}>🏆 Contest History</h2>
         <form onSubmit={search} style={{ display: 'flex', gap: '10px', margin: '2rem 0' }}>
-          <input type="text" className="search-input" placeholder="Username..." value={handle} onChange={e => setHandle(e.target.value)} style={{ flex: 1 }} />
-          <button type="submit" className="primary-button" style={{ backgroundColor: '#FFA116' }}>{loading ? '...' : 'Search'}</button>
+          <input type="text" className="search-input" placeholder="Enter Leetcode ID..." value={handle} onChange={e => setHandle(e.target.value)} style={{ flex: 1 }} />
+          <button type="submit">{loading ? '...' : 'Search'}</button>
         </form>
         {contest && contest.contestRating && (
           <div style={{ backgroundColor: '#1a1a1a', padding: '2rem', borderRadius: '12px' }}>
