@@ -181,8 +181,34 @@ section.landing-hero {
   z-index: 2;
   background: rgba(0, 0, 0, 0.8);
   padding: 4rem 2rem;
-  text-align: center;
   border-top: 1px solid rgba(43, 179, 167, 0.3);
+}
+
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.footer-center {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.footer-right {
+  flex: 1;
+  min-width: 250px;
 }
 
 .landing-footer h3 {
@@ -193,23 +219,23 @@ section.landing-hero {
 
 .landing-footer p {
   color: #a0a0a0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-family: 'JetBrains Mono', monospace;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .social-links a {
   color: #2bb3a7;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   border: 1px solid #2bb3a7;
-  padding: 0.8rem 2rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 30px;
   transition: all 0.3s ease;
 }
@@ -218,6 +244,67 @@ section.landing-hero {
   background: #2bb3a7;
   color: #000;
   box-shadow: 0 0 15px rgba(43, 179, 167, 0.5);
+}
+
+.social-links-small {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.social-links-small a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: 1px solid #555;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.social-links-small a:hover {
+  background: #555;
+  color: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-align: center;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(43, 179, 167, 0.3);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-item h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.feature-item p {
+  color: #bbb;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 @keyframes fadeInStart {
