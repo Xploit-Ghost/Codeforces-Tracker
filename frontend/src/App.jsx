@@ -17,7 +17,6 @@ import CodeforcesGlobalStatus from './pages/CodeforcesGlobalStatus';
 import CodeforcesBlogs from './pages/CodeforcesBlogs';
 import CodeforcesGym from './pages/CodeforcesGym';
 import CodeforcesMashup from './pages/CodeforcesMashup';
-import CodeforcesPopular from './pages/CodeforcesPopular';
 import DsaGraph from './pages/DsaGraph';
 import DsaTopic from './pages/DsaTopic';
 import DailyChallenge from './pages/DailyChallenge';
@@ -128,7 +127,6 @@ function CodeforcesNavigation() {
       <Link to="/codeforces/blogs" className={location.pathname === '/codeforces/blogs' ? 'nav-link active' : 'nav-link'}>Community Blogs</Link>
       <Link to="/codeforces/gym" className={location.pathname === '/codeforces/gym' ? 'nav-link active' : 'nav-link'}>Gym Contests</Link>
       <Link to="/codeforces/mashup" className={location.pathname === '/codeforces/mashup' ? 'nav-link active' : 'nav-link'}>Mashup Generator</Link>
-      <Link to="/codeforces/popular" className={location.pathname === '/codeforces/popular' ? 'nav-link active' : 'nav-link'}>Hall of Fame</Link>
     </nav>
   );
 }
@@ -250,7 +248,6 @@ function MainLayout() {
           <Route path="/codeforces/blogs" element={<CodeforcesBlogs />} />
           <Route path="/codeforces/gym" element={<CodeforcesGym />} />
           <Route path="/codeforces/mashup" element={<CodeforcesMashup />} />
-          <Route path="/codeforces/popular" element={<CodeforcesPopular />} />
           
           {/* LeetCode Hierarchy */}
           <Route path="/leetcode/welcome" element={<LeetCodeWelcome />} />

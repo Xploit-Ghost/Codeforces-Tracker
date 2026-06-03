@@ -160,10 +160,6 @@ export default function StartScreen() {
               <p>Access your Codeforces, LeetCode (Daily Challenges, Blind 75), and AtCoder statistics without ever leaving the application.</p>
             </div>
             <div className="detail-point">
-              <h4>Global Hall of Fame</h4>
-              <p>Track the Top 100 highest-rated Codeforces users worldwide. View their badges, current rating, max rating, and titles in a beautiful, color-coded table.</p>
-            </div>
-            <div className="detail-point">
               <h4>Interactive DSA Roadmap</h4>
               <p>A built-in Data Structures and Algorithms tracking graph. Follow a structured path from Arrays to Advanced Graph Theory, checking off topics as you master them.</p>
             </div>
