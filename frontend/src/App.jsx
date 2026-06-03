@@ -39,6 +39,10 @@ import LeetCodeContest from './pages/leetcode/LeetCodeContest';
 import LeetCodeBadges from './pages/leetcode/LeetCodeBadges';
 import LeetCodeRandom from './pages/leetcode/LeetCodeRandom';
 
+import AtCoderWelcome from './pages/atcoder/AtCoderWelcome';
+import AtCoderContests from './pages/atcoder/AtCoderContests';
+import AtCoderUserLookup from './pages/atcoder/AtCoderUserLookup';
+
 import TopWelcome from './pages/TopWelcome';
 
 function TopNavigation() {
@@ -70,6 +74,13 @@ function TopNavigation() {
           style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
         >
           LeetCode
+        </Link>
+        <Link 
+          to="/atcoder/welcome" 
+          className={location.pathname.startsWith('/atcoder') ? 'nav-link active' : 'nav-link'}
+          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
+        >
+          AtCoder
         </Link>
         <Link 
           to="/compare/analytics" 
@@ -123,6 +134,17 @@ function LeetCodeNavigation() {
   );
 }
 
+function AtCoderNavigation() {
+  const location = useLocation();
+  return (
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+      <Link to="/atcoder/welcome" className={location.pathname === '/atcoder/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
+      <Link to="/atcoder/contests" className={location.pathname === '/atcoder/contests' ? 'nav-link active' : 'nav-link'}>Recent Contests</Link>
+      <Link to="/atcoder/lookup" className={location.pathname === '/atcoder/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
+    </nav>
+  );
+}
+
 function CompareNavigation() {
   const location = useLocation();
   return (
@@ -144,6 +166,7 @@ function MainLayout() {
   const location = useLocation();
   const isCodeforces = location.pathname.startsWith('/codeforces');
   const isLeetCode = location.pathname.startsWith('/leetcode');
+  const isAtCoder = location.pathname.startsWith('/atcoder');
   const isCompare = location.pathname.startsWith('/compare');
 
   return (
@@ -151,6 +174,7 @@ function MainLayout() {
       <TopNavigation />
       {isCodeforces && <CodeforcesNavigation />}
       {isLeetCode && <LeetCodeNavigation />}
+      {isAtCoder && <AtCoderNavigation />}
       {isCompare && <CompareNavigation />}
       <AdBanner /> 
       
@@ -186,6 +210,10 @@ function MainLayout() {
           <Route path="/leetcode/badges" element={<LeetCodeBadges />} />
           <Route path="/leetcode/random" element={<LeetCodeRandom />} />
           
+          {/* AtCoder Hierarchy */}
+          <Route path="/atcoder/welcome" element={<AtCoderWelcome />} />
+          <Route path="/atcoder/contests" element={<AtCoderContests />} />
+          <Route path="/atcoder/lookup" element={<AtCoderUserLookup />} />
 
           {/* DSA Hierarchy */}
           <Route path="/dsa" element={<GuestLock><DsaGraph /></GuestLock>} />
