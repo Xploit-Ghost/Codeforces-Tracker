@@ -11,9 +11,8 @@ export default function SignIn() {
   const [lcHandleInput, setLcHandleInput] = useState('');
   const [error, setError] = useState('');
   
-  // Verification states
-  const [isVerifying, setIsVerifying] = useState(false);
-  const [verificationStartTime, setVerificationStartTime] = useState(0);
+  const [claimedHandleInfo, setClaimedHandleInfo] = useState(null);
+  const [appealDescription, setAppealDescription] = useState('');
   const [isChecking, setIsChecking] = useState(false);
 
   useEffect(() => {
@@ -46,18 +45,24 @@ export default function SignIn() {
       const snap = await getDocs(q);
       
       let alreadyClaimed = false;
+      let claimedByEmail = '';
+      let claimedByUid = '';
       snap.forEach(doc => {
-        if (doc.id !== currentUser.uid) alreadyClaimed = true;
+        if (doc.id !== currentUser.uid) {
+          alreadyClaimed = true;
+          claimedByEmail = doc.data().email || 'Unknown';
+          claimedByUid = doc.id;
+        }
       });
 
       if (alreadyClaimed) {
-        throw new Error(`The handle '${realHandle}' is already linked to another Google account.`);
+        setClaimedHandleInfo({ realHandle, claimedByEmail, claimedByUid });
+        return;
       }
 
-      // 3. Set verification start time
-      setVerificationStartTime(Math.floor(Date.now() / 1000));
-      setIsVerifying(true);
-      setHandleInput(realHandle);
+      // Success! Link handle directly without compilation error check
+      await updateHandle(realHandle, lcHandleInput);
+      alert("Success! Your handle has been linked.");
       
     } catch (err) {
       setError(err.response?.data?.comment || err.message);
@@ -66,39 +71,7 @@ export default function SignIn() {
     }
   };
 
-  const confirmVerification = async () => {
-    setError('');
-    setIsChecking(true);
-    try {
-      // Fetch latest 10 submissions
-      const res = await axios.get(`https://codeforces.com/api/user.status?handle=${handleInput}&from=1&count=10`);
-      if (res.data.status !== 'OK') throw new Error("Could not fetch Codeforces submissions");
-      
-      const submissions = res.data.result;
-      
-      // Find a compilation error on 1A submitted AFTER verification started
-      const validSubmission = submissions.find(sub => 
-        sub.problem.contestId === 1 && 
-        sub.problem.index === 'A' && 
-        sub.verdict === 'COMPILATION_ERROR' &&
-        sub.creationTimeSeconds >= verificationStartTime
-      );
 
-      if (validSubmission) {
-        // Success! Link handle
-        await updateHandle(handleInput, lcHandleInput);
-        setIsVerifying(false);
-        setVerificationStartTime(0);
-        alert("Success! Your handle has been linked.");
-      } else {
-        throw new Error(`Verification failed. We could not find a COMPILATION_ERROR on problem 1A (Theatre Square) submitted within the last few minutes.`);
-      }
-    } catch (err) {
-      setError(err.response?.data?.comment || err.message);
-    } finally {
-      setIsChecking(false);
-    }
-  };
 
   return (
     <div className="container" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -162,11 +135,11 @@ export default function SignIn() {
             <h2 style={{ margin: 0, color: 'var(--text-main)' }}>Hi, {currentUser.displayName}!</h2>
             
             <div style={{ width: '100%', marginTop: '1rem', backgroundColor: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333' }}>
-              {!isVerifying ? (
+              {!claimedHandleInfo ? (
                 <>
                   <h3 style={{ marginTop: 0, color: 'var(--accent)' }}>Link Your Profiles</h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                    Enter your Codeforces handle to verify and sync your stats.
+                    Enter your Codeforces handle to link it to your account.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     <input 
@@ -192,18 +165,24 @@ export default function SignIn() {
                 </>
               ) : (
                 <>
-                  <h3 style={{ marginTop: 0, color: '#ffb86c' }}>Verification Required</h3>
+                  <h3 style={{ marginTop: 0, color: '#ff5555' }}>Handle Already Taken</h3>
                   <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', marginBottom: '1rem', textAlign: 'left', lineHeight: '1.5' }}>
-                    To prove you own <strong>{handleInput}</strong>, please submit any code that results in a <strong style={{ color: '#ff5555' }}>COMPILATION_ERROR</strong> to problem <strong>1A (Theatre Square)</strong>.
+                    The handle <strong>{claimedHandleInfo.realHandle}</strong> is already linked to another account.
                   </p>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem', textAlign: 'left' }}>
-                    Once you submit the compile error, click Verify Now. You have 3 minutes to do this. (CF API may take a few seconds to update).
-                  </p>
+                  <textarea 
+                    placeholder="Provide a description/proof for your appeal..."
+                    value={appealDescription}
+                    onChange={(e) => setAppealDescription(e.target.value)}
+                    style={{ width: '100%', height: '80px', boxSizing: 'border-box', marginBottom: '1rem', padding: '0.5rem', backgroundColor: '#222', color: '#fff', border: '1px solid #444', borderRadius: '4px' }}
+                  />
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
-                    <button onClick={() => setIsVerifying(false)} style={{ flex: 1, background: 'transparent', color: 'var(--text-muted)', border: '1px solid #555' }}>Cancel</button>
-                    <button onClick={confirmVerification} disabled={isChecking} style={{ flex: 2, background: '#50fa7b', color: '#000' }}>
-                      {isChecking ? 'Verifying...' : 'Verify Now'}
-                    </button>
+                    <button onClick={() => setClaimedHandleInfo(null)} style={{ flex: 1, background: 'transparent', color: 'var(--text-muted)', border: '1px solid #555' }}>Cancel</button>
+                    <a 
+                      href={`mailto:anveshpol1522008@gmail.com?subject=Appeal for Handle Switch: ${claimedHandleInfo.realHandle}&body=User Appeal for Handle Switch%0D%0AOld User Email: ${claimedHandleInfo.claimedByEmail}%0D%0ANew User Email: ${currentUser.email}%0D%0AHandle to switch: ${claimedHandleInfo.realHandle}%0D%0A%0D%0ADescription:%0D%0A${encodeURIComponent(appealDescription)}%0D%0A%0D%0A-----------------%0D%0AADMIN ACTIONS:%0D%0A%0D%0A[APPROVE]%0D%0Ahttps://codeforces-tracker.vercel.app/admin/approve?handle=${claimedHandleInfo.realHandle}&oldUid=${claimedHandleInfo.claimedByUid}&newUid=${currentUser.uid}&newEmail=${currentUser.email}%0D%0A%0D%0A[REJECT]%0D%0A(Simply ignore or reply to the user)`}
+                      style={{ flex: 2, background: '#ffb86c', color: '#000', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px', fontWeight: 'bold' }}
+                    >
+                      APPEAL
+                    </a>
                   </div>
                 </>
               )}

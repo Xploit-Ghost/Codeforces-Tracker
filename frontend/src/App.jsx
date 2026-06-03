@@ -44,6 +44,8 @@ import AtCoderContests from './pages/atcoder/AtCoderContests';
 import AtCoderUserLookup from './pages/atcoder/AtCoderUserLookup';
 
 import TopWelcome from './pages/TopWelcome';
+import ProfileSettings from './pages/ProfileSettings';
+import AdminApprove from './pages/AdminApprove';
 
 function TopNavigation() {
   const location = useLocation();
@@ -236,6 +238,10 @@ function MainLayout() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           
+          {/* Settings & Admin */}
+          <Route path="/settings" element={<GuestLock><ProfileSettings /></GuestLock>} />
+          <Route path="/admin/approve" element={<GuestLock><AdminApprove /></GuestLock>} />
+          
           {/* Catch-all 404 Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -262,25 +268,18 @@ import axios from 'axios';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 function UserProfileBadge() {
-  const { currentUser, cfHandle, logout } = useAuth();
+  const { currentUser, cfHandle } = useAuth();
   
   if (!currentUser) return null;
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', backgroundColor: '#111', padding: '0.5rem 1rem', borderRadius: '30px', border: '1px solid #333' }}>
+    <Link to="/settings" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem', backgroundColor: '#111', padding: '0.5rem 1rem', borderRadius: '30px', border: '1px solid #333', cursor: 'pointer' }}>
       <img src={currentUser.photoURL} alt="User" style={{ width: '30px', height: '30px', borderRadius: '50%' }} />
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#fff' }}>{currentUser.displayName}</span>
         <span style={{ fontSize: '0.75rem', color: 'var(--accent)' }}>{cfHandle ? `@${cfHandle}` : 'No CF Linked'}</span>
       </div>
-      <button 
-        onClick={async () => {
-          await logout();
-        }} 
-        style={{ cursor: 'pointer', marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
-        Sign out
-      </button>
-    </div>
+    </Link>
   );
 }
 
