@@ -4,7 +4,9 @@ import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDUVcQuBCrXtfG1WoXdsNyhTFfWEOKCY3M",
-  authDomain: "cp-tracker-5e1b5.firebaseapp.com",
+  authDomain: typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1' 
+    ? window.location.hostname 
+    : "cp-tracker-5e1b5.firebaseapp.com",
   projectId: "cp-tracker-5e1b5",
   storageBucket: "cp-tracker-5e1b5.firebasestorage.app",
   messagingSenderId: "915852674728",
