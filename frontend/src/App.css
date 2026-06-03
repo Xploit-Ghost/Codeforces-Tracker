@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #060b0e;
-  --card-bg: rgba(16, 22, 28, 0.65);
+  --bg-color: #04080a;
+  --card-bg: rgba(0, 0, 0, 0.4);
   --text-main: #e2e8f0;
-  --text-muted: #8392a5;
+  --text-muted: #6b7c93;
   --accent: #2bb3a7;
   --accent-hover: #3ddbd0;
   --error: #ef4444;
@@ -16,12 +16,12 @@
   padding: 0;
   background-color: var(--bg-color);
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: center center;
   color: var(--text-main);
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'JetBrains Mono', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -177,13 +177,13 @@ button:disabled {
 }
 
 .card {
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent), var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   width: 100%;
   box-sizing: border-box;
 }
