@@ -65,10 +65,16 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
     setIsGuest(false);
     localStorage.removeItem('guestMode');
-    return signOut(auth);
+    try {
+      await signOut(auth);
+      setCfHandle(null);
+      setCurrentUser(null);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   };
 
   useEffect(() => {

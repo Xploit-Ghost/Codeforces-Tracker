@@ -275,13 +275,7 @@ function UserProfileBadge() {
       </div>
       <button 
         onClick={async () => {
-          try {
-            await logout();
-            window.location.reload();
-          } catch(e) {
-            console.error(e);
-            window.location.reload();
-          }
+          await logout();
         }} 
         style={{ marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
         Sign out
