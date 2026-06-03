@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #04080a;
-  --card-bg: rgba(0, 0, 0, 0.4);
+  --bg-color: #060b0e;
+  --card-bg: rgba(16, 22, 28, 0.65);
   --text-main: #e2e8f0;
-  --text-muted: #6b7c93;
+  --text-muted: #8392a5;
   --accent: #2bb3a7;
   --accent-hover: #3ddbd0;
   --error: #ef4444;
@@ -14,14 +14,16 @@
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
+  background-color: #04080b;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center center;
+    radial-gradient(circle at 50% 0%, rgba(43, 179, 167, 0.15) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-position: center top, center center, center center;
+  background-attachment: fixed;
   color: var(--text-main);
-  font-family: 'JetBrains Mono', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.02em;
 }
 
@@ -114,8 +116,9 @@ header h1::after, .text-page h1::after {
 input {
   padding: 0.8rem 1rem;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
   color: white;
   font-size: 1rem;
   width: 250px;
@@ -125,8 +128,9 @@ input {
 
 input:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(43, 179, 167, 0.2);
+  border-color: rgba(43, 179, 167, 0.5);
+  box-shadow: 0 0 15px rgba(43, 179, 167, 0.2), inset 0 0 10px rgba(43, 179, 167, 0.1);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .vs {
@@ -138,22 +142,26 @@ input:focus {
 button {
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
-  border: 1px solid rgba(43, 179, 167, 0.5);
-  background-color: rgba(43, 179, 167, 0.1);
+  border: 1px solid rgba(43, 179, 167, 0.3);
+  background: linear-gradient(145deg, rgba(43, 179, 167, 0.15) 0%, rgba(43, 179, 167, 0.05) 100%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(43, 179, 167, 0.1);
   color: var(--accent);
   font-weight: bold;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   font-family: 'Space Grotesk', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 button:hover:not(:disabled) {
-  background-color: var(--accent);
-  color: #000;
-  box-shadow: 0 0 15px rgba(43, 179, 167, 0.4);
+  background: linear-gradient(145deg, rgba(43, 179, 167, 0.25) 0%, rgba(43, 179, 167, 0.1) 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(43, 179, 167, 0.2);
+  transform: translateY(-2px);
+  color: #fff;
+  border-color: rgba(43, 179, 167, 0.6);
 }
 
 button:disabled {
@@ -177,13 +185,14 @@ button:disabled {
 }
 
 .card {
-  background: var(--card-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(20, 30, 40, 0.45) 0%, rgba(10, 15, 22, 0.25) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(43, 179, 167, 0.03);
   width: 100%;
   box-sizing: border-box;
 }
@@ -234,18 +243,23 @@ button:disabled {
 
 .problem-card {
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid #333;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, rgba(30, 40, 50, 0.3) 0%, rgba(10, 15, 20, 0.1) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .problem-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
+  background: linear-gradient(145deg, rgba(30, 40, 50, 0.4) 0%, rgba(10, 15, 20, 0.2) 100%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(43, 179, 167, 0.15);
+  border-color: rgba(43, 179, 167, 0.4);
 }
 
 .problem-card.solved {
