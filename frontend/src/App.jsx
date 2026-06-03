@@ -119,7 +119,7 @@ function TopNavigation() {
 function CodeforcesNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
       <Link to="/codeforces/lookup" className={location.pathname === '/codeforces/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -136,7 +136,7 @@ function CodeforcesNavigation() {
 function LeetCodeNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
       <Link to="/leetcode/welcome" className={location.pathname === '/leetcode/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/leetcode/blind75" className={location.pathname === '/leetcode/blind75' ? 'nav-link active' : 'nav-link'}>Blind 75 / Grind 75</Link>
       <Link to="/leetcode/lookup" className={location.pathname === '/leetcode/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -151,7 +151,7 @@ function LeetCodeNavigation() {
 function AtCoderNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
       <Link to="/atcoder/welcome" className={location.pathname === '/atcoder/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/atcoder/contests" className={location.pathname === '/atcoder/contests' ? 'nav-link active' : 'nav-link'}>Recent Contests</Link>
       <Link to="/atcoder/lookup" className={location.pathname === '/atcoder/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -162,7 +162,7 @@ function AtCoderNavigation() {
 function CompareNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
       <Link to="/compare/practice" className={location.pathname === '/compare/practice' ? 'nav-link active' : 'nav-link'}>Practice Mode</Link>
       <Link to="/compare/daily" className={location.pathname === '/compare/daily' ? 'nav-link active' : 'nav-link'}>Daily Challenge</Link>
       <Link to="/compare/upsolve" className={location.pathname === '/compare/upsolve' ? 'nav-link active' : 'nav-link'}>Upsolve</Link>
@@ -196,6 +196,30 @@ function MainLayout() {
       <VerticalAd side="left" />
       <VerticalAd side="right" />
       
+      <div style={{ position: 'absolute', top: '15px', left: '20px', zIndex: 9999 }}>
+        <Link 
+          to="/" 
+          style={{ 
+            color: 'var(--accent)', 
+            textDecoration: 'none', 
+            fontWeight: 'bold', 
+            fontSize: '0.9rem', 
+            border: '1px solid var(--accent)', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '30px',
+            backgroundColor: '#111',
+            display: 'flex',
+            alignItems: 'center',
+            boxShadow: '0 0 10px rgba(43, 179, 167, 0.2)',
+            transition: 'all 0.2s'
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent)'; e.currentTarget.style.color = '#000'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#111'; e.currentTarget.style.color = 'var(--accent)'; }}
+        >
+          ← Start Screen
+        </Link>
+      </div>
+
       <div style={{ position: 'absolute', top: '15px', right: '20px', zIndex: 9999 }}>
         <UserProfileBadge />
       </div>

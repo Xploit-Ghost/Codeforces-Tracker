@@ -9,7 +9,7 @@ export default function CodeforcesPopular() {
   useEffect(() => {
     const fetchTopUsers = async () => {
       try {
-        const res = await fetch('https://codeforces.com/api/user.ratedList?activeOnly=false');
+        const res = await fetch('https://codeforces.com/api/user.ratedList?activeOnly=true');
         const data = await res.json();
         
         if (data.status === 'OK') {
