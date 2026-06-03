@@ -78,7 +78,7 @@ function TopNavigation() {
         {/* Center */}
         <div style={{ margin: '0 1rem' }}>
           <Link 
-            to="/" 
+            to="/welcome" 
             className={isWelcome ? 'nav-link active' : 'nav-link'}
             style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
@@ -202,7 +202,7 @@ function MainLayout() {
 
       <div style={{ minHeight: '80vh' }}>
         <Routes>
-          <Route path="/" element={<TopWelcome />} />
+          <Route path="/welcome" element={<TopWelcome />} />
           
           {/* Codeforces Hierarchy */}
           <Route path="/codeforces/welcome" element={<CodeforcesWelcome />} />
@@ -297,6 +297,11 @@ function UserProfileBadge() {
 
 function AppContent() {
   const { currentUser, cfHandle, isGuest } = useAuth();
+  const location = useLocation();
+
+  if (location.pathname === '/') {
+    return <StartScreen />;
+  }
 
   if (!isGuest && (!currentUser || !cfHandle)) {
     return <SignIn />;
@@ -311,33 +316,6 @@ function AppContent() {
 }
 
 function App() {
-  const [appState, setAppState] = useState('checking'); // 'checking', 'loading', 'ready'
-
-  useEffect(() => {
-    let isMounted = true;
-    const checkFast = async () => {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 800); // 800ms limit
-        await axios.get(`${BACKEND_URL}/api/health`, { signal: controller.signal });
-        clearTimeout(timeoutId);
-        if (isMounted) setAppState('ready');
-      } catch (err) {
-        if (isMounted) setAppState('loading');
-      }
-    };
-    checkFast();
-    return () => { isMounted = false; };
-  }, []);
-
-  if (appState === 'checking') {
-    return <div style={{ height: '100vh', width: '100vw', backgroundColor: '#060b0e' }}></div>;
-  }
-
-  if (appState === 'loading') {
-    return <StartScreen onReady={() => setAppState('ready')} />;
-  }
-
   return (
     <AuthProvider>
       <Router>

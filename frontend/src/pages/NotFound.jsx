@@ -8,7 +8,7 @@ export default function NotFound() {
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate('/');
+      navigate('/welcome');
       return;
     }
     const timer = setInterval(() => {
@@ -47,7 +47,7 @@ export default function NotFound() {
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-          <Link to="/" style={{ 
+          <Link to="/welcome" style={{ 
             padding: '1rem 2rem', 
             backgroundColor: 'rgba(43, 179, 167, 0.1)', 
             color: 'var(--accent)', 
