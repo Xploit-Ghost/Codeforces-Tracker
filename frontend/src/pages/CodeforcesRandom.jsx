@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../App.css';
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
 
 export default function CodeforcesRandom() {
   const [problemUrl, setProblemUrl] = useState(null);
@@ -9,17 +12,11 @@ export default function CodeforcesRandom() {
   useEffect(() => {
     const getRandomProblem = async () => {
       try {
-        const res = await fetch('https://codeforces.com/api/problemset.problems');
-        const data = await res.json();
+        const res = await axios.get(`${BACKEND_URL}/api/random-problem`);
+        const p = res.data;
         
-        if (data.status === 'OK') {
+        if (p && p.contestId && p.index) {
           setStatus("Rolling the dice... 🎲");
-          const problems = data.result.problems;
-          
-          // Pick a random problem
-          const randomIdx = Math.floor(Math.random() * problems.length);
-          const p = problems[randomIdx];
-          
           setProblemUrl(`https://codeforces.com/problemset/problem/${p.contestId}/${p.index}`);
           setProblemName(`${p.index} - ${p.name}`);
           setStatus("");
@@ -27,7 +24,7 @@ export default function CodeforcesRandom() {
           setStatus("Failed to fetch problems from Codeforces.");
         }
       } catch (err) {
-        setStatus("Error connecting to Codeforces API.");
+        setStatus("Error connecting to Backend API.");
       }
     };
 
