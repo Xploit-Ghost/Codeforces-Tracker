@@ -19,21 +19,23 @@ export default function AtCoderUserLookup() {
   };
 
   return (
-    <div className="page-container">
-      <div className="content-card" style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ color: '#fff' }}>🔍 Find AtCoder User</h2>
-        <form onSubmit={searchUser} style={{ display: 'flex', gap: '10px', margin: '2rem 0' }}>
-          <input type="text" className="search-input" placeholder="Enter AtCoder handle..." value={handle} onChange={(e) => setHandle(e.target.value)} style={{ flex: 1 }} />
-          <button type="submit" className="primary-button">{loading ? '...' : 'Search'}</button>
+    <div className="page-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
+      <div className="content-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', padding: '4rem 2rem' }}>
+        <h2 style={{ color: '#fff', fontSize: '2.5rem', marginBottom: '2rem' }}>🔍 Find AtCoder User</h2>
+        <form onSubmit={searchUser} style={{ display: 'flex', gap: '15px', margin: '2rem 0', justifyContent: 'center' }}>
+          <input type="text" className="search-input" placeholder="Enter AtCoder handle..." value={handle} onChange={(e) => setHandle(e.target.value)} style={{ width: '300px', fontSize: '1.2rem', padding: '1rem' }} />
+          <button type="submit" style={{ fontSize: '1.2rem', padding: '1rem 2rem' }}>{loading ? '...' : 'Search'}</button>
         </form>
         
         {searched && !loading && (
-          <div style={{ backgroundColor: '#1a1a1a', padding: '2rem', borderRadius: '12px' }}>
-            <h2>{handle}</h2>
-            <div style={{ marginTop: '2rem' }}>
-              <h3>Total Submissions Tracked:</h3>
-              <p style={{ fontSize: '2rem', color: '#4CAF50', fontWeight: 'bold' }}>{subs.length.toLocaleString()}</p>
-              <a href={`https://atcoder.jp/users/${handle}`} target="_blank" rel="noreferrer" style={{ display: 'block', marginTop: '1rem', color: '#4da6ff' }}>View Full Profile on AtCoder.jp</a>
+          <div style={{ backgroundColor: '#1a1a1a', padding: '3rem', borderRadius: '12px', marginTop: '2rem' }}>
+            <h2 style={{ fontSize: '2.5rem', color: '#fff' }}>{handle}</h2>
+            <div style={{ marginTop: '2.5rem' }}>
+              <h3 style={{ fontSize: '1.5rem', color: '#ccc' }}>Total Submissions Tracked:</h3>
+              <p style={{ fontSize: '4rem', color: '#4CAF50', fontWeight: 'bold', margin: '1rem 0' }}>{subs.length.toLocaleString()}</p>
+              <a href={`https://atcoder.jp/users/${handle}`} target="_blank" rel="noreferrer" style={{ display: 'inline-block', marginTop: '1.5rem', fontSize: '1.2rem', textDecoration: 'none' }}>
+                <button style={{ padding: '1rem 2rem', fontSize: '1.2rem' }}>View Full Profile on AtCoder.jp</button>
+              </a>
             </div>
           </div>
         )}

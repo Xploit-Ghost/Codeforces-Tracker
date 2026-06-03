@@ -17,19 +17,19 @@ export default function LeetCodeBadges() {
   };
 
   return (
-    <div className="page-container">
-      <div className="content-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ color: '#FFA116' }}>🏅 User Badges</h2>
-        <form onSubmit={search} style={{ display: 'flex', gap: '10px', margin: '2rem 0' }}>
-          <input type="text" className="search-input" placeholder="Enter Leetcode ID..." value={handle} onChange={e => setHandle(e.target.value)} style={{ flex: 1 }} />
-          <button type="submit">{loading ? '...' : 'Search'}</button>
+    <div className="page-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
+      <div className="content-card" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center', padding: '4rem 2rem' }}>
+        <h2 style={{ color: '#FFA116', fontSize: '2.5rem', marginBottom: '2rem' }}>🏅 User Badges</h2>
+        <form onSubmit={search} style={{ display: 'flex', gap: '15px', margin: '2rem 0', justifyContent: 'center' }}>
+          <input type="text" className="search-input" placeholder="Enter Leetcode ID..." value={handle} onChange={e => setHandle(e.target.value)} style={{ width: '300px', fontSize: '1.2rem', padding: '1rem' }} />
+          <button type="submit" style={{ fontSize: '1.2rem', padding: '1rem 2rem' }}>{loading ? '...' : 'Search'}</button>
         </form>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-          {badges.length === 0 && !loading && handle && <p style={{ color: '#aaa' }}>No badges found or search not initiated.</p>}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center', marginTop: '3rem' }}>
+          {badges.length === 0 && !loading && handle && <p style={{ color: '#aaa', fontSize: '1.5rem' }}>No badges found or search not initiated.</p>}
           {badges.map(b => (
-            <div key={b.name} style={{ backgroundColor: '#1a1a1a', padding: '1rem', borderRadius: '8px', width: '120px' }}>
-              <img src={b.icon.startsWith('http') ? b.icon : 'https://leetcode.com' + b.icon} alt={b.name} style={{ width: '60px' }} />
-              <p style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>{b.name}</p>
+            <div key={b.name} style={{ backgroundColor: '#1a1a1a', padding: '2rem', borderRadius: '12px', width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <img src={b.icon.startsWith('http') ? b.icon : 'https://leetcode.com' + b.icon} alt={b.name} style={{ width: '120px', height: '120px', objectFit: 'contain' }} />
+              <p style={{ fontSize: '1.2rem', marginTop: '1.5rem', fontWeight: 'bold' }}>{b.name}</p>
             </div>
           ))}
         </div>
