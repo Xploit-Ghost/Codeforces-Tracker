@@ -182,6 +182,19 @@ function MainLayout() {
   const isLeetCode = location.pathname.startsWith('/leetcode');
   const isAtCoder = location.pathname.startsWith('/atcoder');
   const isCompare = location.pathname.startsWith('/compare');
+  
+  const validPrefixes = ['/welcome', '/codeforces', '/leetcode', '/atcoder', '/compare', '/dsa', '/guides', '/about', '/privacy', '/terms', '/settings', '/admin'];
+  const isValidRoute = validPrefixes.some(prefix => location.pathname.startsWith(prefix));
+
+  if (!isValidRoute && location.pathname !== '/') {
+    return (
+      <div style={{ minHeight: '80vh' }}>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -346,6 +346,20 @@ app.get('/api/leaderboard', async (req, res) => {
     }
 });
 
+app.get('/api/hall-of-fame', async (req, res) => {
+    try {
+        const response = await axios.get('https://codeforces.com/api/user.ratedList?activeOnly=true');
+        if (response.data && response.data.status === 'OK') {
+            const top100 = response.data.result.slice(0, 100);
+            res.json(top100);
+        } else {
+            res.status(400).json({ error: 'Codeforces API error' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch hall of fame' });
+    }
+});
+
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });

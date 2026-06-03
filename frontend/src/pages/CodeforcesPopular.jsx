@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+
 export default function CodeforcesPopular() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,14 +11,13 @@ export default function CodeforcesPopular() {
   useEffect(() => {
     const fetchTopUsers = async () => {
       try {
-        const res = await fetch('https://codeforces.com/api/user.ratedList?activeOnly=true');
+        const res = await fetch(`${BACKEND_URL}/api/hall-of-fame`);
         const data = await res.json();
         
-        if (data.status === 'OK') {
-          // The API returns users sorted by rating descending
-          setUsers(data.result.slice(0, 100));
+        if (data.error) {
+          setError(data.error);
         } else {
-          setError(data.comment);
+          setUsers(data);
         }
       } catch (err) {
         setError("Failed to fetch top users.");
