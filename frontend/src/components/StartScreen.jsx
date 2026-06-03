@@ -1,64 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import RenderLoader from './RenderLoader';
 import './StartScreen.css';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
 
 export default function StartScreen() {
   const navigate = useNavigate();
   const [isWakingUp, setIsWakingUp] = useState(false);
-  const [loadingProgress, setLoadingProgress] = useState(0);
 
-  const handleEnterClick = async () => {
+  const handleEnterClick = () => {
     setIsWakingUp(true);
-    setLoadingProgress(10);
-    
-    // Simulate progress bar
-    const progressInterval = setInterval(() => {
-      setLoadingProgress(prev => {
-        if (prev >= 90) return 90;
-        return prev + 10;
-      });
-    }, 1500);
+  };
 
-    // Give the backend up to 15 seconds to wake up (Render sleeping)
-    const timeoutPromise = new Promise(resolve => setTimeout(resolve, 15000));
-    
-    try {
-      await Promise.race([
-        axios.get(`${BACKEND_URL}/api/health`),
-        timeoutPromise
-      ]);
-    } catch (err) {
-      console.warn("Backend ping failed or timed out, proceeding anyway.");
-    } finally {
-      clearInterval(progressInterval);
-      setLoadingProgress(100);
-      setTimeout(() => navigate('/welcome'), 500);
-    }
+  const handleRenderReady = () => {
+    navigate('/welcome');
   };
 
   if (isWakingUp) {
-    return (
-      <div className="landing-page-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', color: '#fff' }}>
-          <div className="cube-loader">
-            <div className="cube-top"></div>
-            <div className="cube-bottom"></div>
-            <div className="cube-left"></div>
-            <div className="cube-right"></div>
-            <div className="cube-front"></div>
-            <div className="cube-back"></div>
-          </div>
-          <h2 style={{ marginTop: '2rem', letterSpacing: '2px', color: 'var(--accent)' }}>WAKING UP BACKEND...</h2>
-          <p style={{ color: 'var(--text-muted)' }}>This may take up to 15 seconds if the server was sleeping.</p>
-          <div style={{ width: '300px', height: '6px', backgroundColor: '#333', borderRadius: '3px', marginTop: '1.5rem', overflow: 'hidden' }}>
-            <div style={{ width: `${loadingProgress}%`, height: '100%', backgroundColor: 'var(--accent)', transition: 'width 0.3s ease' }}></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <RenderLoader onReady={handleRenderReady} />;
   }
 
   return (
