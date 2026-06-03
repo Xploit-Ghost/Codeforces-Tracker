@@ -31,6 +31,14 @@ import GuestLock from './components/GuestLock';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
+import LeetCodeWelcome from './pages/leetcode/LeetCodeWelcome';
+import LeetCodeBlind75 from './pages/leetcode/LeetCodeBlind75';
+import LeetCodeUserLookup from './pages/leetcode/LeetCodeUserLookup';
+import LeetCodeDaily from './pages/leetcode/LeetCodeDaily';
+import LeetCodeContest from './pages/leetcode/LeetCodeContest';
+import LeetCodeBadges from './pages/leetcode/LeetCodeBadges';
+import LeetCodeRandom from './pages/leetcode/LeetCodeRandom';
+
 import TopWelcome from './pages/TopWelcome';
 
 function TopNavigation() {
@@ -55,6 +63,13 @@ function TopNavigation() {
           style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
         >
           Welcome
+        </Link>
+        <Link 
+          to="/leetcode/welcome" 
+          className={location.pathname.startsWith('/leetcode') ? 'nav-link active' : 'nav-link'}
+          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
+        >
+          LeetCode
         </Link>
         <Link 
           to="/compare/analytics" 
@@ -93,6 +108,21 @@ function CodeforcesNavigation() {
   );
 }
 
+function LeetCodeNavigation() {
+  const location = useLocation();
+  return (
+    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem' }}>
+      <Link to="/leetcode/welcome" className={location.pathname === '/leetcode/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
+      <Link to="/leetcode/blind75" className={location.pathname === '/leetcode/blind75' ? 'nav-link active' : 'nav-link'}>Blind 75 / Grind 75</Link>
+      <Link to="/leetcode/lookup" className={location.pathname === '/leetcode/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
+      <Link to="/leetcode/daily" className={location.pathname === '/leetcode/daily' ? 'nav-link active' : 'nav-link'}>Daily Problem</Link>
+      <Link to="/leetcode/contest" className={location.pathname === '/leetcode/contest' ? 'nav-link active' : 'nav-link'}>Contest History</Link>
+      <Link to="/leetcode/badges" className={location.pathname === '/leetcode/badges' ? 'nav-link active' : 'nav-link'}>User Badges</Link>
+      <Link to="/leetcode/random" className={location.pathname === '/leetcode/random' ? 'nav-link active' : 'nav-link'}>Random Problem 🎲</Link>
+    </nav>
+  );
+}
+
 function CompareNavigation() {
   const location = useLocation();
   return (
@@ -113,12 +143,14 @@ function CompareNavigation() {
 function MainLayout() {
   const location = useLocation();
   const isCodeforces = location.pathname.startsWith('/codeforces');
+  const isLeetCode = location.pathname.startsWith('/leetcode');
   const isCompare = location.pathname.startsWith('/compare');
 
   return (
     <>
       <TopNavigation />
       {isCodeforces && <CodeforcesNavigation />}
+      {isLeetCode && <LeetCodeNavigation />}
       {isCompare && <CompareNavigation />}
       <AdBanner /> 
       
@@ -144,6 +176,15 @@ function MainLayout() {
           <Route path="/codeforces/gym" element={<CodeforcesGym />} />
           <Route path="/codeforces/mashup" element={<CodeforcesMashup />} />
           <Route path="/codeforces/popular" element={<CodeforcesPopular />} />
+          
+          {/* LeetCode Hierarchy */}
+          <Route path="/leetcode/welcome" element={<LeetCodeWelcome />} />
+          <Route path="/leetcode/blind75" element={<LeetCodeBlind75 />} />
+          <Route path="/leetcode/lookup" element={<LeetCodeUserLookup />} />
+          <Route path="/leetcode/daily" element={<LeetCodeDaily />} />
+          <Route path="/leetcode/contest" element={<LeetCodeContest />} />
+          <Route path="/leetcode/badges" element={<LeetCodeBadges />} />
+          <Route path="/leetcode/random" element={<LeetCodeRandom />} />
           
 
           {/* DSA Hierarchy */}
