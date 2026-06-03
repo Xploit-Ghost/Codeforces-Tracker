@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "node local-server.js",
+    "dev:all": "npx concurrently \"npm run dev\" \"npm run dev:backend\"",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "axios": "^1.13.6",
     "cors": "^2.8.6",
     "express": "^5.2.1",
