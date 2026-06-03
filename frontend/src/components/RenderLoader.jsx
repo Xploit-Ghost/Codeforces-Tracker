@@ -53,12 +53,11 @@ export default function RenderLoader({ onReady }) {
       
       return () => clearTimeout(timeout);
     } else {
-      // All logs shown, wait for backend if not ready
-      if (backendReady) {
-        setTimeout(onReady, 1000);
-      }
+      // All logs shown, automatically proceed. 
+      // Vercel serverless doesn't need long wakeups like Render
+      setTimeout(onReady, 1000);
     }
-  }, [currentLogIndex, backendReady, onReady, startTime]);
+  }, [currentLogIndex, onReady, startTime]);
 
   return (
     <div className="render-loader-container">
