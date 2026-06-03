@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../App.css';
+import '../components/StartScreen.css';
 
 export default function NotFound() {
   const [countdown, setCountdown] = useState(5);
@@ -18,7 +19,7 @@ export default function NotFound() {
   }, [countdown, navigate]);
 
   return (
-    <div className="container" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+    <div className="landing-page-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
       <div className="card text-page" style={{ maxWidth: '800px', width: '100%', textAlign: 'center', padding: '4rem' }}>
         
         <h1 style={{ 
