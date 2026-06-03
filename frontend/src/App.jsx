@@ -277,7 +277,7 @@ function Footer() {
 }
 
 import axios from 'axios';
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
 
 function UserProfileBadge() {
   const { currentUser, cfHandle } = useAuth();
