@@ -127,7 +127,7 @@ function LeetCodeNavigation() {
       <Link to="/leetcode/blind75" className={location.pathname === '/leetcode/blind75' ? 'nav-link active' : 'nav-link'}>Blind 75 / Grind 75</Link>
       <Link to="/leetcode/lookup" className={location.pathname === '/leetcode/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
       <Link to="/leetcode/daily" className={location.pathname === '/leetcode/daily' ? 'nav-link active' : 'nav-link'}>Daily Problem</Link>
-      <Link to="/leetcode/contest" className={location.pathname === '/leetcode/contest' ? 'nav-link active' : 'nav-link'}>Contest History</Link>
+      <Link to="/leetcode/contest" className={location.pathname === '/leetcode/contest' ? 'nav-link active' : 'nav-link'}>Rating and Details</Link>
       <Link to="/leetcode/badges" className={location.pathname === '/leetcode/badges' ? 'nav-link active' : 'nav-link'}>User Badges</Link>
       <Link to="/leetcode/random" className={location.pathname === '/leetcode/random' ? 'nav-link active' : 'nav-link'}>Random Problem 🎲</Link>
     </nav>
