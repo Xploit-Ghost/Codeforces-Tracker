@@ -273,7 +273,17 @@ function UserProfileBadge() {
         <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#fff' }}>{currentUser.displayName}</span>
         <span style={{ fontSize: '0.75rem', color: 'var(--accent)' }}>{cfHandle ? `@${cfHandle}` : 'No CF Linked'}</span>
       </div>
-      <button onClick={logout} style={{ marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
+      <button 
+        onClick={async () => {
+          try {
+            await logout();
+            window.location.reload();
+          } catch(e) {
+            console.error(e);
+            window.location.reload();
+          }
+        }} 
+        style={{ marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
         Sign out
       </button>
     </div>

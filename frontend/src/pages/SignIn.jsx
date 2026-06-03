@@ -209,7 +209,17 @@ export default function SignIn() {
               )}
             </div>
             
-            <button onClick={logout} style={{ marginTop: '1rem', backgroundColor: 'transparent', color: '#ef4444', border: 'none', textDecoration: 'underline', cursor: 'pointer' }}>
+            <button 
+              onClick={async () => {
+                try {
+                  await logout();
+                  window.location.reload();
+                } catch(e) {
+                  console.error(e);
+                  window.location.reload();
+                }
+              }} 
+              style={{ marginTop: '1rem', backgroundColor: 'transparent', color: '#ef4444', border: 'none', textDecoration: 'underline', cursor: 'pointer' }}>
               Sign out
             </button>
           </div>
