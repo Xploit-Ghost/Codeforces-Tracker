@@ -19,8 +19,8 @@ export default function NotFound() {
   }, [countdown, navigate]);
 
   return (
-    <div className="landing-page-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
-      <div className="card text-page" style={{ maxWidth: '800px', width: '100%', textAlign: 'center', padding: '4rem' }}>
+    <div className="landing-page-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="card text-page" style={{ position: 'relative', zIndex: 2, maxWidth: '800px', width: '100%', textAlign: 'center', padding: '4rem' }}>
         
         <h1 style={{ 
           fontSize: '8rem', 
