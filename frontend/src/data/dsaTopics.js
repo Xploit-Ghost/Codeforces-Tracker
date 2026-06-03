@@ -11,7 +11,7 @@ export const dsaTopics = {
       bruteForce: { time: 'O(N^2)', desc: 'Searching without a hash map requires nested loops.' },
       optimal: { time: 'O(N) Time, O(N) Space', desc: 'Storing seen elements in a hash map allows O(1) lookups.' }
     },
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/1200px-Hash_table_3_1_1_0_1_0_0_SP.svg.png',
+    image: '/dsa/hash_table.png',
     codeSnippet: `// C++: Two Sum using Hash Map
 #include <vector>
 #include <unordered_map>
@@ -45,7 +45,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
       bruteForce: { time: 'O(N^2)', desc: 'Checking all possible pairs with nested loops.' },
       optimal: { time: 'O(N)', desc: 'Moving pointers inward reduces time complexity to O(N).' }
     },
-    image: 'https://miro.medium.com/v2/resize:fit:1400/1*yW8sA_lKz4U8H0oVfXw8wA.png',
+    image: '/dsa/two_pointers.png',
     codeSnippet: `// C++: Two Sum II - Input Array Is Sorted
 vector<int> twoSum(vector<int>& numbers, int target) {
     int left = 0, right = numbers.size() - 1;
@@ -146,7 +146,7 @@ int search(vector<int>& nums, int target) {
       bruteForce: { time: 'O(N^2)', desc: 'Checking all possible subarrays.' },
       optimal: { time: 'O(N)', desc: 'Right pointer expands the window, left pointer shrinks it. Both traverse at most N times.' }
     },
-    image: 'https://miro.medium.com/v2/resize:fit:1400/1*V0G2o-ZlW9Hk-78wQ80wCA.png',
+    image: '/dsa/sliding_window.png',
     codeSnippet: `// C++: Longest Substring Without Repeating Characters
 int lengthOfLongestSubstring(string s) {
     unordered_set<char> chars;

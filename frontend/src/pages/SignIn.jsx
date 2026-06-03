@@ -8,6 +8,7 @@ import '../App.css';
 export default function SignIn() {
   const { loginWithGoogle, currentUser, updateHandle, logout, continueAsGuest } = useAuth();
   const [handleInput, setHandleInput] = useState('');
+  const [lcHandleInput, setLcHandleInput] = useState('');
   const [error, setError] = useState('');
   
   // Verification states
@@ -85,7 +86,7 @@ export default function SignIn() {
 
       if (validSubmission) {
         // Success! Link handle
-        await updateHandle(handleInput);
+        await updateHandle(handleInput, lcHandleInput);
         setIsVerifying(false);
         setVerificationStartTime(0);
         alert("Success! Your handle has been linked.");
@@ -163,21 +164,29 @@ export default function SignIn() {
             <div style={{ width: '100%', marginTop: '1rem', backgroundColor: '#111', padding: '1.5rem', borderRadius: '8px', border: '1px solid #333' }}>
               {!isVerifying ? (
                 <>
-                  <h3 style={{ marginTop: 0, color: 'var(--accent)' }}>Link Codeforces Handle</h3>
+                  <h3 style={{ marginTop: 0, color: 'var(--accent)' }}>Link Your Profiles</h3>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                    Enter your Codeforces handle to sync your stats.
+                    Enter your Codeforces handle to verify and sync your stats.
                   </p>
-                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     <input 
                       type="text" 
-                      placeholder="Codeforces Handle" 
+                      placeholder="Codeforces Handle (Required)" 
                       value={handleInput} 
                       onChange={(e) => setHandleInput(e.target.value)}
-                      style={{ flex: 1, width: '100%', boxSizing: 'border-box' }}
+                      style={{ width: '100%', boxSizing: 'border-box' }}
                       disabled={isChecking}
                     />
-                    <button onClick={initiateVerification} disabled={isChecking} style={{ whiteSpace: 'nowrap' }}>
-                      {isChecking ? 'Checking...' : 'Link Handle'}
+                    <input 
+                      type="text" 
+                      placeholder="Leetcode ID (Optional)" 
+                      value={lcHandleInput} 
+                      onChange={(e) => setLcHandleInput(e.target.value)}
+                      style={{ width: '100%', boxSizing: 'border-box' }}
+                      disabled={isChecking}
+                    />
+                    <button onClick={initiateVerification} disabled={isChecking} style={{ width: '100%' }}>
+                      {isChecking ? 'Checking...' : 'Link Handles'}
                     </button>
                   </div>
                 </>

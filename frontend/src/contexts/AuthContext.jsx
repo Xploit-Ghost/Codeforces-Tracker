@@ -35,11 +35,12 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const updateHandle = async (handle) => {
+  const updateHandle = async (handle, lcHandle = '') => {
     if (!currentUser) return;
     try {
       await setDoc(doc(db, 'users', currentUser.uid), { 
         cfHandle: handle,
+        lcHandle: lcHandle,
         email: currentUser.email,
         name: currentUser.displayName,
         photoUrl: currentUser.photoURL,
