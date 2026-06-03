@@ -59,31 +59,117 @@ export default function StartScreen() {
         </div>
       </section>
 
-      {/* Detailed Features Section */}
+      {/* Deep Dive 1 */}
       <section className="landing-section">
-        <div className="landing-card" style={{ maxWidth: '1200px', backgroundColor: 'rgba(5, 8, 12, 0.85)' }}>
-          <h2 style={{ textAlign: 'center', marginBottom: '4rem' }}>Deep Dive: Platform Features</h2>
-          
-          <div className="features-grid">
-            <div className="feature-item">
-              <div className="feature-icon">📊</div>
-              <h3>Comprehensive Analytics</h3>
-              <p>Stop guessing your weak spots. CP-Tracker generates interactive radar charts for your tag distribution, language preference pies, and detailed daily submission heatmaps. Everything you need to visually analyze your entire competitive programming journey.</p>
+        <div className="landing-card deep-dive-card">
+          <div className="deep-dive-header">
+            <span className="feature-icon-large">📊</span>
+            <h2>Comprehensive Visual Analytics</h2>
+          </div>
+          <p className="deep-dive-intro">Stop guessing where your weak spots are. CP-Tracker’s state-of-the-art analytics engine transforms raw submission data into beautiful, interactive data visualizations that highlight your exact progress.</p>
+          <div className="deep-dive-details">
+            <div className="detail-point">
+              <h4>Radar Charts & Tag Distributions</h4>
+              <p>Instantly see how your skills map across Dynamic Programming, Graphs, Math, Data Structures, and more. Visually identify which topics need your immediate attention.</p>
             </div>
-            <div className="feature-item">
-              <div className="feature-icon">⚔️</div>
-              <h3>Rivalry & Friend Tracking</h3>
-              <p>Add friends to directly compare your stats head-to-head. Our rivalry algorithm computes unique problems solved by your friends that you haven't touched, generating a precise "Upsolve List" to help you catch up and beat the competition.</p>
+            <div className="detail-point">
+              <h4>Submission Heatmaps</h4>
+              <p>Track your daily consistency, just like a GitHub contribution graph. Maintain your streak and stay motivated to solve problems every single day.</p>
             </div>
-            <div className="feature-item">
-              <div className="feature-icon">🎯</div>
-              <h3>Precision Problem Fetcher</h3>
-              <p>Want to practice exactly 1500-rated Dynamic Programming problems? Use the advanced randomizer and mashup generators to fetch problems that fit your exact constraints. No more relying on standard platform randomness.</p>
+            <div className="detail-point">
+              <h4>Rating Histograms</h4>
+              <p>A detailed breakdown of every accepted problem by its Codeforces rating. Know your comfort zone and gradually push into higher difficulty tiers.</p>
             </div>
-            <div className="feature-item">
-              <div className="feature-icon">🌐</div>
-              <h3>Unified Global Leaderboards</h3>
-              <p>See exactly where you stand. Access the Hall of Fame to track the top 100 Codeforces users worldwide, or view live statuses of global submissions. Stay connected to the pulse of the competitive programming world without ever leaving the dashboard.</p>
+            <div className="detail-point">
+              <h4>Language Preference Pies</h4>
+              <p>Analyze your language usage history (C++, Python, Java) to see how your tech stack evolves over time as you tackle different types of problems.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Dive 2 */}
+      <section className="landing-section">
+        <div className="landing-card deep-dive-card">
+          <div className="deep-dive-header">
+            <span className="feature-icon-large">⚔️</span>
+            <h2>Rivalry Mode & Friend Tracking</h2>
+          </div>
+          <p className="deep-dive-intro">Competitive programming is better with friends. Our platform makes it incredibly easy to track your peers and use their progress to fuel your own growth and motivation.</p>
+          <div className="deep-dive-details">
+            <div className="detail-point">
+              <h4>Head-to-Head Comparisons</h4>
+              <p>Directly compare your current rating, max rating, and total solved problems against any friend in a sleek, side-by-side versus screen.</p>
+            </div>
+            <div className="detail-point">
+              <h4>The "Upsolve List" Generator</h4>
+              <p>Our proprietary rivalry algorithm cross-references your solved problems with your friend's. It instantly generates a list of unique problems <strong>they</strong> have solved that <strong>you</strong> haven't touched yet.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Latest Activity Feed</h4>
+              <p>Keep a close eye on what problems your friends are currently solving and passing. A live feed of their latest triumphs keeps the competitive spirit alive.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Global Friend Network</h4>
+              <p>Manage a curated list of rivals. Seamlessly jump between their profiles to study their problem-solving trajectories and learn from their success.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Dive 3 */}
+      <section className="landing-section">
+        <div className="landing-card deep-dive-card">
+          <div className="deep-dive-header">
+            <span className="feature-icon-large">🎯</span>
+            <h2>Precision Problem Fetcher</h2>
+          </div>
+          <p className="deep-dive-intro">Blindly clicking "Random Problem" on Codeforces is a massive waste of time. Our precision fetcher ensures you stay exactly in your optimal Zone of Proximal Development.</p>
+          <div className="deep-dive-details">
+            <div className="detail-point">
+              <h4>Exact Rating Boundaries</h4>
+              <p>Set a precise minimum and maximum rating (e.g., 1400 to 1600). The engine will only fetch problems that fall strictly within your optimal training zone.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Multi-Tag Filtering</h4>
+              <p>Select specific tags like "dp", "greedy", or "graphs". Combine this with rating filters to instantly fetch exactly the kind of practice you need right now.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Custom Mashup Generator</h4>
+              <p>Preparing for a contest? Generate custom, printable mashup lists of problems tailored to your current level to simulate a real competitive environment.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Smart Anti-Duplication</h4>
+              <p>The fetcher cross-references your Codeforces handle to ensure it <strong>never</strong> suggests a problem you have already solved or attempted before.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Dive 4 */}
+      <section className="landing-section">
+        <div className="landing-card deep-dive-card">
+          <div className="deep-dive-header">
+            <span className="feature-icon-large">🌐</span>
+            <h2>Unified Dashboards & DSA Tracking</h2>
+          </div>
+          <p className="deep-dive-intro">Why limit yourself to just one site? CP-Tracker brings the entire programming universe into one unified, glassmorphic command center.</p>
+          <div className="deep-dive-details">
+            <div className="detail-point">
+              <h4>Multi-Platform Support</h4>
+              <p>Access your Codeforces, LeetCode (Daily Challenges, Blind 75), and AtCoder statistics without ever leaving the application.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Global Hall of Fame</h4>
+              <p>Track the Top 100 highest-rated Codeforces users worldwide. View their badges, current rating, max rating, and titles in a beautiful, color-coded table.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Interactive DSA Roadmap</h4>
+              <p>A built-in Data Structures and Algorithms tracking graph. Follow a structured path from Arrays to Advanced Graph Theory, checking off topics as you master them.</p>
+            </div>
+            <div className="detail-point">
+              <h4>Live Global Status</h4>
+              <p>View a live feed of submissions happening globally across Codeforces. Watch what the highest-rated users are solving in real-time.</p>
             </div>
           </div>
         </div>
@@ -92,7 +178,17 @@ export default function StartScreen() {
       {/* Footer / Author Section */}
       <footer className="landing-footer">
         <div className="footer-content-wrapper">
+          
           <div className="footer-left">
+            <h3>Made by Anvesh Anand Pol</h3>
+            <p>Passionate Developer & Competitive Programmer</p>
+            <div className="social-links-left">
+              <a href="https://github.com/Xploit-Ghost" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/anveshpol1522008" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+
+          <div className="footer-right-corner">
             <span style={{ color: '#888', display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem' }}>Great thanks to:</span>
             <h4 style={{ color: '#bbb', margin: '0 0 1rem 0', fontSize: '1.2rem', fontFamily: 'Space Grotesk' }}>Pranshu Pujara</h4>
             <div className="social-links-small">
@@ -101,18 +197,6 @@ export default function StartScreen() {
             </div>
           </div>
           
-          <div className="footer-center">
-            <h3>Made by Anvesh Anand Pol</h3>
-            <p>Passionate Developer & Competitive Programmer</p>
-            <div className="social-links">
-              <a href="https://github.com/Xploit-Ghost" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://linkedin.com/in/anveshpol1522008" target="_blank" rel="noreferrer">LinkedIn</a>
-            </div>
-          </div>
-          
-          <div className="footer-right">
-             {/* Empty for flex balance */}
-          </div>
         </div>
       </footer>
     </div>
