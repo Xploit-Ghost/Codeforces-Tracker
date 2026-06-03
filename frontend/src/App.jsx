@@ -26,7 +26,7 @@ import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import AdBanner from './components/AdBanner'; 
 import VerticalAd from './components/VerticalAd';
-import RenderLoader from './components/RenderLoader';
+import StartScreen from './components/StartScreen';
 import GuestLock from './components/GuestLock';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
@@ -335,7 +335,7 @@ function App() {
   }
 
   if (appState === 'loading') {
-    return <RenderLoader onReady={() => setAppState('ready')} />;
+    return <StartScreen onReady={() => setAppState('ready')} />;
   }
 
   return (

@@ -1,0 +1,92 @@
+.start-screen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/welcome-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.start-screen-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.start-screen-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(10, 15, 20, 0.7);
+  padding: 4rem;
+  border-radius: 20px;
+  border: 1px solid rgba(43, 179, 167, 0.3);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(43, 179, 167, 0.1);
+  animation: fadeInStart 1s ease-out;
+}
+
+.start-screen-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  text-shadow: 
+    0 0 10px rgba(43, 179, 167, 0.8),
+    0 0 20px rgba(43, 179, 167, 0.4);
+}
+
+.start-screen-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  color: #2bb3a7;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 10px rgba(43, 179, 167, 0.4);
+}
+
+.start-screen-button {
+  background: linear-gradient(135deg, #1d827b, #2bb3a7);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(43, 179, 167, 0.4);
+  transition: all 0.3s ease;
+}
+
+.start-screen-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(43, 179, 167, 0.6);
+  background: linear-gradient(135deg, #2bb3a7, #3cdfd0);
+}
+
+.start-screen-button:active {
+  transform: translateY(1px);
+}
+
+@keyframes fadeInStart {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
