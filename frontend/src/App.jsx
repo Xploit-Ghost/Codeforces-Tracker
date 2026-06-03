@@ -182,7 +182,7 @@ function MainLayout() {
       <VerticalAd side="left" />
       <VerticalAd side="right" />
       
-      <div style={{ padding: '1rem 2rem', display: 'flex', justifyContent: 'flex-end', borderBottom: '1px solid #222' }}>
+      <div style={{ position: 'absolute', top: '15px', right: '20px', zIndex: 9999 }}>
         <UserProfileBadge />
       </div>
 
@@ -277,7 +277,7 @@ function UserProfileBadge() {
         onClick={async () => {
           await logout();
         }} 
-        style={{ marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
+        style={{ cursor: 'pointer', marginLeft: '1rem', padding: '0.3rem 0.8rem', fontSize: '0.8rem', backgroundColor: 'transparent', color: '#ef4444', border: '1px solid #ef4444' }}>
         Sign out
       </button>
     </div>
