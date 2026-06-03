@@ -55,49 +55,61 @@ function TopNavigation() {
 
   return (
     <div style={{ width: '100%', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', marginBottom: '1rem' }}>
-      <nav className="navbar" style={{ borderBottom: 'none', marginBottom: '0' }}>
-        <Link 
-          to="/codeforces/welcome" 
-          className={isCodeforces ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          Codeforces
-        </Link>
-        <Link 
-          to="/" 
-          className={isWelcome ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          Welcome
-        </Link>
-        <Link 
-          to="/leetcode/welcome" 
-          className={location.pathname.startsWith('/leetcode') ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          LeetCode
-        </Link>
-        <Link 
-          to="/atcoder/welcome" 
-          className={location.pathname.startsWith('/atcoder') ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          AtCoder
-        </Link>
-        <Link 
-          to="/compare/analytics" 
-          className={isCompare ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          Compare and Analyse
-        </Link>
-        <Link 
-          to="/dsa" 
-          className={location.pathname.startsWith('/dsa') ? 'nav-link active' : 'nav-link'}
-          style={{ fontSize: '1.2rem', padding: '0.8rem 2rem' }}
-        >
-          DSA
-        </Link>
+      <nav className="navbar" style={{ borderBottom: 'none', marginBottom: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        
+        {/* Left Side */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+          <Link 
+            to="/codeforces/welcome" 
+            className={isCodeforces ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            Codeforces
+          </Link>
+          <Link 
+            to="/compare/analytics" 
+            className={isCompare ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            Compare and Analyse
+          </Link>
+        </div>
+
+        {/* Center */}
+        <div style={{ margin: '0 1rem' }}>
+          <Link 
+            to="/" 
+            className={isWelcome ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            Welcome
+          </Link>
+        </div>
+
+        {/* Right Side */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start', gap: '1rem' }}>
+          <Link 
+            to="/leetcode/welcome" 
+            className={location.pathname.startsWith('/leetcode') ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            LeetCode
+          </Link>
+          <Link 
+            to="/atcoder/welcome" 
+            className={location.pathname.startsWith('/atcoder') ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            AtCoder
+          </Link>
+          <Link 
+            to="/dsa" 
+            className={location.pathname.startsWith('/dsa') ? 'nav-link active' : 'nav-link'}
+            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
+          >
+            DSA
+          </Link>
+        </div>
         
       </nav>
     </div>
