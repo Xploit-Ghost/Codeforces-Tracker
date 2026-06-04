@@ -239,7 +239,6 @@ app.get('/api/problems-filtered', async (req, res) => {
 app.get('/api/random-problem', async (req, res) => {
     try {
         const rating = parseInt(req.query.rating);
-        if (!rating) return res.status(400).json({ error: 'Rating is required' });
 
         const now = Date.now();
         if (cachedProblems.length === 0 || now - lastProblemsFetch > 3600000) {
@@ -248,8 +247,11 @@ app.get('/api/random-problem', async (req, res) => {
             lastProblemsFetch = now;
         }
 
-        const validProblems = cachedProblems.filter(p => p.rating === rating);
-        if (validProblems.length === 0) return res.status(404).json({ error: `No tracking for rating exactly ${rating}` });
+        let validProblems = cachedProblems;
+        if (rating) {
+            validProblems = cachedProblems.filter(p => p.rating === rating);
+            if (validProblems.length === 0) return res.status(404).json({ error: `No tracking for rating exactly ${rating}` });
+        }
 
         const randomProblem = validProblems[Math.floor(Math.random() * validProblems.length)];
         res.json(randomProblem);
