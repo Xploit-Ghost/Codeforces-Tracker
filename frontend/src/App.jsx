@@ -53,58 +53,52 @@ function TopNavigation() {
   const isWelcome = location.pathname === '/welcome';
 
   return (
-    <div style={{ width: '100%', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', marginBottom: '1rem' }}>
-      <nav className="navbar" style={{ borderBottom: 'none', marginBottom: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div className="top-nav-wrapper">
+      <nav className="top-navbar">
         
         {/* Left Side */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+        <div className="top-nav-group top-nav-left">
           <Link 
             to="/codeforces/welcome" 
             className={isCodeforces ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             Codeforces
           </Link>
           <Link 
             to="/compare/analytics" 
             className={isCompare ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             Compare and Analyse
           </Link>
         </div>
 
         {/* Center */}
-        <div style={{ margin: '0 1rem' }}>
+        <div className="top-nav-center">
           <Link 
             to="/welcome" 
             className={isWelcome ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             Welcome
           </Link>
         </div>
 
         {/* Right Side */}
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start', gap: '1rem' }}>
+        <div className="top-nav-group top-nav-right">
           <Link 
             to="/leetcode/welcome" 
             className={location.pathname.startsWith('/leetcode') ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             LeetCode
           </Link>
           <Link 
             to="/atcoder/welcome" 
             className={location.pathname.startsWith('/atcoder') ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             AtCoder
           </Link>
           <Link 
             to="/dsa" 
             className={location.pathname.startsWith('/dsa') ? 'nav-link active' : 'nav-link'}
-            style={{ fontSize: '1.2rem', padding: '0.8rem 1rem' }}
           >
             DSA
           </Link>
@@ -196,44 +190,14 @@ function MainLayout() {
 
   return (
     <>
-      <TopNavigation />
-      {isCodeforces && <CodeforcesNavigation />}
-      {isLeetCode && <LeetCodeNavigation />}
-      {isAtCoder && <AtCoderNavigation />}
-      {isCompare && <CompareNavigation />}
-      <AdBanner /> 
-      
-      {/* Side Ads */}
-      <VerticalAd side="left" />
-      <VerticalAd side="right" />
-      
-      <div style={{ position: 'absolute', top: '15px', left: '20px', zIndex: 9999 }}>
-        <Link 
-          to="/" 
-          style={{ 
-            color: 'var(--accent)', 
-            textDecoration: 'none', 
-            fontWeight: 'bold', 
-            fontSize: '0.9rem', 
-            border: '1px solid var(--accent)', 
-            padding: '0.5rem 1rem', 
-            borderRadius: '30px',
-            backgroundColor: '#111',
-            display: 'flex',
-            alignItems: 'center',
-            boxShadow: '0 0 10px rgba(43, 179, 167, 0.2)',
-            transition: 'all 0.2s'
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent)'; e.currentTarget.style.color = '#000'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#111'; e.currentTarget.style.color = 'var(--accent)'; }}
-        >
+      <div className="top-controls-container">
+        <Link to="/" className="start-screen-btn">
           ← Start Screen
         </Link>
-      </div>
-
-      <div style={{ position: 'absolute', top: '15px', right: '20px', zIndex: 9999 }}>
         <UserProfileBadge />
       </div>
+
+      <TopNavigation />
 
       <div style={{ minHeight: '80vh' }}>
         <Routes>

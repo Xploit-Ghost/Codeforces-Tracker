@@ -5,7 +5,7 @@ export default function TopWelcome() {
   return (
     <div className="container">
       <div className="card text-page" style={{ maxWidth: '1200px', width: '100%', padding: '3rem' }}>
-        <h1 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '2.5rem', textShadow: '0 0 20px rgba(43, 179, 167, 0.4)' }}>
+        <h1 className="hero-heading">
           Welcome to Competitive Programming
         </h1>
 
