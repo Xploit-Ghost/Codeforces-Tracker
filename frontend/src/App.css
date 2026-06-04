@@ -739,29 +739,47 @@ button:disabled {
     padding-top: 0;
   }
   
-  .top-navbar {
-    flex-direction: column;
-    gap: 1rem;
+  .top-navbar, .sub-navbar {
+    flex-direction: row;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
+
+  .top-navbar::-webkit-scrollbar, .sub-navbar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .top-navbar::-webkit-scrollbar-track, .sub-navbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .top-navbar::-webkit-scrollbar-thumb, .sub-navbar::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
   .top-nav-group {
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+    flex-direction: row;
+    width: auto;
   }
   
   .top-nav-center {
-    width: 100%;
+    width: auto;
+    margin: 0 1rem;
     display: flex;
-    justify-content: center;
-    margin: 0;
   }
 
-  .top-navbar .nav-link {
-    width: 90%;
-    text-align: center;
+  .top-navbar .nav-link, .sub-navbar .nav-link {
+    width: auto;
     font-size: 1rem;
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
   }
   
   .hero-heading {

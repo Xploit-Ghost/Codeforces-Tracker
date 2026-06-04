@@ -112,7 +112,7 @@ function TopNavigation() {
 function CodeforcesNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+    <nav className="navbar sub-navbar">
       <Link to="/codeforces/welcome" className={location.pathname === '/codeforces/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/codeforces/topics" className={location.pathname === '/codeforces/topics' ? 'nav-link active' : 'nav-link'}>Problems Sorted by Topics</Link>
       <Link to="/codeforces/lookup" className={location.pathname === '/codeforces/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -128,7 +128,7 @@ function CodeforcesNavigation() {
 function LeetCodeNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+    <nav className="navbar sub-navbar">
       <Link to="/leetcode/welcome" className={location.pathname === '/leetcode/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/leetcode/blind75" className={location.pathname === '/leetcode/blind75' ? 'nav-link active' : 'nav-link'}>Blind 75 / Grind 75</Link>
       <Link to="/leetcode/lookup" className={location.pathname === '/leetcode/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -143,7 +143,7 @@ function LeetCodeNavigation() {
 function AtCoderNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+    <nav className="navbar sub-navbar">
       <Link to="/atcoder/welcome" className={location.pathname === '/atcoder/welcome' ? 'nav-link active' : 'nav-link'}>Welcome</Link>
       <Link to="/atcoder/contests" className={location.pathname === '/atcoder/contests' ? 'nav-link active' : 'nav-link'}>Recent Contests</Link>
       <Link to="/atcoder/lookup" className={location.pathname === '/atcoder/lookup' ? 'nav-link active' : 'nav-link'}>Find User</Link>
@@ -154,7 +154,7 @@ function AtCoderNavigation() {
 function CompareNavigation() {
   const location = useLocation();
   return (
-    <nav className="navbar" style={{ paddingTop: '0', paddingBottom: '2rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+    <nav className="navbar sub-navbar">
       <Link to="/compare/practice" className={location.pathname === '/compare/practice' ? 'nav-link active' : 'nav-link'}>Practice Mode</Link>
       <Link to="/compare/daily" className={location.pathname === '/compare/daily' ? 'nav-link active' : 'nav-link'}>Daily Challenge</Link>
       <Link to="/compare/upsolve" className={location.pathname === '/compare/upsolve' ? 'nav-link active' : 'nav-link'}>Upsolve</Link>
@@ -198,6 +198,16 @@ function MainLayout() {
       </div>
 
       <TopNavigation />
+      
+      {isCodeforces && <CodeforcesNavigation />}
+      {isLeetCode && <LeetCodeNavigation />}
+      {isAtCoder && <AtCoderNavigation />}
+      {isCompare && <CompareNavigation />}
+      <AdBanner /> 
+      
+      {/* Side Ads */}
+      <VerticalAd side="left" />
+      <VerticalAd side="right" />
 
       <div style={{ minHeight: '80vh' }}>
         <Routes>
